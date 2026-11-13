@@ -1,23 +1,27 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { useLanguage, type Language } from "@/components/LanguageProvider";
 
 const navLinks: { label: Record<Language, string>; href: string }[] = [
   { label: { fr: "À propos", en: "About" }, href: "#a-propos" },
-  { label: { fr: "Expertises", en: "Expertise" }, href: "#expertises" },
   { label: { fr: "Réalisations", en: "Work" }, href: "#realisations" },
-  { label: { fr: "Processus", en: "Process" }, href: "#processus" },
+  { label: { fr: "Expertises", en: "Expertise" }, href: "#expertises" },
+  { label: { fr: "Méthode", en: "Approach" }, href: "#processus" },
   { label: { fr: "Contact", en: "Contact" }, href: "#contact" },
 ];
 
 export default function Navbar() {
   const { language, setLanguage } = useLanguage();
+  const pathname = usePathname();
   const [langOpen, setLangOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("accueil");
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const sectionHref = (href: string) =>
+    pathname === "/" ? href : `/${href}`;
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -70,7 +74,7 @@ export default function Navbar() {
 
         {/* ── Nav links ── */}
         <div className="hidden items-center gap-5 xl:flex 2xl:gap-8">
-          <a href="#accueil" className="flex items-center gap-2">
+          <a href={sectionHref("#accueil")} className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
             <span className="text-slate-100 text-sm font-medium font-['Manrope'] tracking-tight">
             {language === "fr" ? "Accueil" : "Home"}
@@ -82,7 +86,7 @@ export default function Navbar() {
             return (
               <a
                 key={href}
-                href={href}
+                href={sectionHref(href)}
                 className={`text-sm font-medium font-['Manrope'] tracking-tight transition-colors duration-200 ${isActive ? "text-slate-100" : "text-gray-400 hover:text-slate-100"}`}
               >
                 {label[language]}
@@ -206,7 +210,7 @@ export default function Navbar() {
 
           {/* CTA */}
           <a
-            href="#contact"
+            href={sectionHref("#contact")}
             className="hidden h-11 px-6 bg-blue-500 rounded-full text-white text-xs font-semibold font-['Sora'] tracking-tight hover:bg-blue-400 transition-all duration-200 shadow-[0_0_20px_rgba(59,130,246,0.30)] hover:shadow-[0_0_28px_rgba(59,130,246,0.50)] items-center sm:flex"
           >
             {language === "fr" ? "Démarrer un projet" : "Start a project"}
@@ -215,7 +219,7 @@ export default function Navbar() {
       </nav>
       {mobileMenuOpen && (
         <div className="absolute left-4 right-4 top-[calc(100%+0.5rem)] flex flex-col gap-1 rounded-2xl border border-gray-800 bg-gray-900/95 p-3 shadow-2xl backdrop-blur-xl sm:left-8 sm:right-8 xl:hidden">
-          {[{ label: language === "fr" ? "Accueil" : "Home", href: "#accueil" }, ...navLinks.map(({ label, href }) => ({ label: label[language], href }))].map(({ label, href }) => (
+          {[{ label: language === "fr" ? "Accueil" : "Home", href: sectionHref("#accueil") }, ...navLinks.map(({ label, href }) => ({ label: label[language], href: sectionHref(href) }))].map(({ label, href }) => (
             <a
               key={href}
               href={href}
@@ -226,7 +230,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href={sectionHref("#contact")}
             onClick={() => setMobileMenuOpen(false)}
             className="mt-1 flex min-h-11 items-center justify-center rounded-full bg-blue-500 px-5 text-sm font-semibold text-white"
           >

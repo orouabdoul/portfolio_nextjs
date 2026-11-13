@@ -8,6 +8,7 @@ import {
   useSyncExternalStore,
   type ReactNode,
 } from "react";
+import { usePathname } from "next/navigation";
 
 export type Language = "fr" | "en";
 
@@ -51,6 +52,7 @@ function getServerLanguageSnapshot(): Language {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
   const language = useSyncExternalStore(
     subscribeToLanguage,
     getLanguageSnapshot,
@@ -59,21 +61,55 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.documentElement.lang = language;
-    document.title =
-      language === "en"
-        ? "Amadou Issiaka — Mobile Developer & Product Designer"
-        : "Amadou Issiaka — Développeur Mobile & Product Designer";
+    const metadataByPath: Record<string, Record<Language, { title: string; description: string }>> = {
+      "/": {
+        fr: {
+          title: "Amadou Issiaka — Développeur Mobile & Product Designer",
+          description:
+            "Développeur mobile et product designer : conception UX/UI et développement d’applications mobiles, des parcours à la réalisation.",
+        },
+        en: {
+          title: "Amadou Issiaka — Mobile Developer & Product Designer",
+          description:
+            "Mobile developer and product designer working across UX/UI, mobile user journeys, and application development.",
+        },
+      },
+      "/realisations/fastgrab": {
+        fr: {
+          title: "FastGrab — Parcours de commande | Amadou Issiaka",
+          description:
+            "Parcours de commande mobile FastGrab : aperçu des écrans de concept et des décisions d’interface.",
+        },
+        en: {
+          title: "FastGrab — Ordering Flow | Amadou Issiaka",
+          description:
+            "FastGrab mobile ordering flow: a look at the supplied concept screens and interface decisions.",
+        },
+      },
+      "/realisations/learning-shop": {
+        fr: {
+          title: "Learning Shop — Parcours d’achat | Amadou Issiaka",
+          description:
+            "Parcours d’achat mobile Learning Shop : aperçu des écrans de concept, du catalogue à la confirmation.",
+        },
+        en: {
+          title: "Learning Shop — Shopping Flow | Amadou Issiaka",
+          description:
+            "Learning Shop mobile shopping flow: supplied concept screens from catalog through confirmation.",
+        },
+      },
+    };
+    const pageMetadata =
+      metadataByPath[pathname]?.[language] ?? metadataByPath["/"][language];
+    document.title = pageMetadata.title;
 
     const description = document.querySelector<HTMLMetaElement>(
       'meta[name="description"]'
     );
     if (description) {
-      description.content =
-        language === "en"
-          ? "I design and build useful, polished digital products for entrepreneurs and small businesses—from idea to launch."
-          : "Je conçois et développe des produits numériques utiles, élégants et efficaces pour les entrepreneurs et PME — de l'idée au produit prêt à être utilisé.";
+      description.content = pageMetadata.description;
     }
-  }, [language]);
+  }, [language, pathname]);
 
   const setLanguage = useCallback((nextLanguage: Language) => {
     currentLanguage = nextLanguage;

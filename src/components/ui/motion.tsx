@@ -10,12 +10,21 @@ interface AnimProps {
   children: ReactNode;
   delay?: number;
   className?: string;
+  visibleBeforeInView?: boolean;
 }
 
-export function FadeUp({ children, delay = 0, className }: AnimProps) {
+export function FadeUp({
+  children,
+  delay = 0,
+  className,
+  visibleBeforeInView = false,
+}: AnimProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
+      initial={{
+        opacity: visibleBeforeInView ? 1 : 0,
+        y: visibleBeforeInView ? 20 : 28,
+      }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewport}
       transition={{ duration: 0.65, delay, ease }}
@@ -26,10 +35,15 @@ export function FadeUp({ children, delay = 0, className }: AnimProps) {
   );
 }
 
-export function FadeIn({ children, delay = 0, className }: AnimProps) {
+export function FadeIn({
+  children,
+  delay = 0,
+  className,
+  visibleBeforeInView = false,
+}: AnimProps) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={{ opacity: visibleBeforeInView ? 1 : 0 }}
       whileInView={{ opacity: 1 }}
       viewport={viewport}
       transition={{ duration: 0.5, delay, ease: "easeOut" }}
@@ -50,11 +64,15 @@ const itemVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
 };
 
-export function StaggerContainer({ children, className }: Omit<AnimProps, "delay">) {
+export function StaggerContainer({
+  children,
+  className,
+  visibleBeforeInView = false,
+}: Omit<AnimProps, "delay">) {
   return (
     <motion.div
       variants={containerVariants}
-      initial="hidden"
+      initial={visibleBeforeInView ? "visible" : "hidden"}
       whileInView="visible"
       viewport={viewport}
       className={className}
@@ -64,7 +82,10 @@ export function StaggerContainer({ children, className }: Omit<AnimProps, "delay
   );
 }
 
-export function StaggerItem({ children, className }: Omit<AnimProps, "delay">) {
+export function StaggerItem({
+  children,
+  className,
+}: Omit<AnimProps, "delay" | "visibleBeforeInView">) {
   return (
     <motion.div variants={itemVariants} className={className}>
       {children}
@@ -77,10 +98,14 @@ export function SlideIn({
   delay = 0,
   className,
   from = "left",
+  visibleBeforeInView = false,
 }: AnimProps & { from?: "left" | "right" }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: from === "left" ? -40 : 40 }}
+      initial={{
+        opacity: visibleBeforeInView ? 1 : 0,
+        x: from === "left" ? -16 : 16,
+      }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={viewport}
       transition={{ duration: 0.7, delay, ease }}

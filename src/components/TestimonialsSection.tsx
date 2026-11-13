@@ -1,3 +1,5 @@
+"use client";
+
 function ProofCard({
   number,
   title,
@@ -35,10 +37,12 @@ export default function TestimonialsSection() {
   const { language } = useLanguage();
   const isEnglish = language === "en";
   return (
-    <section className="w-full bg-gray-900 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-28">
-      <div className="max-w-[1280px] mx-auto flex flex-col gap-6">
+    <section className="relative w-full overflow-hidden bg-gray-900 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-28">
+      <div className="pointer-events-none absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-blue-600/8 blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-10 left-1/4 h-[300px] w-[300px] rounded-full bg-indigo-500/6 blur-[80px]" />
+      <div className="max-w-[1280px] mx-auto flex flex-col gap-6 relative">
 
-        <FadeUp>
+        <FadeUp visibleBeforeInView>
         <div className="flex items-center gap-3">
           <div className="w-8 h-px bg-blue-400" />
           <span className="text-blue-400 text-xs font-['JetBrains_Mono'] uppercase tracking-widest leading-4">
@@ -52,7 +56,7 @@ export default function TestimonialsSection() {
         </FadeUp>
 
         <div className="mt-8 flex flex-col gap-5 items-stretch lg:mt-10 lg:flex-row lg:items-start">
-          <SlideIn from="left" delay={0.1} className="min-h-[360px] flex-1 relative bg-gray-950/40 rounded-3xl border-2 border-blue-500/60 overflow-hidden sm:min-h-[400px] lg:h-[480px]">
+          <SlideIn visibleBeforeInView from="left" delay={0.1} className="min-h-[360px] flex-1 relative bg-gray-950/40 rounded-3xl border-2 border-blue-500/60 overflow-hidden sm:min-h-[400px] lg:h-[480px]">
             <span className="absolute left-6 top-4 text-blue-500 text-[140px] font-bold font-['Sora'] leading-[140px] select-none sm:left-10 sm:top-6 sm:text-[180px] lg:left-[50px] lg:top-[30px] lg:text-[220px] lg:leading-[176px]">
               &ldquo;
             </span>
@@ -82,7 +86,7 @@ export default function TestimonialsSection() {
             </a>
           </SlideIn>
 
-          <SlideIn from="right" delay={0.2} className="w-full flex-1 flex flex-col gap-5 lg:w-auto">
+          <SlideIn visibleBeforeInView from="right" delay={0.2} className="w-full flex-1 flex flex-col gap-5 lg:w-auto">
             <ProofCard
               number="01"
               tag="Produit"

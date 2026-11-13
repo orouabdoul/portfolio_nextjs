@@ -23,3 +23,10 @@ body {
 html {
   overflow-x: clip;
 }
+
+/* Custom cursor — desktop only */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}

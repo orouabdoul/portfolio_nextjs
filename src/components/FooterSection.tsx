@@ -33,24 +33,28 @@ function WhatsAppIcon() {
 const navLinks = [
   { label: { fr: "Accueil", en: "Home" }, href: "#accueil" },
   { label: { fr: "À propos", en: "About" }, href: "#a-propos" },
-  { label: { fr: "Expertises", en: "Expertise" }, href: "#expertises" },
   { label: { fr: "Réalisations", en: "Work" }, href: "#realisations" },
-  { label: { fr: "Processus", en: "Process" }, href: "#processus" },
+  { label: { fr: "Expertises", en: "Expertise" }, href: "#expertises" },
+  { label: { fr: "Méthode", en: "Approach" }, href: "#processus" },
   { label: { fr: "Contact", en: "Contact" }, href: "#contact" },
 ];
 
 const socialLinks = [
-  { icon: <LinkedInIcon />, label: "LinkedIn", href: "https://linkedin.com/in/amadou-issiaka" },
+  { icon: <LinkedInIcon />, label: "LinkedIn", href: "https://www.linkedin.com/in/amadou-fullstack-mobile" },
   { icon: <GitHubIcon />, label: "GitHub", href: "https://github.com/orouabdoul" },
-  { icon: <WhatsAppIcon />, label: "WhatsApp", href: "https://wa.me/" },
+  { icon: <WhatsAppIcon />, label: "WhatsApp", href: "https://wa.me/22959000892" },
 ];
 
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 import { useLanguage } from "@/components/LanguageProvider";
+import { usePathname } from "next/navigation";
 
 export default function FooterSection() {
   const { language, setLanguage } = useLanguage();
   const isEnglish = language === "en";
+  const pathname = usePathname();
+  const sectionHref = (href: string) =>
+    pathname === "/" ? href : `/${href}`;
   return (
     <footer className="w-full relative bg-gray-950 px-5 pt-16 pb-8 overflow-hidden sm:px-8 md:pt-20 lg:px-20 lg:pt-24 lg:pb-10">
 
@@ -81,7 +85,7 @@ export default function FooterSection() {
               {navLinks.map(({ label, href }) => (
                 <a
                   key={href}
-                  href={href}
+                  href={sectionHref(href)}
                   className="text-gray-400 text-base font-['Manrope'] leading-6 hover:text-slate-100 transition-colors duration-150"
                 >
                   {label[language]}
@@ -143,10 +147,10 @@ export default function FooterSection() {
         <div className="pt-6 border-t border-gray-800 flex flex-col-reverse gap-4 justify-between items-start md:flex-row md:items-center">
           <span className="text-gray-400 text-[10px] font-['JetBrains_Mono'] leading-4 sm:text-xs md:max-w-[75%]">
             {isEnglish
-              ? "© 2026 Amadou Issiaka Abdoulaye — Designed and built with Flutter & Figma"
-              : "© 2026 Amadou Issiaka Abdoulaye — Conçu et développé avec Flutter & Figma"}
+              ? "© 2026 Amadou Issiaka Abdoulaye — All rights reserved"
+              : "© 2026 Amadou Issiaka Abdoulaye — Tous droits réservés"}
           </span>
-          <a href="#accueil" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <a href={sectionHref("#accueil")} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
             <span className="text-blue-400 text-xs font-['JetBrains_Mono'] uppercase leading-4 tracking-wider">
               {isEnglish ? "Back to top" : "Retour en haut"}
             </span>
