@@ -9,6 +9,7 @@ const navLinks: { label: Record<Language, string>; href: string }[] = [
   { label: { fr: "Réalisations", en: "Work" }, href: "#realisations" },
   { label: { fr: "Expertises", en: "Expertise" }, href: "#expertises" },
   { label: { fr: "Méthode", en: "Approach" }, href: "#processus" },
+  { label: { fr: "Témoignages", en: "Testimonials" }, href: "#temoignages" },
   { label: { fr: "Contact", en: "Contact" }, href: "#contact" },
 ];
 
@@ -40,7 +41,15 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["accueil", "a-propos", "expertises", "realisations", "processus", "contact"];
+    const sectionIds = [
+      "accueil",
+      "a-propos",
+      "expertises",
+      "realisations",
+      "processus",
+      "temoignages",
+      "contact",
+    ];
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {

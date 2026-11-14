@@ -6,11 +6,12 @@ import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ExpertisesSection from "@/components/ExpertisesSection";
 import MethodSection from "@/components/MethodSection";
-import TechStackSection from "@/components/TechStackSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
+import MarqueeStrip from "@/components/MarqueeStrip";
 
 export default function Home() {
   return (
@@ -22,11 +23,12 @@ export default function Home() {
           <Navbar />
           <HeroSection />
         </div>
+        <MarqueeStrip />
         <AboutSection />
         <ProjectsSection />
         <ExpertisesSection />
         <MethodSection />
-        <TechStackSection />
+        <TestimonialsSection />
         <ContactSection />
         <FooterSection />
       </main>

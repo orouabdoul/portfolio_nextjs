@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-type PortfolioScreenName =
+export type PortfolioScreenName =
   | "shoes-home"
   | "shoes-product"
   | "shoes-cart"

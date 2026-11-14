@@ -1,126 +1,251 @@
 "use client";
 
 import Link from "next/link";
-import { FadeUp } from "@/components/ui/motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { type ReactNode, useMemo, useState } from "react";
+// useMemo kept for filtered list
 import { useLanguage } from "@/components/LanguageProvider";
 import PortfolioScreen from "@/components/visuals/PortfolioScreen";
+import { projects } from "@/data/projects";
 
-const projects = [
-  {
-    slug: "fastgrab",
-    name: "FastGrab",
-    type: { fr: "Livraison · concept UI", en: "Food delivery · UI concept" },
-    summary: {
-      fr: "Un parcours de commande mobile, de la découverte à la validation.",
-      en: "A mobile ordering flow, from discovery through checkout.",
-    },
-    screens: [
-      { name: "fastgrab-home", label: { fr: "Accueil", en: "Home" } },
-      { name: "fastgrab-restaurant", label: { fr: "Restaurant", en: "Restaurant" } },
-      { name: "fastgrab-item", label: { fr: "Article", en: "Item" } },
-      { name: "fastgrab-checkout", label: { fr: "Commande", en: "Checkout" } },
-    ],
-  },
-  {
-    slug: "learning-shop",
-    name: "Learning Shop",
-    type: { fr: "Commerce mobile · concept UI", en: "Mobile commerce · UI concept" },
-    summary: {
-      fr: "Un parcours d’achat de chaussures, du catalogue à la confirmation.",
-      en: "A shoe-shopping flow, from product discovery through confirmation.",
-    },
-    screens: [
-      { name: "shoes-home", label: { fr: "Catalogue", en: "Catalog" } },
-      { name: "shoes-product", label: { fr: "Produit", en: "Product" } },
-      { name: "shoes-cart", label: { fr: "Panier", en: "Cart" } },
-      { name: "shoes-confirmed", label: { fr: "Confirmation", en: "Confirmation" } },
-    ],
-  },
+const ease = [0.22, 1, 0.36, 1] as const;
+
+function FadeInView({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.6, delay, ease }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+const scopeStyles = {
+  design: "border-violet-400/40 bg-violet-500/10 text-violet-300",
+  dev:    "border-blue-400/40 bg-blue-500/10 text-blue-300",
+  both:   "border-indigo-400/40 bg-gradient-to-r from-violet-500/10 to-blue-500/10 text-slate-200",
+} as const;
+
+const scopeLabels = {
+  design: { fr: "Design",           en: "Design" },
+  dev:    { fr: "Développement",     en: "Development" },
+  both:   { fr: "Design · Dev",      en: "Design · Dev" },
+} as const;
+
+// Fixed list — always visible even if no project matches yet
+const FILTERS = [
+  { key: "all",    label: { fr: "Tous",   en: "All" } },
+  { key: "design", label: { fr: "Design", en: "Design" } },
+  { key: "mobile", label: { fr: "Mobile", en: "Mobile" } },
+  { key: "web",    label: { fr: "Web",    en: "Web" } },
 ] as const;
+
+const MotionLink = motion(Link);
 
 export default function ProjectsSection() {
   const { language } = useLanguage();
   const locale = language === "en" ? "en" : "fr";
+
+  const [activeFilter, setActiveFilter] = useState("all");
+
+  const filtered = useMemo(
+    () =>
+      activeFilter === "all"
+        ? projects
+        : projects.filter((p) => p.categories.includes(activeFilter)),
+    [activeFilter],
+  );
 
   return (
     <section
       id="realisations"
       className="relative w-full overflow-hidden bg-gray-950 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
-      <div className="pointer-events-none absolute -right-20 top-20 h-[500px] w-[500px] rounded-full bg-blue-600/7 blur-[120px]" />
-      <div className="pointer-events-none absolute -left-10 bottom-20 h-[350px] w-[350px] rounded-full bg-indigo-600/6 blur-[90px]" />
-      <div className="mx-auto flex max-w-[1280px] flex-col gap-10 sm:gap-12 relative">
-        <FadeUp visibleBeforeInView>
+      <div className="pointer-events-none absolute -right-20 top-20 h-[500px] w-[500px] rounded-full bg-violet-600/8 blur-[120px]" />
+      <div className="pointer-events-none absolute -left-10 bottom-20 h-[350px] w-[350px] rounded-full bg-violet-500/5 blur-[90px]" />
+
+      <div className="relative mx-auto flex max-w-[1280px] flex-col gap-10 sm:gap-12">
+
+        {/* Header + filters */}
+        <FadeInView>
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-400">
             {locale === "en" ? "02 — Selected work" : "02 — Réalisations"}
           </p>
-          <div className="mt-5 grid gap-4 md:grid-cols-[1fr_0.7fr] md:items-end md:gap-10">
-            <h2 className="max-w-3xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
-              {locale === "en"
-                ? "Real screens. Clear product journeys."
-                : "Des écrans concrets, des parcours lisibles."}
+          <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
+              {locale === "en" ? "What I design and deliver." : "Ce que je conçois et livre."}
             </h2>
-            <p className="font-['Manrope'] text-sm leading-6 text-gray-400 sm:text-base">
-              {locale === "en"
-                ? "These supplied UI concepts are shown as concepts, not as released products."
-                : "Les interfaces fournies sont présentées comme des concepts, pas comme des produits publiés."}
-            </p>
-          </div>
-        </FadeUp>
 
-        <div className="flex flex-col gap-5">
-          {projects.map((project, index) => (
-            <article
-              key={project.slug}
-              className="grid gap-7 rounded-3xl border border-gray-800 bg-gray-900 p-5 sm:p-7 lg:grid-cols-[0.72fr_1.28fr] lg:items-center lg:gap-10 lg:p-9"
-            >
-              <FadeUp visibleBeforeInView className="flex flex-col items-start">
-                <span className="font-['JetBrains_Mono'] text-xs tracking-widest text-blue-400">
-                  0{index + 1} · {project.type[locale]}
-                </span>
-                <h3 className="mt-4 font-['Sora'] text-3xl font-bold leading-tight text-slate-100 sm:text-4xl">
-                  {project.name}
-                </h3>
-                <p className="mt-3 max-w-md font-['Manrope'] text-sm leading-6 text-gray-300 sm:text-base">
-                  {project.summary[locale]}
-                </p>
-                <Link
-                  href={`/realisations/${project.slug}`}
-                  className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-gray-700 px-5 font-['Sora'] text-sm font-semibold text-slate-100 transition-colors hover:border-blue-400 hover:bg-blue-500/10"
-                >
-                  {locale === "en" ? "Explore the screens" : "Explorer les écrans"}
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </Link>
-              </FadeUp>
-
-              <div>
-                <p className="mb-3 font-['Manrope'] text-xs text-gray-500 sm:hidden">
-                  {locale === "en" ? "Swipe to view the screens →" : "Faites défiler pour voir les écrans →"}
-                </p>
-                <div className="-mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-3 sm:mx-0 sm:grid sm:grid-cols-4 sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
-                  {project.screens.map((screen) => (
-                    <figure
-                      key={screen.name}
-                      className="w-[150px] shrink-0 snap-center sm:w-auto"
-                    >
-                      <PortfolioScreen
-                        name={screen.name}
-                        alt={`${project.name} — ${screen.label[locale]}`}
-                        sizes="(max-width: 639px) 150px, (max-width: 1023px) 20vw, 15vw"
-                        className="w-full"
+            {/* Filter pills */}
+            <div className="flex flex-wrap gap-2">
+              {FILTERS.map((filter) => {
+                const isActive = activeFilter === filter.key;
+                return (
+                  <button
+                    key={filter.key}
+                    type="button"
+                    onClick={() => setActiveFilter(filter.key)}
+                    className={`relative rounded-full px-4 py-2 font-['Sora'] text-[13px] font-semibold transition-colors duration-200 ${
+                      isActive
+                        ? "bg-white text-gray-950"
+                        : "border border-gray-700 text-gray-400 hover:border-gray-500 hover:text-gray-200"
+                    }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="filter-pill"
+                        className="absolute inset-0 rounded-full bg-white"
+                        transition={{ duration: 0.25, ease }}
                       />
-                      <figcaption className="mt-2 text-center font-['Manrope'] text-[10px] text-gray-400">
-                        {screen.label[locale]}
-                      </figcaption>
-                    </figure>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
+                    )}
+                    <span className="relative">{filter.label[locale]}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </FadeInView>
+
+        {/* Project grid */}
+        <div className="grid gap-5 md:grid-cols-2">
+          <AnimatePresence mode="wait" initial={false}>
+            {filtered.map((project, index) => (
+              <motion.div
+                key={project.slug}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25, delay: index * 0.06, ease }}
+                className="h-full"
+              >
+                <MotionLink
+                  href={`/realisations/${project.slug}`}
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.25, ease }}
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-800 bg-gray-900 transition-shadow duration-300 hover:border-gray-700 hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)]"
+                  aria-label={`${locale === "en" ? "View project" : "Voir le projet"} ${project.name}`}
+                >
+                  {/* Screens preview */}
+                  <div className="relative overflow-hidden bg-gray-950 px-5 pt-7">
+                    <div className="flex items-end justify-center gap-2.5">
+                      {project.screens.slice(0, 3).map((screen, i) => (
+                        <div
+                          key={screen.name}
+                          className={`w-[30%] shrink-0 transition-transform duration-500 ${
+                            i === 1 ? "-translate-y-3 group-hover:-translate-y-5" : "group-hover:-translate-y-1"
+                          }`}
+                        >
+                          <PortfolioScreen
+                            name={screen.name}
+                            alt={`${project.name} — ${screen.label[locale]}`}
+                            sizes="20vw"
+                            className="w-full drop-shadow-xl"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-gray-900 to-transparent" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-7">
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
+                        {project.type[locale]}
+                      </span>
+                      <span className="font-['JetBrains_Mono'] text-[10px] text-gray-600">{project.year}</span>
+                    </div>
+
+                    <h3 className="mt-3 font-['Sora'] text-2xl font-bold leading-tight text-slate-100 sm:text-3xl">
+                      {project.name}
+                    </h3>
+                    <p className="mt-2 font-['Manrope'] text-sm leading-6 text-gray-400">
+                      {project.summary[locale]}
+                    </p>
+
+                    {/* Scope badge + tech tags */}
+                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                      <span className={`rounded-full border px-3 py-1 font-['Sora'] text-[11px] font-semibold ${scopeStyles[project.scope]}`}>
+                        {scopeLabels[project.scope][locale]}
+                      </span>
+                      {project.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-gray-700 bg-gray-800/60 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-gray-400"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Click hint */}
+                    <div className="mt-auto flex items-center gap-1.5 pt-5 font-['Sora'] text-sm font-semibold text-gray-500 transition-colors group-hover:text-blue-400">
+                      {locale === "en" ? "View project" : "Voir le projet"}
+                      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                        <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                  </div>
+                </MotionLink>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
+
+        {/* Empty state */}
+        <AnimatePresence>
+          {filtered.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="py-16 text-center font-['Manrope'] text-sm text-gray-600"
+            >
+              {locale === "en" ? "No projects in this category yet." : "Aucun projet dans cette catégorie pour l'instant."}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* CTA card */}
+        <FadeInView delay={0.2}>
+          <article className="relative overflow-hidden rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-600/15 via-blue-500/8 to-indigo-600/10 p-5 sm:p-7 lg:p-9">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-[200px] w-[200px] rounded-full bg-blue-500/15 blur-[60px]" />
+            <div className="relative flex flex-col gap-5">
+              <span className="font-['JetBrains_Mono'] text-xs tracking-widest text-blue-400">
+                {String(projects.length + 1).padStart(2, "0")} · {locale === "en" ? "Your project" : "Votre projet"}
+              </span>
+              <h3 className="font-['Sora'] text-3xl font-bold leading-tight text-slate-100 sm:text-4xl">
+                {locale === "en" ? "Your project, my next realisation." : "Votre projet, ma prochaine réalisation."}
+              </h3>
+              <p className="max-w-xl font-['Manrope'] text-sm leading-6 text-gray-300 sm:text-base">
+                {locale === "en"
+                  ? "You have an idea or a need to structure. Let's talk and see how to turn it into a usable product."
+                  : "Vous avez une idée ou un besoin à structurer. Parlons-en et voyons comment le transformer en produit utilisable."}
+              </p>
+              <a
+                href="#contact"
+                className="mt-1 inline-flex w-fit min-h-11 items-center gap-2.5 rounded-full bg-blue-500 px-6 font-['Sora'] text-sm font-semibold text-white shadow-[0_0_24px_rgba(59,130,246,0.4)] transition-all duration-200 hover:bg-blue-400 hover:shadow-[0_0_36px_rgba(59,130,246,0.6)]"
+              >
+                {locale === "en" ? "Start a conversation" : "Démarrer une conversation"}
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7H12M8 3L12 7L8 11" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </FadeInView>
       </div>
     </section>
   );

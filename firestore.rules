@@ -1,0 +1,41 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isValidTestimonial(data) {
+      return data.keys().hasAll([
+          'name',
+          'role',
+          'message',
+          'consent',
+          'status',
+          'createdAt'
+        ])
+        && data.keys().hasOnly([
+          'name',
+          'role',
+          'message',
+          'consent',
+          'status',
+          'createdAt'
+        ])
+        && data.name is string
+        && data.name.size() >= 2
+        && data.name.size() <= 80
+        && data.role is string
+        && data.role.size() <= 100
+        && data.message is string
+        && data.message.size() >= 20
+        && data.message.size() <= 1200
+        && data.consent == true
+        && data.status == 'published'
+        && data.createdAt == request.time;
+    }
+
+    match /testimonials/{testimonialId} {
+      allow get, list: if resource.data.status == 'published';
+      allow create: if isValidTestimonial(request.resource.data);
+      allow update, delete: if false;
+    }
+  }
+}
