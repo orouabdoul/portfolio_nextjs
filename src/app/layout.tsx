@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Sora, Manrope, JetBrains_Mono } from "next/font/google";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import CustomCursor from "@/components/CustomCursor";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const sora = Sora({
@@ -74,6 +75,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-gray-950">
         <CustomCursor />
         <LanguageProvider>{children}</LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
