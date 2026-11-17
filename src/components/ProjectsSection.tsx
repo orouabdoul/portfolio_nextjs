@@ -139,23 +139,51 @@ export default function ProjectsSection() {
                 >
                   {/* Screens preview */}
                   <div className="relative overflow-hidden bg-gray-950 px-5 pt-7">
-                    <div className="flex items-end justify-center gap-2.5">
-                      {project.screens.slice(0, 3).map((screen, i) => (
-                        <div
-                          key={screen.name}
-                          className={`w-[30%] shrink-0 transition-transform duration-500 ${
-                            i === 1 ? "-translate-y-3 group-hover:-translate-y-5" : "group-hover:-translate-y-1"
-                          }`}
-                        >
-                          <PortfolioScreen
-                            name={screen.name}
-                            alt={`${project.name} — ${screen.label[locale]}`}
-                            sizes="20vw"
-                            className="w-full drop-shadow-xl"
-                          />
+                    {project.screens.length === 0 ? (
+                      <div className="flex h-44 items-center justify-center">
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-700/50 bg-gray-800/60">
+                            <span className="select-none font-['Sora'] text-2xl font-bold text-gray-600">
+                              {project.name.charAt(0)}
+                            </span>
+                          </div>
+                          <span className="font-['JetBrains_Mono'] text-[9px] uppercase tracking-widest text-gray-700">
+                            {locale === "en" ? "Screenshots coming" : "Captures à venir"}
+                          </span>
                         </div>
-                      ))}
-                    </div>
+                      </div>
+                    ) : project.screens[0]?.frame === "web" ? (
+                      <div className="mx-auto w-[90%] transition-transform duration-500 group-hover:-translate-y-2">
+                        <PortfolioScreen
+                          name={project.screens[0].name}
+                          alt={`${project.name} — ${project.screens[0].label[locale]}`}
+                          sizes="(max-width: 767px) 80vw, 40vw"
+                          frame="web"
+                          chromeLabel={project.screens[0].chromeLabel}
+                          objectFit={project.screens[0].objectFit}
+                          className="w-full drop-shadow-xl"
+                        />
+                      </div>
+                    ) : (
+                      <div className="flex items-end justify-center gap-2.5">
+                        {project.screens.slice(0, 3).map((screen, i) => (
+                          <div
+                            key={screen.name}
+                            className={`w-[30%] shrink-0 transition-transform duration-500 ${
+                              i === 1 ? "-translate-y-3 group-hover:-translate-y-5" : "group-hover:-translate-y-1"
+                            }`}
+                          >
+                            <PortfolioScreen
+                              name={screen.name}
+                              alt={`${project.name} — ${screen.label[locale]}`}
+                              sizes="20vw"
+                              objectFit={screen.objectFit}
+                              className="w-full drop-shadow-xl"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
                     <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-gray-900 to-transparent" />
                   </div>
 
@@ -165,7 +193,15 @@ export default function ProjectsSection() {
                       <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
                         {project.type[locale]}
                       </span>
-                      <span className="font-['JetBrains_Mono'] text-[10px] text-gray-600">{project.year}</span>
+                      <div className="flex items-center gap-2">
+                        {project.links.some((l) => l.type === "website") && (
+                          <span className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 font-['JetBrains_Mono'] text-[9px] font-semibold uppercase tracking-wider text-emerald-400">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                            Live
+                          </span>
+                        )}
+                        <span className="font-['JetBrains_Mono'] text-[10px] text-gray-600">{project.year}</span>
+                      </div>
                     </div>
 
                     <h3 className="mt-3 font-['Sora'] text-2xl font-bold leading-tight text-slate-100 sm:text-3xl">

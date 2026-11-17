@@ -177,8 +177,8 @@ export default function HeroSection() {
               {isEnglish ? "Get in touch" : "Me contacter"}
             </a>
             <a
-              href="/cv.pdf"
-              download="CV-Amadou-Issiaka.pdf"
+              href={isEnglish ? "/cv-en.pdf" : "/cv-fr.pdf"}
+              download={isEnglish ? "CV-Amadou-Issiaka-EN.pdf" : "CV-Amadou-Issiaka-FR.pdf"}
               className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-dashed border-gray-600 px-5 font-['Sora'] text-sm font-medium tracking-tight text-gray-400 transition-all duration-200 hover:border-gray-400 hover:text-white sm:text-[15px]"
             >
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -194,7 +194,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, x: 32 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.85, delay: 0.3, ease }}
-          className="relative mx-auto mt-4 flex w-full max-w-[440px] justify-center xl:mt-0 xl:max-w-none"
+          className="relative mx-auto mt-4 flex w-full max-w-[440px] justify-center xl:mt-16 xl:max-w-none"
         >
           <div className="pointer-events-none absolute inset-x-8 bottom-8 top-8 rounded-full bg-blue-500/18 blur-3xl" />
           <div className="relative aspect-[4/5] w-[min(82vw,320px)] overflow-hidden rounded-3xl border border-white/10 bg-gray-900 shadow-[0_28px_80px_rgba(0,0,0,0.5)] sm:w-[340px] xl:w-[min(100%,430px)]">

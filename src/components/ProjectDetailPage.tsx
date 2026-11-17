@@ -250,8 +250,88 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
         </section>
       </div>
 
+      {/* ── Video demo ── */}
+      {project.video && (
+        <section className="bg-gray-950 px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
+          <div className="mx-auto max-w-[1280px]">
+            <FadeInView>
+              <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
+                {locale === "en" ? "Demo" : "Démo"}
+              </p>
+              <h2 className="mt-3 font-['Sora'] text-2xl font-bold text-slate-100 sm:text-3xl">
+                {locale === "en" ? "Watch it in action." : "Voir la plateforme en action."}
+              </h2>
+            </FadeInView>
+            <FadeInView delay={0.1} className="mt-8">
+              <div className="overflow-hidden rounded-2xl border border-[#1e2638] bg-[#141926] shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+                {/* Browser chrome */}
+                <div className="flex h-10 items-center gap-2 border-b border-[#1e2638] px-4">
+                  <div className="flex gap-1.5">
+                    <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+                    <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
+                    <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+                  </div>
+                  <div className="mx-auto flex h-6 w-[min(55%,320px)] items-center justify-center rounded-full bg-[#1e2638] px-3">
+                    <span className="font-['JetBrains_Mono'] text-[10px] text-gray-500">
+                      {project.videoChromeLabel ?? project.name}
+                    </span>
+                  </div>
+                </div>
+                {/* Video */}
+                <video
+                  src={project.video}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="aspect-video w-full bg-[#0f172a]"
+                >
+                  {locale === "en"
+                    ? "Your browser does not support the video tag."
+                    : "Votre navigateur ne supporte pas la lecture vidéo."}
+                </video>
+              </div>
+            </FadeInView>
+          </div>
+        </section>
+      )}
+
+      {/* ── Video demo 2 ── */}
+      {project.video2 && (
+        <section className="bg-gray-950 px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
+          <div className="mx-auto max-w-[1280px]">
+            <FadeInView delay={0.1} className="mt-0">
+              <div className="overflow-hidden rounded-2xl border border-[#1e2638] bg-[#141926] shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+                <div className="flex h-10 items-center gap-2 border-b border-[#1e2638] px-4">
+                  <div className="flex gap-1.5">
+                    <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+                    <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
+                    <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+                  </div>
+                  <div className="mx-auto flex h-6 w-[min(55%,320px)] items-center justify-center rounded-full bg-[#1e2638] px-3">
+                    <span className="font-['JetBrains_Mono'] text-[10px] text-gray-500">
+                      {project.videoChromeLabel2 ?? project.name}
+                    </span>
+                  </div>
+                </div>
+                <video
+                  src={project.video2}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="aspect-video w-full bg-[#0f172a]"
+                >
+                  {locale === "en"
+                    ? "Your browser does not support the video tag."
+                    : "Votre navigateur ne supporte pas la lecture vidéo."}
+                </video>
+              </div>
+            </FadeInView>
+          </div>
+        </section>
+      )}
+
       {/* ── Screens gallery ── */}
-      <section className="bg-gray-900 px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
+      {project.screens.length > 0 && <section className="bg-gray-900 px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
         <div className="mx-auto max-w-[1280px]">
           <FadeInView>
             <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
@@ -262,14 +342,19 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
             </h2>
           </FadeInView>
 
-          <div className="mt-10 grid grid-cols-2 gap-5 sm:gap-7 lg:grid-cols-4">
+          <div className={`mt-10 grid gap-5 sm:gap-7 ${project.screens[0]?.frame === "web" ? "grid-cols-1 md:grid-cols-2" : "grid-cols-2 lg:grid-cols-4"}`}>
             {project.screens.map((screen, i) => (
               <FadeInView key={screen.name} delay={i * 0.08}>
                 <figure className="flex flex-col gap-3">
                   <PortfolioScreen
                     name={screen.name}
                     alt={`${project.name} — ${screen.label[locale]}`}
-                    sizes="(max-width: 639px) 44vw, (max-width: 1023px) 44vw, 22vw"
+                    sizes={screen.frame === "web"
+                      ? "(max-width: 767px) 90vw, 44vw"
+                      : "(max-width: 639px) 44vw, (max-width: 1023px) 44vw, 22vw"}
+                    frame={screen.frame ?? "mobile"}
+                    chromeLabel={screen.chromeLabel}
+                    objectFit={screen.objectFit}
                     className="w-full drop-shadow-2xl"
                   />
                   <figcaption className="text-center font-['Manrope'] text-sm font-medium text-gray-400">
@@ -280,7 +365,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ── Problem / Solution ── */}
       <section className="bg-gray-50 px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">

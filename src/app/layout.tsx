@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Manrope, JetBrains_Mono } from "next/font/google";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import CustomCursor from "@/components/CustomCursor";
 import "./globals.css";
 
 const sora = Sora({
@@ -71,6 +72,7 @@ export default function RootLayout({
       className={`${sora.variable} ${manrope.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-gray-950">
+        <CustomCursor />
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
