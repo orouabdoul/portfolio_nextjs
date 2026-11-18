@@ -29,7 +29,7 @@ const jetbrainsMono = JetBrains_Mono({
 const title = "Amadou Issiaka — Développeur Mobile & Product Designer";
 const description =
   "Je conçois et développe des produits numériques utiles, élégants et efficaces pour les entrepreneurs et PME — de l'idée au produit prêt à être utilisé.";
-const url = "https://amadou-issiaka.dev";
+const url = "https://amadouissiaka.vercel.app";
 
 export const metadata: Metadata = {
   title,
