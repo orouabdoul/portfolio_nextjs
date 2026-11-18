@@ -348,7 +348,7 @@ export default function TestimonialsSection() {
                 minLength={2}
                 maxLength={80}
                 autoComplete="name"
-                className="h-11 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
+                className="h-11 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-950 caret-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
                 placeholder={isEnglish ? "Your name" : "Votre nom"}
               />
             </label>
@@ -358,7 +358,7 @@ export default function TestimonialsSection() {
                 name="role"
                 type="text"
                 maxLength={100}
-                className="h-11 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
+                className="h-11 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-950 caret-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
                 placeholder={isEnglish ? "e.g. Founder, mobile app" : "Ex. Fondateur, application mobile"}
               />
             </label>
@@ -372,7 +372,7 @@ export default function TestimonialsSection() {
               minLength={20}
               maxLength={1200}
               rows={4}
-              className="resize-y rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-sm leading-6 text-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
+              className="resize-y rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-sm leading-6 text-gray-950 caret-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
               placeholder={
                 isEnglish
                   ? "Tell us about your experience working together"
