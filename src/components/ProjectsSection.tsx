@@ -59,6 +59,7 @@ export default function ProjectsSection() {
   const locale = language === "en" ? "en" : "fr";
 
   const [activeFilter, setActiveFilter] = useState("all");
+  const [showAll, setShowAll] = useState(false);
 
   const filtered = useMemo(
     () =>
@@ -67,6 +68,15 @@ export default function ProjectsSection() {
         : projects.filter((p) => p.categories.includes(activeFilter)),
     [activeFilter],
   );
+
+  const INITIAL_VISIBLE = 6;
+  const visible = showAll ? filtered : filtered.slice(0, INITIAL_VISIBLE);
+  const hasMore = filtered.length > INITIAL_VISIBLE && !showAll;
+
+  function handleFilterChange(key: string) {
+    setActiveFilter(key);
+    setShowAll(false);
+  }
 
   return (
     <section
@@ -96,7 +106,7 @@ export default function ProjectsSection() {
                   <button
                     key={filter.key}
                     type="button"
-                    onClick={() => setActiveFilter(filter.key)}
+                    onClick={() => handleFilterChange(filter.key)}
                     className={`relative rounded-full px-4 py-2 font-['Sora'] text-[13px] font-semibold transition-colors duration-200 ${
                       isActive
                         ? "bg-white text-gray-950"
@@ -121,7 +131,7 @@ export default function ProjectsSection() {
         {/* Project grid */}
         <div className="grid gap-5 md:grid-cols-2">
           <AnimatePresence mode="wait" initial={false}>
-            {filtered.map((project, index) => (
+            {visible.map((project, index) => (
               <motion.div
                 key={project.slug}
                 initial={{ opacity: 0, y: 12 }}
@@ -239,6 +249,29 @@ export default function ProjectsSection() {
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Show more */}
+        {hasMore && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, ease }}
+            className="flex justify-center"
+          >
+            <button
+              type="button"
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2.5 rounded-full border border-gray-700 px-6 py-3 font-['Sora'] text-sm font-semibold text-gray-300 transition-all duration-200 hover:border-gray-500 hover:text-slate-100"
+            >
+              {locale === "en"
+                ? `View all projects (${filtered.length})`
+                : `Voir tous les projets (${filtered.length})`}
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </motion.div>
+        )}
 
         {/* Empty state */}
         <AnimatePresence>
