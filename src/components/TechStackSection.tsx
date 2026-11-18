@@ -20,6 +20,21 @@ const stackGroups = [
     title: { fr: "Collaboration", en: "Collaboration" },
     tools: ["Git", "GitHub"],
   },
+  {
+    title: { fr: "Outils IA", en: "AI Tools" },
+    tools: [
+      "Claude",
+      "GitHub Copilot",
+      "Cursor",
+      "Bolt.new",
+      "Figma AI",
+      "v0",
+      "Midjourney",
+      "ChatGPT",
+      "Gemini",
+      "Perplexity",
+    ],
+  },
 ];
 
 export default function TechStackSection() {
@@ -52,7 +67,7 @@ export default function TechStackSection() {
           </div>
         </FadeUp>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {stackGroups.map((group, index) => (
             <FadeUp
               visibleBeforeInView
