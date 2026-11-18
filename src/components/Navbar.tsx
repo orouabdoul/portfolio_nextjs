@@ -227,21 +227,82 @@ export default function Navbar() {
         </div>
       </nav>
       {mobileMenuOpen && (
-        <div className="absolute left-4 right-4 top-[calc(100%+0.5rem)] flex flex-col gap-1 rounded-2xl border border-gray-800 bg-gray-900/95 p-3 shadow-2xl backdrop-blur-xl sm:left-8 sm:right-8 xl:hidden">
-          {[{ label: language === "fr" ? "Accueil" : "Home", href: sectionHref("#accueil") }, ...navLinks.map(({ label, href }) => ({ label: label[language], href: sectionHref(href) }))].map(({ label, href }) => (
-            <a
-              key={href}
-              href={href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="rounded-xl px-4 py-3 text-sm font-medium text-slate-100 hover:bg-gray-800"
-            >
-              {label}
-            </a>
-          ))}
+        <div className="absolute left-4 right-4 top-[calc(100%+0.5rem)] rounded-2xl border border-gray-800 bg-gray-900/95 p-4 shadow-2xl backdrop-blur-xl sm:left-8 sm:right-8 xl:hidden">
+          <div className="grid grid-cols-2 gap-x-3 gap-y-4">
+
+            {/* Left — Navigation */}
+            <div className="flex flex-col gap-0.5">
+              <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-gray-500">
+                {language === "fr" ? "Navigation" : "Navigation"}
+              </p>
+              {[{ label: language === "fr" ? "Accueil" : "Home", href: sectionHref("#accueil") }, ...navLinks.map(({ label, href }) => ({ label: label[language], href: sectionHref(href) }))].map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="rounded-xl px-2 py-2 text-sm font-medium font-['Manrope'] text-slate-100 hover:bg-gray-800"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+
+            {/* Right — Social + Language */}
+            <div className="flex flex-col gap-4">
+
+              {/* Social */}
+              <div className="flex flex-col gap-0.5">
+                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-gray-500">
+                  Social
+                </p>
+                {[
+                  { label: "LinkedIn", href: "https://www.linkedin.com/in/amadou-fullstack-mobile" },
+                  { label: "GitHub",   href: "https://github.com/orouabdoul" },
+                  { label: "WhatsApp", href: "https://wa.me/22959000892" },
+                ].map(({ label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="rounded-xl px-2 py-2 text-sm font-medium font-['Manrope'] text-slate-100 hover:bg-gray-800"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+
+              {/* Language */}
+              <div className="flex flex-col gap-0.5">
+                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-gray-500">
+                  {language === "fr" ? "Langue" : "Language"}
+                </p>
+                {([
+                  { code: "fr" as Language, flag: "🇫🇷", label: "FR" },
+                  { code: "en" as Language, flag: "🇬🇧", label: "EN" },
+                ] as const).map(({ code, flag, label }) => (
+                  <button
+                    key={code}
+                    type="button"
+                    onClick={() => { setLanguage(code); setMobileMenuOpen(false); }}
+                    className={`flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-medium font-['Manrope'] transition-colors ${
+                      language === code ? "bg-blue-500/20 text-blue-300" : "text-gray-400 hover:bg-gray-800 hover:text-slate-100"
+                    }`}
+                  >
+                    <span>{flag}</span>
+                    <span>{label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
           <a
             href={sectionHref("#contact")}
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-1 flex min-h-11 items-center justify-center rounded-full bg-blue-500 px-5 text-sm font-semibold text-white"
+            className="mt-4 flex min-h-11 items-center justify-center rounded-full bg-blue-500 px-5 text-sm font-semibold font-['Sora'] text-white hover:bg-blue-400 transition-colors"
           >
             {language === "fr" ? "Démarrer un projet" : "Start a project"}
           </a>
