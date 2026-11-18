@@ -98,7 +98,7 @@ export default function FooterSection() {
             <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
               {isEnglish ? "Navigation" : "Navigation"}
             </p>
-            <ul className="flex flex-col gap-2">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
               {navLinks.map(({ label, href }) => (
                 <li key={href}>
                   <a
