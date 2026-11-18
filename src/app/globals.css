@@ -29,6 +29,19 @@ html {
   *, *::before, *::after {
     cursor: none !important;
   }
+
+  /* Dialogs open in the browser top layer above z-index 9999,
+     so the custom cursor div is hidden behind the backdrop.
+     Restore native cursors inside any <dialog>. */
+  dialog, dialog * {
+    cursor: auto !important;
+  }
+  dialog input, dialog textarea {
+    cursor: text !important;
+  }
+  dialog button, dialog label, dialog a {
+    cursor: pointer !important;
+  }
 }
 
 /* Marquee — declared in @theme so Tailwind v4 generates the utility */
