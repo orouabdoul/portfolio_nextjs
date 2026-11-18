@@ -67,7 +67,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="absolute top-4 left-0 right-0 px-4 z-50 sm:px-8 lg:top-6 lg:px-20">
+    <div className="fixed top-4 left-0 right-0 px-4 z-50 sm:px-8 lg:top-6 lg:px-20">
       <nav className={`w-full h-14 pl-2 pr-2 rounded-full border border-gray-800 backdrop-blur-xl flex justify-between items-center transition-all duration-500 sm:h-16 sm:pl-4 sm:pr-3 ${scrolled ? "bg-gray-900/95 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" : "bg-gray-900/70"}`}>
         {/* ── Logo ── */}
         <div className="flex items-center gap-3">
