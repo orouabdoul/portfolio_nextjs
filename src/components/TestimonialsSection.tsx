@@ -61,9 +61,16 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           {initials}
         </div>
         <div>
-          <p className="font-['Sora'] text-sm font-semibold text-slate-100">
-            {testimonial.name}
-          </p>
+          <div className="flex items-center gap-1.5">
+            <p className="font-['Sora'] text-sm font-semibold text-slate-100">
+              {testimonial.name}
+            </p>
+            {testimonial.lang && (
+              <span title={testimonial.lang === "fr" ? "Écrit en français" : "Written in English"} aria-label={testimonial.lang === "fr" ? "Écrit en français" : "Written in English"}>
+                {testimonial.lang === "fr" ? "🇫🇷" : "🇬🇧"}
+              </span>
+            )}
+          </div>
           {testimonial.role && (
             <p className="mt-0.5 font-['JetBrains_Mono'] text-[11px] text-blue-400">
               {testimonial.role}
@@ -158,7 +165,7 @@ export default function TestimonialsSection() {
             const valid = snapshot.docs.flatMap((doc) => {
               const d = doc.data();
               if (typeof d.name !== "string" || typeof d.message !== "string") return [];
-              return [{ id: doc.id, name: d.name, role: d.role || undefined, message: d.message }];
+              return [{ id: doc.id, name: d.name, role: d.role || undefined, message: d.message, lang: d.lang || undefined }];
             });
             setTestimonials(valid);
             setLoadState("ready");
@@ -214,6 +221,7 @@ export default function TestimonialsSection() {
         consent: data.get("consent") === "on",
         status: "published",
         createdAt: serverTimestamp(),
+        lang: language,
       });
       form.reset();
       setSubmissionSucceeded(true);

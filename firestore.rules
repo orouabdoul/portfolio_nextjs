@@ -17,8 +17,10 @@ service cloud.firestore {
           'message',
           'consent',
           'status',
-          'createdAt'
+          'createdAt',
+          'lang'
         ])
+        && (!data.keys().hasAny(['lang']) || data.lang in ['fr', 'en'])
         && data.name is string
         && data.name.size() >= 2
         && data.name.size() <= 80

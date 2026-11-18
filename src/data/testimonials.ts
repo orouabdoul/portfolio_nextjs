@@ -3,4 +3,5 @@ export type Testimonial = {
   name: string;
   role?: string;
   message: string;
+  lang?: "fr" | "en";
 };
