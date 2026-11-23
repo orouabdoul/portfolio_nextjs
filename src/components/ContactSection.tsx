@@ -140,8 +140,22 @@ export default function ContactSection() {
               : "Parlez-m'en. Ensemble, nous trouverons la prochaine étape adaptée."}
           </p>
 
+          {/* Book a call */}
+          <a
+            href="https://calendly.com/amadou-issiaka-services/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex w-fit min-h-[50px] items-center gap-2.5 rounded-full bg-white px-6 font-['Sora'] text-sm font-semibold text-blue-700 shadow-[0_10px_30px_rgba(15,23,42,0.25)] transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1.5" y="2.5" width="11" height="10" rx="2" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M1.5 5.5H12.5M4.5 1.2V3.5M9.5 1.2V3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
+            {isEnglish ? "Book a free 30-min call" : "Réserver un appel gratuit de 30 min"}
+          </a>
+
           {/* Contact alternatives */}
-          <div className="mt-10 flex flex-col gap-3">
+          <div className="mt-8 flex flex-col gap-3">
             <a
               href={`mailto:${EMAIL}`}
               className="group inline-flex items-center gap-3 font-['Manrope'] text-sm text-white/70 transition-colors hover:text-white"

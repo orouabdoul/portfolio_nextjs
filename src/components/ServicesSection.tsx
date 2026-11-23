@@ -41,6 +41,7 @@ type Service = {
   priceXof: string;
   priceUsd: string;
   upwork: string;
+  popular?: boolean;
 };
 
 const services: Service[] = [
@@ -135,6 +136,7 @@ const services: Service[] = [
     priceXof: "65 600 FCFA",
     priceUsd: "$500",
     upwork: "https://www.upwork.com/services/product/2124195442479888103",
+    popular: true,
   },
 ];
 
@@ -177,8 +179,13 @@ export default function ServicesSection() {
               <motion.article
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.22, ease }}
-                className="flex h-full flex-col rounded-3xl border border-gray-200 bg-white p-6 sm:p-7"
+                className={`relative flex h-full flex-col rounded-3xl border bg-white p-6 sm:p-7 ${service.popular ? "border-blue-500 shadow-[0_18px_40px_rgba(37,99,235,0.14)]" : "border-gray-200"}`}
               >
+                {service.popular && (
+                  <span className="absolute right-5 top-5 rounded-full bg-blue-600 px-3 py-1 font-['JetBrains_Mono'] text-[10px] font-semibold uppercase tracking-widest text-white">
+                    {isEnglish ? "Popular" : "Populaire"}
+                  </span>
+                )}
                 <div className={`flex h-11 w-11 items-center justify-center rounded-2xl border ${service.accent}`}>
                   {service.icon}
                 </div>
@@ -228,6 +235,37 @@ export default function ServicesSection() {
             </FadeInView>
           ))}
         </div>
+
+        <FadeInView>
+          <div className="flex flex-col gap-4 rounded-3xl border border-gray-200 bg-white p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+            <div>
+              <p className="font-['Sora'] text-lg font-bold text-gray-950">
+                {isEnglish ? "A custom project?" : "Un projet sur mesure ?"}
+              </p>
+              <p className="mt-1 font-['Manrope'] text-sm text-gray-500">
+                {isEnglish
+                  ? "Tell me about your needs and I will send you a quote, or let's talk in a free 30-min call."
+                  : "Décrivez votre besoin et je vous envoie un devis, ou parlons-en lors d'un appel gratuit de 30 min."}
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <a
+                href="#contact"
+                className="flex min-h-[44px] items-center justify-center rounded-full bg-gray-950 px-5 font-['Sora'] text-sm font-semibold text-white transition-colors hover:bg-gray-800"
+              >
+                {isEnglish ? "Request a quote" : "Demander un devis"}
+              </a>
+              <a
+                href="https://calendly.com/amadou-issiaka-services/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-[44px] items-center justify-center rounded-full border border-gray-300 px-5 font-['Sora'] text-sm font-semibold text-gray-700 transition-colors hover:border-gray-500 hover:text-gray-950"
+              >
+                {isEnglish ? "Book a call" : "Réserver un appel"}
+              </a>
+            </div>
+          </div>
+        </FadeInView>
       </div>
     </section>
   );

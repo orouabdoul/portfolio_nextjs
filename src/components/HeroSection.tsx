@@ -171,10 +171,16 @@ export default function HeroSection() {
               </svg>
             </a>
             <a
-              href="#contact"
-              className="flex min-h-[52px] items-center justify-center rounded-full border border-gray-700 px-6 font-['Sora'] text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-200 hover:border-gray-500 hover:bg-white/5 sm:text-[15px]"
+              href="https://calendly.com/amadou-issiaka-services/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-gray-700 px-6 font-['Sora'] text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-200 hover:border-gray-500 hover:bg-white/5 sm:text-[15px]"
             >
-              {isEnglish ? "Get in touch" : "Me contacter"}
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <rect x="1.5" y="2.5" width="11" height="10" rx="2" stroke="currentColor" strokeWidth="1.4" />
+                <path d="M1.5 5.5H12.5M4.5 1.2V3.5M9.5 1.2V3.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+              </svg>
+              {isEnglish ? "Book a call" : "Réserver un appel"}
             </a>
             <a
               href={isEnglish ? "/cv-en.pdf" : "/cv-fr.pdf"}
