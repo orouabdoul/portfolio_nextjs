@@ -117,7 +117,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-blue-600 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="pointer-events-none absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full bg-blue-400/30 blur-[80px]" />
       <div className="pointer-events-none absolute -bottom-10 left-10 h-[300px] w-[300px] rounded-full bg-indigo-500/20 blur-[60px]" />

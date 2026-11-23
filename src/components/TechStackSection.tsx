@@ -48,14 +48,14 @@ export default function TechStackSection() {
   return (
     <section
       id="stack"
-      className="relative w-full overflow-hidden bg-gray-900 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-[#0B1220] px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="pointer-events-none absolute -left-20 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-blue-600/8 blur-[100px]" />
       <div className="pointer-events-none absolute -right-20 bottom-0 h-[300px] w-[300px] rounded-full bg-indigo-600/6 blur-[80px]" />
       <div className="mx-auto flex max-w-[1280px] flex-col gap-8 sm:gap-10 relative">
         <FadeUp visibleBeforeInView>
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-400">
-            {locale === "en" ? "05 — Tools" : "05 — Outils"}
+            {locale === "en" ? "04 — Tools" : "04 — Outils"}
           </p>
           <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">

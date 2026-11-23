@@ -70,7 +70,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-4 left-0 right-0 px-4 z-50 sm:px-8 lg:top-6 lg:px-20">
-      <nav className={`w-full h-14 pl-2 pr-2 rounded-full border border-gray-800 backdrop-blur-xl flex justify-between items-center transition-all duration-500 sm:h-16 sm:pl-4 sm:pr-3 ${scrolled ? "bg-gray-900/95 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" : "bg-gray-900/70"}`}>
+      <nav className={`w-full h-14 pl-2 pr-2 rounded-full border border-white/10 backdrop-blur-xl flex justify-between items-center transition-all duration-500 sm:h-16 sm:pl-4 sm:pr-3 ${scrolled ? "bg-gray-950/85 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" : "bg-gray-950/55"}`}>
         {/* ── Logo ── */}
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-500 rounded-full flex justify-center items-center shadow-[0_0_16px_rgba(59,130,246,0.4)]">

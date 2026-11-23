@@ -49,8 +49,8 @@ const navLinks = [
   { label: { fr: "Expertises",   en: "Expertise"    }, href: "#expertises"  },
   { label: { fr: "Services",     en: "Services"     }, href: "#services"    },
   { label: { fr: "Méthode",      en: "Approach"     }, href: "#processus"   },
-  { label: { fr: "Témoignages",  en: "Testimonials" }, href: "#temoignages" },
   { label: { fr: "FAQ",          en: "FAQ"          }, href: "#faq"         },
+  { label: { fr: "Témoignages",  en: "Testimonials" }, href: "#temoignages" },
   { label: { fr: "Contact",      en: "Contact"      }, href: "#contact"     },
 ];
 
@@ -94,8 +94,8 @@ export default function FooterSection() {
             </div>
             <p className="font-['Manrope'] text-sm leading-6 text-gray-400 lg:max-w-[200px]">
               {isEnglish
-                ? "Mobile developer & product designer based in Benin."
-                : "Développeur mobile & product designer basé au Bénin."}
+                ? "Mobile & backend developer based in Benin."
+                : "Développeur mobile & backend basé au Bénin."}
             </p>
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.6)]" />

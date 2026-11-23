@@ -152,12 +152,12 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="w-full bg-gray-50 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="w-full border-y border-blue-100/70 bg-[#F1F5FB] px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="mx-auto flex max-w-[1280px] flex-col gap-10 sm:gap-12">
         <FadeInView>
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-500">
-            {isEnglish ? "04 — Services" : "04 — Services"}
+            {isEnglish ? "05 — Services" : "05 — Services"}
           </p>
           <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">

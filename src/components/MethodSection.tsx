@@ -98,7 +98,7 @@ export default function MethodSection() {
   return (
     <section
       id="processus"
-      className="relative w-full overflow-hidden bg-[#060a14] px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-gray-950 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       {/* Glow */}
       <div className="pointer-events-none absolute -left-20 top-1/3 h-[400px] w-[400px] rounded-full bg-emerald-500/8 blur-[100px]" />

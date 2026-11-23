@@ -28,11 +28,11 @@ export default function Home() {
         <AboutSection />
         <ProjectsSection />
         <ExpertisesSection />
-        <ServicesSection />
         <TechStackSection />
+        <ServicesSection />
         <MethodSection />
-        <TestimonialsSection />
         <FaqSection />
+        <TestimonialsSection />
         <ContactSection />
         <FooterSection />
       </main>

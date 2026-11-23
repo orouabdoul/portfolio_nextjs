@@ -96,7 +96,7 @@ export default function FaqSection() {
           transition={{ duration: 0.6, ease }}
         >
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-500">
-            {isEnglish ? "08 — FAQ" : "08 — Questions fréquentes"}
+            {isEnglish ? "07 — FAQ" : "07 — Questions fréquentes"}
           </p>
           <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
             {isEnglish ? "Before you order." : "Avant de commander."}

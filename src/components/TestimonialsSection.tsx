@@ -274,7 +274,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="temoignages"
-      className="relative w-full overflow-hidden bg-gray-950 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-[#0B1220] px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       {/* Ambient glows */}
       <div className="pointer-events-none absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/6 blur-[120px]" />
@@ -290,7 +290,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-400">
-            {isEnglish ? "07 — Testimonials" : "07 — Témoignages"}
+            {isEnglish ? "08 — Testimonials" : "08 — Témoignages"}
           </p>
           <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
