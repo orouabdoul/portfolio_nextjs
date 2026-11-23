@@ -38,6 +38,7 @@ type Service = {
   description: { fr: string; en: string };
   points: { fr: string[]; en: string[] };
   priceEur: string;
+  priceXof: string;
   priceUsd: string;
   upwork: string;
 };
@@ -61,6 +62,7 @@ const services: Service[] = [
       en: ["Root cause explained", "Tested on Android and iOS", "Short fix report"],
     },
     priceEur: "30 €",
+    priceXof: "19 700 FCFA",
     priceUsd: "$35",
     upwork: "https://www.upwork.com/services/product/2124106898655987886",
   },
@@ -83,6 +85,7 @@ const services: Service[] = [
       en: ["Firebase Cloud Messaging", "Foreground, background, closed app", "Sent from your backend"],
     },
     priceEur: "45 €",
+    priceXof: "29 500 FCFA",
     priceUsd: "$45",
     upwork: "https://www.upwork.com/services/product/2124175859342838889",
   },
@@ -106,6 +109,7 @@ const services: Service[] = [
       en: ["Token authentication", "Roles and validation", "Postman documentation"],
     },
     priceEur: "95 €",
+    priceXof: "62 300 FCFA",
     priceUsd: "$90",
     upwork: "https://www.upwork.com/services/product/2124187073628277865",
   },
@@ -128,6 +132,7 @@ const services: Service[] = [
       en: ["Android and iOS", "Laravel API + Vue 3 admin panel", "Source code included"],
     },
     priceEur: "100 €",
+    priceXof: "65 600 FCFA",
     priceUsd: "$500",
     upwork: "https://www.upwork.com/services/product/2124195442479888103",
   },
@@ -196,8 +201,9 @@ export default function ServicesSection() {
                 <p className="mt-6 font-['Manrope'] text-xs text-gray-500">
                   {isEnglish ? "Starting at" : "À partir de"}{" "}
                   <span className="font-['Sora'] text-lg font-bold text-gray-950">
-                    {isEnglish ? service.priceUsd : service.priceEur}
+                    {isEnglish ? service.priceUsd : service.priceXof}
                   </span>
+                  {!isEnglish && <span className="ml-1.5 text-gray-400">· {service.priceEur}</span>}
                 </p>
                 <div className="mt-4 flex flex-col gap-2">
                   <a
