@@ -142,7 +142,7 @@ export default function ContactSection() {
 
           {/* Book a call */}
           <a
-            href="https://calendly.com/amadou-issiaka-services/30min"
+            href="https://calendly.com/orouabdoulayeissiaka/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-flex w-fit min-h-[50px] items-center gap-2.5 rounded-full bg-white px-6 font-['Sora'] text-sm font-semibold text-blue-700 shadow-[0_10px_30px_rgba(15,23,42,0.25)] transition-transform duration-200 hover:-translate-y-0.5"

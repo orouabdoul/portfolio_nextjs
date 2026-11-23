@@ -171,7 +171,7 @@ export default function HeroSection() {
               </svg>
             </a>
             <a
-              href="https://calendly.com/amadou-issiaka-services/30min"
+              href="https://calendly.com/orouabdoulayeissiaka/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-gray-700 px-6 font-['Sora'] text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-200 hover:border-gray-500 hover:bg-white/5 sm:text-[15px]"

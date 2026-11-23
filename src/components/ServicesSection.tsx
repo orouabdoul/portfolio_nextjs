@@ -256,7 +256,7 @@ export default function ServicesSection() {
                 {isEnglish ? "Request a quote" : "Demander un devis"}
               </a>
               <a
-                href="https://calendly.com/amadou-issiaka-services/30min"
+                href="https://calendly.com/orouabdoulayeissiaka/30min"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex min-h-[44px] items-center justify-center rounded-full border border-gray-300 px-5 font-['Sora'] text-sm font-semibold text-gray-700 transition-colors hover:border-gray-500 hover:text-gray-950"
