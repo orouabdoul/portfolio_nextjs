@@ -41,18 +41,18 @@ export const projects: Project[] = [
   // ── DoroFaba ─────────────────────────────────────────────────────────────
   {
     slug: "dorofaba",
-    year: "2026",
+    year: "2025",
     scope: "both",
     categories: ["web", "design"],
     name: "DoroFaba",
     type: { fr: "Gestion commerce · Application web", en: "Retail management · Web app" },
     summary: {
-      fr: "Application web permettant aux petits commerçants de suivre leurs ventes, leur stock et leurs clients en un seul endroit. Conçue, développée et lancée en production.",
-      en: "Web app that lets small retailers track their sales, stock and customers in one place. Designed, built and launched in production.",
+      fr: "Application web permettant aux petits commerçants de suivre leurs ventes, leur stock et leurs clients en un seul endroit. Conçue, développée et mise en ligne.",
+      en: "Web app that lets small retailers track their sales, stock and customers in one place. Designed, built and put online.",
     },
     description: {
-      fr: "DoroFaba est une application web full-stack conçue, développée et lancée pour les petits commerçants béninois. L'objectif : remplacer le cahier et les feuilles volantes par un outil numérique simple, accessible sur mobile, qui centralise ventes, stock et fidélisation clients. Connexion par numéro de téléphone, interface adaptée aux non-techniciens, disponible en production sur dorofaba.com.",
-      en: "DoroFaba is a full-stack web app designed, built and launched for small Beninese retailers. The goal: replace notebooks and loose sheets with a simple, mobile-accessible digital tool that centralizes sales, stock and customer loyalty. Phone-number login, interface adapted for non-technical users, live in production at dorofaba.com.",
+      fr: "DoroFaba est un projet personnel : une application web full-stack conçue et développée pour les petits commerçants béninois. L'objectif : remplacer le cahier et les feuilles volantes par un outil numérique simple, accessible sur mobile, qui centralise ventes, stock et fidélisation clients. Connexion par numéro de téléphone, interface adaptée aux non-techniciens, en ligne sur dorofaba.com et en cours de présentation aux commerçants.",
+      en: "DoroFaba is a personal project: a full-stack web app designed and built for small Beninese retailers. The goal: replace notebooks and loose sheets with a simple, mobile-accessible digital tool that centralizes sales, stock and customer loyalty. Phone-number login, interface adapted for non-technical users, online at dorofaba.com and currently being presented to retailers.",
     },
     role: {
       fr: "Designer UI/UX · Développeur full-stack Laravel",
@@ -180,7 +180,7 @@ export const projects: Project[] = [
   // ── MediCare BJ ─────────────────────────────────────────────────────────────
   {
     slug: "medicare-bj",
-    year: "2026",
+    year: "2025",
     scope: "dev",
     categories: ["mobile"],
     name: "MediCare BJ",
@@ -266,7 +266,7 @@ export const projects: Project[] = [
   // ── The Globul ─────────────────────────────────────────────────────────────
   {
     slug: "the-globul",
-    year: "2026",
+    year: "2025",
     scope: "both",
     categories: ["mobile", "design"],
     name: "The Globul",
@@ -346,7 +346,7 @@ export const projects: Project[] = [
   // ── MINIZON ─────────────────────────────────────────────────────────────
   {
     slug: "minizon",
-    year: "2026",
+    year: "2025",
     scope: "both",
     categories: ["mobile", "design"],
     name: "MINIZON",
@@ -363,7 +363,7 @@ export const projects: Project[] = [
       fr: "Designer UI/UX · Développeur Flutter & Laravel (solo)",
       en: "UI/UX Designer · Flutter & Laravel Developer (solo)",
     },
-    duration: { fr: "En cours", en: "Ongoing" },
+    duration: { fr: "En phase de test", en: "In testing" },
     problem: {
       fr: "Les conducteurs et passagers au Bénin n'avaient pas de plateforme locale de covoiturage adaptée — pas de paiement Mobile Money intégré, pas de vérification des conducteurs, pas de système de litiges. Les mises en relation se faisaient de façon informelle, sans traçabilité ni sécurité.",
       en: "Drivers and passengers in Benin had no local ride-sharing platform adapted to their context — no integrated Mobile Money payment, no driver verification, no dispute system. Connections happened informally, with no traceability or safety.",
@@ -489,7 +489,7 @@ export const projects: Project[] = [
   // ── MyMonto ─────────────────────────────────────────────────────────────
   {
     slug: "mymonto",
-    year: "2025",
+    year: "2024 – 2025",
     scope: "dev",
     categories: ["mobile"],
     name: "MyMonto",
@@ -585,13 +585,8 @@ export const projects: Project[] = [
       en: "A complete design system covering three spaces (client, provider, admin) across two platforms (mobile and web). Client interface to book hairdressing, mum/baby care, manicure and marketplace orders. Provider interface to manage time slots. Admin dashboard to supervise everything.",
     },
     tags: ["Figma", "Design System", "UI/UX", "React Native", "Next.js"],
-    links: [
-      {
-        label: { fr: "Voir le design Figma", en: "View Figma design" },
-        href: "https://www.figma.com/design/NzlZqIrdzZSJtjiK1PRvW2/MINIZON?node-id=0-1&p=f&t=YSGqCJCJXaVzJnDV-0",
-        type: "prototype",
-      },
-    ],
+    // TODO: ajouter ici le lien Figma de The Cabe (l'ancien lien ouvrait le fichier MINIZON)
+    links: [],
     video: "/videos/cabe-demo.mp4",
     videoChromeLabel: "The Cabe · Prototype Figma",
     screens: [
@@ -761,7 +756,7 @@ export const projects: Project[] = [
   // ── SIM AH ─────────────────────────────────────────────────────────────
   {
     slug: "sim-ah",
-    year: "2024",
+    year: "2023",
     scope: "dev",
     categories: ["mobile"],
     name: "SIM AH",

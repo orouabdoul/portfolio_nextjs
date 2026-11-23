@@ -25,9 +25,9 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const title = "Amadou Issiaka — Développeur Mobile & Product Designer";
+const title = "Amadou Issiaka — Développeur Mobile & Backend · Flutter, React Native, Laravel";
 const description =
-  "Je conçois et développe des produits numériques utiles, élégants et efficaces pour les entrepreneurs et PME — de l'idée au produit prêt à être utilisé.";
+  "Je conçois et développe des applications mobiles (Flutter, React Native), leurs API Laravel et leurs back-offices Vue 3 pour les entrepreneurs et PME — de la maquette Figma à la mise en ligne.";
 const url = "https://amadouissiaka.vercel.app";
 
 export const metadata: Metadata = {
@@ -35,8 +35,13 @@ export const metadata: Metadata = {
   description,
   keywords: [
     "développeur mobile",
+    "développeur backend",
     "Flutter",
     "React Native",
+    "Laravel",
+    "API REST",
+    "Vue 3",
+    "PHP",
     "UX/UI designer",
     "application mobile",
     "Figma",

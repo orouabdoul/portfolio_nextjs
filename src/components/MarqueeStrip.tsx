@@ -1,19 +1,35 @@
 "use client";
 
-const items = [
-  "De l'idée au produit",
-  "Du design au développement",
-  "Un seul interlocuteur",
-  "Pour tout le cycle",
-  "Flutter · React Native",
-  "Figma · Firebase · Supabase",
-  "Mobile iOS & Android",
-  "Design to Production",
-];
+import { useLanguage } from "@/components/LanguageProvider";
 
-const doubled = [...items, ...items];
+const itemsByLocale = {
+  fr: [
+    "De l'idée au produit",
+    "Du design au développement",
+    "Un seul interlocuteur",
+    "Pour tout le cycle",
+    "Flutter · React Native",
+    "Laravel · Vue 3",
+    "Figma · Firebase · MySQL",
+    "Mobile iOS & Android",
+  ],
+  en: [
+    "From idea to product",
+    "From design to code",
+    "One single contact",
+    "For the whole cycle",
+    "Flutter · React Native",
+    "Laravel · Vue 3",
+    "Figma · Firebase · MySQL",
+    "Mobile iOS & Android",
+  ],
+};
 
 export default function MarqueeStrip() {
+  const { language } = useLanguage();
+  const items = itemsByLocale[language === "en" ? "en" : "fr"];
+  const doubled = [...items, ...items];
+
   return (
     <div
       className="w-full overflow-hidden border-y border-blue-900/50 bg-blue-950 py-4"

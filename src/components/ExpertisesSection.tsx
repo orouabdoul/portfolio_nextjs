@@ -213,9 +213,8 @@ export default function ExpertisesSection() {
             >
               {/* Decorative code hint */}
               <div className="pointer-events-none absolute bottom-6 right-7 text-right font-['JetBrains_Mono'] text-[11px] leading-6 text-gray-600 opacity-60 select-none">
-                <div>onAuthStateChanged(auth, user {"=>"} {"{"}</div>
-                <div>&nbsp;&nbsp;if (user) {"{"} syncToFirestore() {"}"}</div>
-                <div>{"}"});</div>
+                <div>Route::middleware(&apos;auth:sanctum&apos;)</div>
+                <div>&nbsp;&nbsp;-&gt;get(&apos;/orders&apos;, [OrderController::class, &apos;index&apos;]);</div>
               </div>
 
               <div className="flex items-start justify-between">
@@ -230,12 +229,12 @@ export default function ExpertisesSection() {
               </h3>
               <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-sm leading-7 text-gray-400 sm:text-base">
                 {locale === "en"
-                  ? "Authentication, databases, REST APIs and real-time sync. The app connects cleanly to your existing ecosystem."
-                  : "Authentification, bases de données, APIs REST et synchronisation temps réel. L'application s'intègre dans votre écosystème existant sans friction."}
+                  ? "REST APIs with Laravel, Vue 3 admin panels, authentication, databases and real-time sync. The app connects cleanly to your existing ecosystem."
+                  : "API REST avec Laravel, back-offices Vue 3, authentification, bases de données et synchronisation temps réel. L'application s'intègre dans votre écosystème existant sans friction."}
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2 border-t border-gray-800 pt-5">
-                {["Firebase", "Supabase", "MySQL", "REST API", "Auth", "Git"].map((tag) => (
+                {["Laravel", "PHP", "Vue 3", "MySQL", "REST API", "Firebase", "Supabase", "Git"].map((tag) => (
                   <span
                     key={tag}
                     className="rounded-full border border-gray-700 bg-gray-800/60 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-gray-400"

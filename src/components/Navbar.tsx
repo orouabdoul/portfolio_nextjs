@@ -8,6 +8,7 @@ const navLinks: { label: Record<Language, string>; href: string }[] = [
   { label: { fr: "À propos", en: "About" }, href: "#a-propos" },
   { label: { fr: "Réalisations", en: "Work" }, href: "#realisations" },
   { label: { fr: "Expertises", en: "Expertise" }, href: "#expertises" },
+  { label: { fr: "Services", en: "Services" }, href: "#services" },
   { label: { fr: "Méthode", en: "Approach" }, href: "#processus" },
   { label: { fr: "Témoignages", en: "Testimonials" }, href: "#temoignages" },
   { label: { fr: "Contact", en: "Contact" }, href: "#contact" },
@@ -45,6 +46,7 @@ export default function Navbar() {
       "accueil",
       "a-propos",
       "expertises",
+      "services",
       "realisations",
       "processus",
       "temoignages",
@@ -82,7 +84,7 @@ export default function Navbar() {
         </div>
 
         {/* ── Nav links ── */}
-        <div className="hidden items-center gap-5 xl:flex 2xl:gap-8">
+        <div className="hidden items-center gap-3.5 xl:flex 2xl:gap-8">
           <a href={sectionHref("#accueil")} className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
             <span className="text-slate-100 text-sm font-medium font-['Manrope'] tracking-tight">

@@ -109,7 +109,7 @@ export default function MethodSection() {
         {/* ── Left — header ── */}
         <FadeInView className="flex flex-col lg:sticky lg:top-24 lg:self-start">
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-400">
-            {locale === "en" ? "04 — How I work" : "04 — Ma méthode"}
+            {locale === "en" ? "06 — How I work" : "06 — Ma méthode"}
           </p>
           <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
             {locale === "en"

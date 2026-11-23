@@ -5,7 +5,7 @@ import Image from "next/image";
 import { type ReactNode } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 
-const techStack = ["Flutter", "React Native", "Figma", "Firebase", "TypeScript", "Supabase"];
+const techStack = ["Flutter", "React Native", "Laravel", "Vue 3", "Figma", "Firebase", "MySQL", "TypeScript"];
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -106,8 +106,8 @@ export default function AboutSection() {
           <FadeInView delay={0.2}>
             <p className="mt-6 font-['Manrope'] text-base leading-[1.9] text-gray-600">
               {isEnglish
-                ? "Based in Benin, I design and build mobile apps end-to-end — from the first Figma frame to production. What sets me apart: I speak both design and code fluently, so nothing is lost between the mockup and the final app."
-                : "Basé au Bénin, je conçois et développe des applications mobiles de bout en bout — de la première maquette Figma à la mise en production. Ce qui me différencie : je parle aussi bien design que code, sans rien perdre en chemin."}
+                ? "Based in Benin, I design and build mobile apps end-to-end — from the first Figma frame to production — along with their Laravel API and Vue 3 admin panel. What sets me apart: I handle design, the app and the backend, so nothing is lost between the mockup and the final product."
+                : "Basé au Bénin, je conçois et développe des applications mobiles de bout en bout — de la première maquette Figma à la mise en production — avec leur API Laravel et leur back-office Vue 3. Ce qui me différencie : je prends en charge le design, l'application et le backend, sans rien perdre en chemin."}
             </p>
           </FadeInView>
 

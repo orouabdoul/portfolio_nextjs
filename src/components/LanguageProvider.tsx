@@ -64,14 +64,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const metadataByPath: Record<string, Record<Language, { title: string; description: string }>> = {
       "/": {
         fr: {
-          title: "Amadou Issiaka — Développeur Mobile & Product Designer",
+          title: "Amadou Issiaka — Développeur Mobile & Backend · Flutter, React Native, Laravel",
           description:
-            "Développeur mobile et product designer : conception UX/UI et développement d’applications mobiles, des parcours à la réalisation.",
+            "Développeur mobile et backend : applications Flutter et React Native, API Laravel et back-offices Vue 3, de la maquette Figma à la mise en ligne.",
         },
         en: {
-          title: "Amadou Issiaka — Mobile Developer & Product Designer",
+          title: "Amadou Issiaka — Mobile & Backend Developer · Flutter, React Native, Laravel",
           description:
-            "Mobile developer and product designer working across UX/UI, mobile user journeys, and application development.",
+            "Mobile and backend developer: Flutter and React Native apps, Laravel APIs and Vue 3 admin panels, from Figma mockups to launch.",
         },
       },
       "/realisations/fastgrab": {
@@ -99,8 +99,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
         },
       },
     };
-    const pageMetadata =
-      metadataByPath[pathname]?.[language] ?? metadataByPath["/"][language];
+    // Only override pages listed above; other pages keep their own server metadata
+    const pageMetadata = metadataByPath[pathname]?.[language];
+    if (!pageMetadata) return;
     document.title = pageMetadata.title;
 
     const description = document.querySelector<HTMLMetaElement>(

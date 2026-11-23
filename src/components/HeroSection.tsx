@@ -107,11 +107,11 @@ export default function HeroSection() {
           {/* 1 · Identity */}
           <motion.div {...fadeUp(0.15)} className="flex flex-col gap-2">
             <span className="font-['Manrope'] text-[13px] tracking-[0.05em] text-gray-400">
-              Abdoulaye Amadou Issiaka
+              Amadou Issiaka Abdoulaye
             </span>
             <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.18em] text-blue-400 sm:text-[11px]">
               <ScrambleText
-                text={isEnglish ? "Mobile developer · Product designer" : "Développeur mobile · Product designer"}
+                text={isEnglish ? "Mobile & backend developer · Flutter · Laravel" : "Développeur mobile & backend · Flutter · Laravel"}
                 delay={700}
               />
             </p>

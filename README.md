@@ -20,14 +20,14 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ## Testimonials (Firebase)
 
-The testimonial form writes directly to the `testimonials` collection in Cloud Firestore. Reviews with explicit consent are published immediately and appear in the section in real time. No sample or fabricated reviews are included.
+The testimonial form writes to the `testimonials` collection in Cloud Firestore with `status: "pending"`. Reviews are moderated: to publish one, open it in the Firebase console and change its `status` field to `published`. It then appears in the section in real time. No sample or fabricated reviews are included.
 
 1. Create a Firebase project, register a web app, and enable Cloud Firestore.
 2. Copy `.env.example` to `.env.local` and fill in the Firebase Web App API key, project ID, and app ID. These client configuration values are public; do not put private service-account credentials in `NEXT_PUBLIC_` variables.
 3. Deploy the Firestore rules and index in `firestore.rules` and `firestore.indexes.json` using the Firebase CLI (`firebase use --add`, then `firebase deploy --only firestore`), or paste the rules in the Firebase console and create the composite index (`status` ascending, `createdAt` descending).
 4. For public submissions, register reCAPTCHA v3 in Firebase App Check and set `NEXT_PUBLIC_FIREBASE_APP_CHECK_SITE_KEY`. Monitor App Check traffic, then enable enforcement for Cloud Firestore in the Firebase console.
 
-Restart the development server after changing `.env.local`. Set the same `NEXT_PUBLIC_` values in the production build environment. Because reviews are published immediately, the Firestore rules restrict review fields and prohibit public edits and deletions; App Check should be enabled before launch to reduce automated abuse.
+Restart the development server after changing `.env.local`. Set the same `NEXT_PUBLIC_` values in the production build environment. The Firestore rules only accept new reviews as `pending`, restrict review fields and prohibit public edits and deletions; App Check should be enabled before launch to reduce automated abuse.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 

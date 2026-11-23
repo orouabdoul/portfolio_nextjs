@@ -79,8 +79,8 @@ export default function ContactSection() {
     ? ["As soon as possible", "Within 1–3 months", "Still flexible"]
     : ["Dès que possible", "Dans 1 à 3 mois", "Encore flexible"];
   const budgets = isEnglish
-    ? ["Under €2,000", "€2,000–€5,000", "Over €5,000", "To be discussed"]
-    : ["Moins de 200 000 FCFA", "200 000–500 000 FCFA", "Plus de 500 000 FCFA", "À définir"];
+    ? ["Under $100", "$100–$500", "$500–$1,000", "$1,000–$2,000", "Over $2,000", "To be discussed"]
+    : ["Moins de 65 000 FCFA", "65 000 – 330 000 FCFA", "330 000 – 655 000 FCFA", "655 000 – 1 310 000 FCFA", "Plus de 1 310 000 FCFA", "À définir"];
 
   function updateBrief(field: keyof Brief, value: string) {
     setBrief((current) => ({ ...current, [field]: value }));
@@ -127,7 +127,7 @@ export default function ContactSection() {
         {/* ── Left — copy ── */}
         <FadeInView className="flex flex-col">
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-white/70">
-            {isEnglish ? "06 — Contact" : "06 — Contact"}
+            {isEnglish ? "08 — Contact" : "08 — Contact"}
           </p>
           <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-5xl">
             {isEnglish

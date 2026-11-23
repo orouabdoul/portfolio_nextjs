@@ -26,6 +26,14 @@ function GitHubIcon() {
   );
 }
 
+function StoreIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M2 5.5h10l-.8 6.5H2.8L2 5.5zM4.8 5.5V4a2.2 2.2 0 0 1 4.4 0v1.5" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 function WhatsAppIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
@@ -39,6 +47,7 @@ const navLinks = [
   { label: { fr: "À propos",     en: "About"        }, href: "#a-propos"    },
   { label: { fr: "Réalisations", en: "Work"         }, href: "#realisations"},
   { label: { fr: "Expertises",   en: "Expertise"    }, href: "#expertises"  },
+  { label: { fr: "Services",     en: "Services"     }, href: "#services"    },
   { label: { fr: "Méthode",      en: "Approach"     }, href: "#processus"   },
   { label: { fr: "Témoignages",  en: "Testimonials" }, href: "#temoignages" },
   { label: { fr: "Contact",      en: "Contact"      }, href: "#contact"     },
@@ -48,6 +57,8 @@ const socialLinks = [
   { icon: <LinkedInIcon />, label: "LinkedIn", href: "https://www.linkedin.com/in/amadou-fullstack-mobile" },
   { icon: <GitHubIcon />,   label: "GitHub",   href: "https://github.com/orouabdoul"                       },
   { icon: <WhatsAppIcon />, label: "WhatsApp", href: "https://wa.me/22959000892"                            },
+  { icon: <StoreIcon />,    label: "ComeUp",   href: "https://comeup.com/fr/@abdoulayeissiaka"             },
+  { icon: <StoreIcon />,    label: "Upwork",   href: "https://www.upwork.com/services/product/2124195442479888103" },
 ];
 
 export default function FooterSection() {

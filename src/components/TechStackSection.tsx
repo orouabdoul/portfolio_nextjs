@@ -9,6 +9,10 @@ const stackGroups = [
     tools: ["Flutter", "React Native", "Dart", "Expo"],
   },
   {
+    title: { fr: "Backend & web", en: "Backend & web" },
+    tools: ["Laravel", "PHP", "Vue 3", "Inertia", "Tailwind CSS"],
+  },
+  {
     title: { fr: "Design produit", en: "Product design" },
     tools: ["Figma"],
   },
@@ -67,7 +71,7 @@ export default function TechStackSection() {
           </div>
         </FadeUp>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {stackGroups.map((group, index) => (
             <FadeUp
               visibleBeforeInView

@@ -219,7 +219,8 @@ export default function TestimonialsSection() {
         role: String(data.get("role") ?? "").trim(),
         message: String(data.get("message") ?? "").trim(),
         consent: data.get("consent") === "on",
-        status: "published",
+        // Reviews are moderated: publish them manually in the Firebase console
+        status: "pending",
         createdAt: serverTimestamp(),
         lang: language,
       });
@@ -230,8 +231,8 @@ export default function TestimonialsSection() {
       console.error("Could not publish testimonial.", error);
       setFormError(
         isEnglish
-          ? "Your review could not be published. Please try again."
-          : "Votre avis n'a pas pu être publié. Veuillez réessayer.",
+          ? "Your review could not be sent. Please try again."
+          : "Votre avis n'a pas pu être envoyé. Veuillez réessayer.",
       );
     } finally {
       setIsSubmitting(false);
@@ -289,7 +290,7 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-400">
-            {isEnglish ? "06 — Testimonials" : "06 — Témoignages"}
+            {isEnglish ? "07 — Testimonials" : "07 — Témoignages"}
           </p>
           <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
@@ -309,11 +310,24 @@ export default function TestimonialsSection() {
           {/* Cards */}
           <div aria-live="polite" className="overflow-hidden">
 
-            {(loadState === "loading" || loadState === "unconfigured" || (loadState === "ready" && testimonials.length === 0)) && (
+            {loadState === "loading" && (
               <div className={`grid gap-4 ${gridCols}`}>
                 {Array.from({ length: skeletonCount }).map((_, i) => (
                   <SkeletonCard key={i} />
                 ))}
+              </div>
+            )}
+
+            {(loadState === "unconfigured" || (loadState === "ready" && testimonials.length === 0)) && (
+              <div className="flex min-h-[180px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-gray-800 bg-gray-900/40 px-6 py-10 text-center">
+                <p className="font-['Sora'] text-base font-semibold text-slate-100">
+                  {isEnglish ? "No reviews published yet." : "Aucun avis publié pour l'instant."}
+                </p>
+                <p className="max-w-md font-['Manrope'] text-sm leading-6 text-gray-400">
+                  {isEnglish
+                    ? "Have we worked together? Be the first to share your experience."
+                    : "Nous avons travaillé ensemble ? Soyez le premier à partager votre expérience."}
+                </p>
               </div>
             )}
 
@@ -417,8 +431,8 @@ export default function TestimonialsSection() {
               className="text-center font-['Manrope'] text-sm text-emerald-400"
             >
               {isEnglish
-                ? "Your review is published. Thank you!"
-                : "Votre avis est publié. Merci pour votre retour !"}
+                ? "Thank you! Your review will appear here once it has been approved."
+                : "Merci ! Votre avis apparaîtra ici après validation."}
             </motion.p>
           ) : (
             <motion.div
