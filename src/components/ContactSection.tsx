@@ -127,7 +127,7 @@ export default function ContactSection() {
         {/* ── Left — copy ── */}
         <FadeInView className="flex flex-col">
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-white/70">
-            {isEnglish ? "08 — Contact" : "08 — Contact"}
+            {isEnglish ? "09 — Contact" : "09 — Contact"}
           </p>
           <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-5xl">
             {isEnglish

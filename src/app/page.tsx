@@ -9,6 +9,7 @@ import ServicesSection from "@/components/ServicesSection";
 import TechStackSection from "@/components/TechStackSection";
 import MethodSection from "@/components/MethodSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -31,6 +32,7 @@ export default function Home() {
         <TechStackSection />
         <MethodSection />
         <TestimonialsSection />
+        <FaqSection />
         <ContactSection />
         <FooterSection />
       </main>

@@ -50,6 +50,7 @@ const navLinks = [
   { label: { fr: "Services",     en: "Services"     }, href: "#services"    },
   { label: { fr: "Méthode",      en: "Approach"     }, href: "#processus"   },
   { label: { fr: "Témoignages",  en: "Testimonials" }, href: "#temoignages" },
+  { label: { fr: "FAQ",          en: "FAQ"          }, href: "#faq"         },
   { label: { fr: "Contact",      en: "Contact"      }, href: "#contact"     },
 ];
 
