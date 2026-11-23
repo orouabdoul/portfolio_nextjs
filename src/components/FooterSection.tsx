@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import { usePathname } from "next/navigation";
+import BrandMark from "@/components/BrandMark";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -85,11 +86,14 @@ export default function FooterSection() {
           {/* Brand */}
           <div className="col-span-2 flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-500 shadow-[0_0_16px_rgba(59,130,246,0.4)]">
-                <span className="font-['Sora'] text-xs font-bold text-white">AIA</span>
-              </div>
-              <span className="font-['Sora'] text-sm font-semibold tracking-wide text-slate-100">
-                AMADOU ISSIAKA
+              <BrandMark size={40} className="h-10 w-10 shrink-0" />
+              <span className="flex flex-col leading-tight">
+                <span className="font-['Sora'] text-[15px] font-bold tracking-tight text-slate-100">
+                  Amadou Issiaka
+                </span>
+                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.14em] text-gray-400">
+                  Mobile &amp; Backend
+                </span>
               </span>
             </div>
             <p className="font-['Manrope'] text-sm leading-6 text-gray-400 lg:max-w-[200px]">

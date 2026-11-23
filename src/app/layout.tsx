@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sora, Manrope, JetBrains_Mono } from "next/font/google";
 import { LanguageProvider } from "@/components/LanguageProvider";
+import BackToTop from "@/components/BackToTop";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -77,7 +78,10 @@ export default function RootLayout({
       className={`${sora.variable} ${manrope.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-gray-950">
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+          <BackToTop />
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>

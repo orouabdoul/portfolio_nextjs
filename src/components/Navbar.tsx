@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage, type Language } from "@/components/LanguageProvider";
+import BrandMark from "@/components/BrandMark";
 
 const navLinks: { label: Record<Language, string>; href: string }[] = [
   { label: { fr: "À propos", en: "About" }, href: "#a-propos" },
@@ -72,16 +73,21 @@ export default function Navbar() {
     <div className="fixed top-4 left-0 right-0 px-4 z-50 sm:px-8 lg:top-6 lg:px-20">
       <nav className={`w-full h-14 pl-2 pr-2 rounded-full border border-white/10 backdrop-blur-xl flex justify-between items-center transition-all duration-500 sm:h-16 sm:pl-4 sm:pr-3 ${scrolled ? "bg-gray-950/85 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" : "bg-gray-950/55"}`}>
         {/* ── Logo ── */}
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-500 rounded-full flex justify-center items-center shadow-[0_0_16px_rgba(59,130,246,0.4)]">
-            <span className="text-white text-xs font-bold font-['Sora'] tracking-wide">
-              AIA
+        <a
+          href={sectionHref("#accueil")}
+          aria-label={language === "en" ? "Amadou Issiaka — Home" : "Amadou Issiaka — Accueil"}
+          className="flex items-center gap-3 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+        >
+          <BrandMark size={40} className="h-9 w-9 shrink-0 drop-shadow-[0_0_14px_rgba(59,130,246,0.35)] sm:h-10 sm:w-10" />
+          <span className="hidden flex-col leading-tight sm:flex">
+            <span className="font-['Sora'] text-[15px] font-bold tracking-tight text-slate-100">
+              Amadou Issiaka
             </span>
-          </div>
-          <span className="hidden text-slate-100 text-sm font-semibold font-['Sora'] tracking-wider sm:block">
-            AMADOU ISSIAKA
+            <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.14em] text-gray-400">
+              Mobile &amp; Backend
+            </span>
           </span>
-        </div>
+        </a>
 
         {/* ── Nav links ── */}
         <div className="hidden items-center gap-3.5 xl:flex 2xl:gap-8">
