@@ -38,6 +38,75 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ── MyMonto ─────────────────────────────────────────────────────────────
+  {
+    slug: "mymonto",
+    year: "2024 – 2025",
+    scope: "dev",
+    categories: ["mobile"],
+    name: "MyMonto",
+    type: { fr: "Services automobiles · Application Flutter", en: "Car services · Flutter app" },
+    summary: {
+      fr: "Application Flutter (Play Store) centralisant assurance, réparations et GPS pour les conducteurs au Bénin. Développement front-end et intégration API au sein d'une équipe de trois.",
+      en: "Flutter app (Play Store) centralizing insurance, repairs and GPS for drivers in Benin. Front-end development and API integration within a three-person team.",
+    },
+    description: {
+      fr: "MyMonto Garage est une application Flutter disponible sur le Play Store, développée pour COSIT-BÉNIN (2024-2025). L'application regroupe les services clés pour les conducteurs : assurance, réparations en garage et localisation GPS. Elle dispose de deux espaces distincts — espace client et espace garage. J'ai construit l'intégralité de l'interface Flutter et intégré les APIs REST backend, en collaboration avec le designer et le développeur back-end.",
+      en: "MyMonto Garage is a Flutter app available on the Play Store, built for COSIT-BÉNIN (2024-2025). The app brings together key driver services: insurance, garage repairs, and GPS location. It has two distinct spaces — customer space and garage space. I built the full Flutter interface and integrated the backend REST APIs, working with the designer and backend developer.",
+    },
+    role: {
+      fr: "Développeur Flutter (front-end & intégration API)",
+      en: "Flutter Developer (front-end & API integration)",
+    },
+    duration: { fr: "6 mois", en: "6 months" },
+    problem: {
+      fr: "Les conducteurs au Bénin devaient jongler entre plusieurs interlocuteurs pour gérer leur assurance, trouver un garage et localiser leur véhicule. Il n'existait pas d'application centralisant ces services dans une interface unifiée et mobile.",
+      en: "Drivers in Benin had to juggle multiple contacts to manage their insurance, find a garage, and locate their vehicle. No app centralized these services in a unified, mobile interface.",
+    },
+    solution: {
+      fr: "Une application Flutter avec deux espaces (client et garage) intégrant assurance, réparations et GPS dans une interface cohérente. Développement de tous les écrans des deux espaces et intégration complète des APIs REST, en coordination avec le designer et le back-end.",
+      en: "A Flutter app with two spaces (customer and garage) integrating insurance, repairs and GPS in a coherent interface. All screens of both spaces built and full REST API integration, in coordination with the designer and backend.",
+    },
+    tags: ["Flutter", "Dart", "REST API"],
+    links: [
+      {
+        label: { fr: "Télécharger sur Play Store", en: "Get on Play Store" },
+        href: "https://play.google.com/store/apps/details?id=com.cositbenin2021.my_monto_mobile_garage&hl=fr",
+        type: "app-store",
+      },
+    ],
+    video: "/videos/mymonto-demo.mp4",
+    videoChromeLabel: "MyMonto Garage · Démo Flutter",
+    screens: [
+      { name: "mymonto-1", label: { fr: "Capture 1", en: "Screen 1" }, frame: "web" },
+      { name: "mymonto-2", label: { fr: "Capture 2", en: "Screen 2" }, frame: "web" },
+      { name: "mymonto-3", label: { fr: "Capture 3", en: "Screen 3" }, frame: "web" },
+      { name: "mymonto-4", label: { fr: "Capture 4", en: "Screen 4" }, frame: "web" },
+    ],
+    insights: [
+      {
+        title: { fr: "Deux espaces, une app", en: "Two spaces, one app" },
+        detail: {
+          fr: "Séparer clairement l'espace client et l'espace garage dans la même application permet aux deux types d'utilisateurs d'accéder directement à leurs fonctionnalités sans confusion, tout en partageant la même base de code Flutter.",
+          en: "Clearly separating the customer space and garage space within the same app lets both user types access their features directly without confusion, while sharing the same Flutter codebase.",
+        },
+      },
+      {
+        title: { fr: "L'intégration API comme discipline", en: "API integration as a discipline" },
+        detail: {
+          fr: "Travailler en équipe avec un designer et un back-end séparé demande une rigueur sur les contrats d'API : typage des réponses, gestion des erreurs et états de chargement cohérents dans tous les écrans.",
+          en: "Working as a team with a separate designer and backend requires rigour on API contracts: typed responses, error handling and consistent loading states across all screens.",
+        },
+      },
+      {
+        title: { fr: "Un service complet en mobile", en: "A complete service on mobile" },
+        detail: {
+          fr: "Réunir assurance, garage et GPS dans une seule application réduit la friction pour le conducteur : un seul point d'entrée pour tout ce qui concerne son véhicule, accessible en quelques secondes depuis son téléphone.",
+          en: "Bringing insurance, garage, and GPS together in one app reduces friction for the driver: a single entry point for everything vehicle-related, accessible in seconds from their phone.",
+        },
+      },
+    ],
+  },
   // ── DoroFaba ─────────────────────────────────────────────────────────────
   {
     slug: "dorofaba",
@@ -100,6 +169,79 @@ export const projects: Project[] = [
         detail: {
           fr: "Remplacer email + mot de passe par un login numéro de téléphone réduit les abandons à l'inscription de façon spectaculaire dans un contexte où beaucoup d'utilisateurs n'ont pas d'adresse email active.",
           en: "Replacing email + password with a phone-number login dramatically reduces sign-up drop-offs in a context where many users don't have an active email address.",
+        },
+      },
+    ],
+  },
+  // ── SIM AH ─────────────────────────────────────────────────────────────
+  {
+    slug: "sim-ah",
+    year: "2023",
+    scope: "dev",
+    categories: ["mobile"],
+    name: "SIM AH",
+    type: { fr: "Prix agricoles · Application Flutter", en: "Agricultural prices · Flutter app" },
+    summary: {
+      fr: "Application Flutter co-développée permettant de suivre les prix agricoles en temps réel, marché par marché, dans le cadre du projet SIM Agricole Harmonisé du Bénin.",
+      en: "Co-developed Flutter app for tracking agricultural prices in real time, market by market, as part of Benin's Harmonised Agricultural Market Information System.",
+    },
+    description: {
+      fr: "SIM AH (simagricole-harmonise.bj) est une application Flutter développée pour COSIT-BÉNIN (2023) permettant aux acteurs du marché agricole béninois de consulter les prix des produits en temps réel, par marché et par secteur. J'ai co-développé l'interface Flutter en binôme avec un autre développeur, et intégré les APIs REST backend en coordination avec le designer et le développeur back-end.",
+      en: "SIM AH (simagricole-harmonise.bj) is a Flutter app built for COSIT-BÉNIN (2023) letting Beninese agricultural market players check product prices in real time, by market and by sector. I co-developed the Flutter interface in pair with another developer, and integrated the backend REST APIs in coordination with the designer and backend developer.",
+    },
+    role: {
+      fr: "Co-développeur Flutter (front-end & intégration API)",
+      en: "Co-Flutter Developer (front-end & API integration)",
+    },
+    duration: { fr: "3 mois", en: "3 months" },
+    problem: {
+      fr: "Les producteurs, commerçants et acheteurs du marché agricole béninois n'avaient pas d'accès facile aux prix en vigueur dans les différents marchés. Cette opacité créait des inégalités : ceux qui connaissaient les prix négociaient mieux que ceux qui ne les connaissaient pas.",
+      en: "Producers, traders and buyers in Benin's agricultural market had no easy access to current prices across different markets. This opacity created inequalities: those who knew prices negotiated better than those who didn't.",
+    },
+    solution: {
+      fr: "Une application Flutter permettant de consulter les prix agricoles en temps réel, marché par marché et secteur par secteur. Co-développement des écrans en binôme et intégration des APIs REST de simagricole-harmonise.bj, avec une interface adaptée aux conditions d'usage mobile sur le terrain.",
+      en: "A Flutter app for consulting agricultural prices in real time, market by market and sector by sector. Co-development of screens in pair and integration of the simagricole-harmonise.bj REST APIs, with an interface adapted to mobile field conditions.",
+    },
+    tags: ["Flutter", "Dart", "REST API"],
+    links: [
+      {
+        label: { fr: "Plateforme SIM AH", en: "SIM AH Platform" },
+        href: "https://simagricole-harmonise.bj",
+        type: "website",
+      },
+      {
+        label: { fr: "Voir le design Figma", en: "View Figma design" },
+        href: "https://www.figma.com/design/fQMQmaFhFCpiQPRSfkP3Hk/Untitled?node-id=0-1&p=f&t=YSGqCJCJXaVzJnDV-0",
+        type: "prototype",
+      },
+    ],
+    screens: [
+      { name: "simah-1", label: { fr: "Splash", en: "Splash" }, objectFit: "contain" as const },
+      { name: "simah-2", label: { fr: "Onboarding", en: "Onboarding" }, objectFit: "contain" as const },
+      { name: "simah-3", label: { fr: "Vérification", en: "Verification" }, objectFit: "contain" as const },
+      { name: "simah-4", label: { fr: "Tableau de bord", en: "Dashboard" }, objectFit: "contain" as const },
+      { name: "simah-5", label: { fr: "Liste des filières", en: "Product list" }, objectFit: "contain" as const },
+    ],
+    insights: [
+      {
+        title: { fr: "L'information comme équité", en: "Information as equity" },
+        detail: {
+          fr: "Rendre les prix agricoles accessibles à tous les acteurs du marché en temps réel réduit l'asymétrie d'information — l'outil numérique devient un levier d'équité économique, pas seulement de commodité.",
+          en: "Making agricultural prices accessible to all market players in real time reduces information asymmetry — the digital tool becomes a lever for economic equity, not just convenience.",
+        },
+      },
+      {
+        title: { fr: "Le binôme comme méthode", en: "Pair programming as method" },
+        detail: {
+          fr: "Co-développer les écrans Flutter à deux permet une relecture en continu et une montée en qualité rapide : chaque fonctionnalité est écrite par un développeur et revue immédiatement par l'autre.",
+          en: "Co-developing Flutter screens in a pair allows continuous review and fast quality improvement: each feature is written by one developer and immediately reviewed by the other.",
+        },
+      },
+      {
+        title: { fr: "Adapté au terrain", en: "Adapted to the field" },
+        detail: {
+          fr: "Une application utilisée sur les marchés agricoles doit être lisible en plein soleil, rapide sur une connexion lente et intuitive sans formation. Ces contraintes réelles ont guidé les décisions d'interface tout au long du projet.",
+          en: "An app used on agricultural markets must be readable in full sunlight, fast on a slow connection and intuitive without training. These real constraints guided interface decisions throughout the project.",
         },
       },
     ],
@@ -173,6 +315,86 @@ export const projects: Project[] = [
         detail: {
           fr: "Le rendu Markdown avec coloration syntaxique est une décision fondamentale : les discussions techniques restent lisibles, copiables, partageable — sans quitter la plateforme.",
           en: "Markdown rendering with syntax highlighting is a fundamental decision: technical discussions remain readable, copyable, shareable — without leaving the platform.",
+        },
+      },
+    ],
+  },
+  // ── The Globul ─────────────────────────────────────────────────────────────
+  {
+    slug: "the-globul",
+    year: "2025",
+    scope: "both",
+    categories: ["mobile", "design"],
+    name: "The Globul",
+    type: { fr: "Journaux de célébrités · Design & React Native", en: "Celebrity diaries · Design & React Native" },
+    summary: {
+      fr: "Application iOS & Android où des personnalités publiques partagent leur quotidien avec leurs fans via des abonnements payants. Identité visuelle, design system et développement React Native.",
+      en: "iOS & Android app where public figures share their daily lives with fans through paid subscriptions. Visual identity, design system and React Native development.",
+    },
+    description: {
+      fr: "The Globul est une application mobile (iOS & Android) permettant à des personnalités publiques de partager leur quotidien en écriture avec leurs fans abonnés. J'ai d'abord créé l'identité visuelle complète et le design system (palette marine/or/beige, typographie, composants UI, icônes line-art, dark mode natif), conçu les écrans clés sur Figma, puis rejoint l'équipe de développement pour implémenter les designs en React Native.",
+      en: "The Globul is a mobile app (iOS & Android) for public figures to share their daily lives in writing with subscribing fans. I first created the complete visual identity and design system (navy/gold/beige palette, typography, UI components, line-art icons, native dark mode), designed the key screens in Figma, then joined the development team to implement the designs in React Native.",
+    },
+    role: {
+      fr: "Designer UI/UX · Développeur React Native (front-end)",
+      en: "UI/UX Designer · React Native Developer (front-end)",
+    },
+    duration: { fr: "3 mois", en: "3 months" },
+    problem: {
+      fr: "Les personnalités publiques n'avaient pas de canal intime pour partager leur quotidien avec leurs fans — les réseaux sociaux sont trop publics et éphémères. Les fans n'avaient pas d'accès privilégié et structuré aux contenus de leurs personnalités préférées.",
+      en: "Public figures had no intimate channel to share their daily lives with fans — social networks are too public and ephemeral. Fans had no privileged, structured access to content from their favorite personalities.",
+    },
+    solution: {
+      fr: "Une application avec un parcours découverte → abonnement → lecture. Identité visuelle forte (marine/or/beige, dark mode natif) pour refléter l'exclusivité du contenu. Des écrans immersifs centrés sur la lecture, pensés pour retenir l'attention sans distraire.",
+      en: "An app with a discovery → subscription → reading flow. A strong visual identity (navy/gold/beige, native dark mode) to reflect the exclusivity of the content. Immersive reading-focused screens designed to hold attention without distraction.",
+    },
+    tags: ["Figma", "React Native", "Design System"],
+    links: [
+      {
+        label: { fr: "Voir le design Figma", en: "View Figma design" },
+        href: "https://www.figma.com/design/I4iXYt2Wr7mMZjU4blwpi2/Globul?node-id=56-2&p=f&t=YSGqCJCJXaVzJnDV-0",
+        type: "prototype",
+      },
+    ],
+    video: "/videos/globul-demo.mp4",
+    videoChromeLabel: "The Globul · Prototype Figma",
+    screens: [
+      { name: "globul-1", label: { fr: "Capture 1", en: "Screen 1" } },
+      { name: "globul-2", label: { fr: "Capture 2", en: "Screen 2" } },
+      { name: "globul-3", label: { fr: "Capture 3", en: "Screen 3" } },
+      { name: "globul-4", label: { fr: "Capture 4", en: "Screen 4" } },
+      { name: "globul-5", label: { fr: "Capture 5", en: "Screen 5" } },
+      { name: "globul-6", label: { fr: "Capture 6", en: "Screen 6" } },
+      { name: "globul-7", label: { fr: "Capture 7", en: "Screen 7" } },
+      { name: "globul-8", label: { fr: "Capture 8", en: "Screen 8" } },
+      { name: "globul-9", label: { fr: "Capture 9", en: "Screen 9" } },
+      { name: "globul-10", label: { fr: "Capture 10", en: "Screen 10" } },
+      { name: "globul-11", label: { fr: "Capture 11", en: "Screen 11" } },
+      { name: "globul-12", label: { fr: "Capture 12", en: "Screen 12" } },
+      { name: "globul-13", label: { fr: "Capture 13", en: "Screen 13" } },
+      { name: "globul-14", label: { fr: "Capture 14", en: "Screen 14" } },
+      { name: "globul-15", label: { fr: "Capture 15", en: "Screen 15" } },
+    ],
+    insights: [
+      {
+        title: { fr: "L'identité avant l'interface", en: "Identity before interface" },
+        detail: {
+          fr: "Définir la palette marine/or/beige, les icônes line-art et le dark mode natif avant de concevoir les écrans garantit une cohérence visuelle immédiate — chaque composant reflète l'univers de la marque, pas seulement une interface générique.",
+          en: "Defining the navy/gold/beige palette, line-art icons and native dark mode before designing the screens ensures immediate visual consistency — every component reflects the brand universe, not just a generic interface.",
+        },
+      },
+      {
+        title: { fr: "Lecture sans friction", en: "Frictionless reading" },
+        detail: {
+          fr: "Concevoir un mode de lecture immersif — plein écran, typographie lisible, navigation effacée — place le contenu de la personnalité au centre, sans que l'interface s'impose entre l'auteur et le fan.",
+          en: "Designing an immersive reading mode — full screen, readable typography, recessed navigation — places the personality's content at the center, without the interface imposing itself between author and fan.",
+        },
+      },
+      {
+        title: { fr: "Du Figma au natif", en: "From Figma to native" },
+        detail: {
+          fr: "Après la phase design, contribuer au front-end React Native a rendu l'implémentation plus fidèle aux maquettes. Concevoir puis développer soi-même réduit les pertes de traduction entre design et code.",
+          en: "After the design phase, contributing to the React Native front-end made the implementation more faithful to the mockups. Designing then developing yourself reduces translation losses between design and code.",
         },
       },
     ],
@@ -263,86 +485,6 @@ export const projects: Project[] = [
       },
     ],
   },
-  // ── The Globul ─────────────────────────────────────────────────────────────
-  {
-    slug: "the-globul",
-    year: "2025",
-    scope: "both",
-    categories: ["mobile", "design"],
-    name: "The Globul",
-    type: { fr: "Journaux de célébrités · Design & React Native", en: "Celebrity diaries · Design & React Native" },
-    summary: {
-      fr: "Application iOS & Android où des personnalités publiques partagent leur quotidien avec leurs fans via des abonnements payants. Identité visuelle, design system et développement React Native.",
-      en: "iOS & Android app where public figures share their daily lives with fans through paid subscriptions. Visual identity, design system and React Native development.",
-    },
-    description: {
-      fr: "The Globul est une application mobile (iOS & Android) permettant à des personnalités publiques de partager leur quotidien en écriture avec leurs fans abonnés. J'ai d'abord créé l'identité visuelle complète et le design system (palette marine/or/beige, typographie, composants UI, icônes line-art, dark mode natif), conçu les écrans clés sur Figma, puis rejoint l'équipe de développement pour implémenter les designs en React Native.",
-      en: "The Globul is a mobile app (iOS & Android) for public figures to share their daily lives in writing with subscribing fans. I first created the complete visual identity and design system (navy/gold/beige palette, typography, UI components, line-art icons, native dark mode), designed the key screens in Figma, then joined the development team to implement the designs in React Native.",
-    },
-    role: {
-      fr: "Designer UI/UX · Développeur React Native (front-end)",
-      en: "UI/UX Designer · React Native Developer (front-end)",
-    },
-    duration: { fr: "3 mois", en: "3 months" },
-    problem: {
-      fr: "Les personnalités publiques n'avaient pas de canal intime pour partager leur quotidien avec leurs fans — les réseaux sociaux sont trop publics et éphémères. Les fans n'avaient pas d'accès privilégié et structuré aux contenus de leurs personnalités préférées.",
-      en: "Public figures had no intimate channel to share their daily lives with fans — social networks are too public and ephemeral. Fans had no privileged, structured access to content from their favorite personalities.",
-    },
-    solution: {
-      fr: "Une application avec un parcours découverte → abonnement → lecture. Identité visuelle forte (marine/or/beige, dark mode natif) pour refléter l'exclusivité du contenu. Des écrans immersifs centrés sur la lecture, pensés pour retenir l'attention sans distraire.",
-      en: "An app with a discovery → subscription → reading flow. A strong visual identity (navy/gold/beige, native dark mode) to reflect the exclusivity of the content. Immersive reading-focused screens designed to hold attention without distraction.",
-    },
-    tags: ["Figma", "React Native", "Design System"],
-    links: [
-      {
-        label: { fr: "Voir le design Figma", en: "View Figma design" },
-        href: "https://www.figma.com/design/I4iXYt2Wr7mMZjU4blwpi2/Globul?node-id=56-2&p=f&t=YSGqCJCJXaVzJnDV-0",
-        type: "prototype",
-      },
-    ],
-    video: "/videos/globul-demo.mp4",
-    videoChromeLabel: "The Globul · Prototype Figma",
-    screens: [
-      { name: "globul-1", label: { fr: "Capture 1", en: "Screen 1" } },
-      { name: "globul-2", label: { fr: "Capture 2", en: "Screen 2" } },
-      { name: "globul-3", label: { fr: "Capture 3", en: "Screen 3" } },
-      { name: "globul-4", label: { fr: "Capture 4", en: "Screen 4" } },
-      { name: "globul-5", label: { fr: "Capture 5", en: "Screen 5" } },
-      { name: "globul-6", label: { fr: "Capture 6", en: "Screen 6" } },
-      { name: "globul-7", label: { fr: "Capture 7", en: "Screen 7" } },
-      { name: "globul-8", label: { fr: "Capture 8", en: "Screen 8" } },
-      { name: "globul-9", label: { fr: "Capture 9", en: "Screen 9" } },
-      { name: "globul-10", label: { fr: "Capture 10", en: "Screen 10" } },
-      { name: "globul-11", label: { fr: "Capture 11", en: "Screen 11" } },
-      { name: "globul-12", label: { fr: "Capture 12", en: "Screen 12" } },
-      { name: "globul-13", label: { fr: "Capture 13", en: "Screen 13" } },
-      { name: "globul-14", label: { fr: "Capture 14", en: "Screen 14" } },
-      { name: "globul-15", label: { fr: "Capture 15", en: "Screen 15" } },
-    ],
-    insights: [
-      {
-        title: { fr: "L'identité avant l'interface", en: "Identity before interface" },
-        detail: {
-          fr: "Définir la palette marine/or/beige, les icônes line-art et le dark mode natif avant de concevoir les écrans garantit une cohérence visuelle immédiate — chaque composant reflète l'univers de la marque, pas seulement une interface générique.",
-          en: "Defining the navy/gold/beige palette, line-art icons and native dark mode before designing the screens ensures immediate visual consistency — every component reflects the brand universe, not just a generic interface.",
-        },
-      },
-      {
-        title: { fr: "Lecture sans friction", en: "Frictionless reading" },
-        detail: {
-          fr: "Concevoir un mode de lecture immersif — plein écran, typographie lisible, navigation effacée — place le contenu de la personnalité au centre, sans que l'interface s'impose entre l'auteur et le fan.",
-          en: "Designing an immersive reading mode — full screen, readable typography, recessed navigation — places the personality's content at the center, without the interface imposing itself between author and fan.",
-        },
-      },
-      {
-        title: { fr: "Du Figma au natif", en: "From Figma to native" },
-        detail: {
-          fr: "Après la phase design, contribuer au front-end React Native a rendu l'implémentation plus fidèle aux maquettes. Concevoir puis développer soi-même réduit les pertes de traduction entre design et code.",
-          en: "After the design phase, contributing to the React Native front-end made the implementation more faithful to the mockups. Designing then developing yourself reduces translation losses between design and code.",
-        },
-      },
-    ],
-  },
   // ── MINIZON ─────────────────────────────────────────────────────────────
   {
     slug: "minizon",
@@ -417,6 +559,69 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "fastgrab",
+    year: "2025",
+    scope: "both",
+    categories: ["mobile", "design"],
+    name: "FastGrab",
+    type: { fr: "Livraison · UI/UX Design", en: "Food delivery · UI/UX Design" },
+    summary: {
+      fr: "Parcours de commande mobile fluide, de la découverte du restaurant à la validation. Conçu et développé de bout en bout.",
+      en: "Seamless mobile ordering flow, from restaurant discovery through checkout. Designed and built end-to-end.",
+    },
+    description: {
+      fr: "FastGrab est une application mobile de livraison de nourriture conçue et développée de bout en bout. J'ai pris en charge l'UX Research, la conception UI sur Figma et l'intégralité du développement Flutter — de la première maquette à l'app fonctionnelle.",
+      en: "FastGrab is a food delivery mobile app designed and built end-to-end. I handled UX Research, UI design in Figma, and all Flutter development — from the first wireframe to a working app.",
+    },
+    role: {
+      fr: "Designer UI/UX · Développeur Flutter",
+      en: "UI/UX Designer · Flutter Developer",
+    },
+    duration: { fr: "6 semaines", en: "6 weeks" },
+    problem: {
+      fr: "Les applications de livraison existantes sur le marché local étaient surchargées d'informations, rendant la commande stressante et lente. L'objectif était de concevoir un parcours où un utilisateur peut commander en moins de trois étapes, sans friction.",
+      en: "Existing delivery apps on the local market were overloaded with information, making ordering stressful and slow. The goal was to design a flow where a user can order in fewer than three steps, without friction.",
+    },
+    solution: {
+      fr: "Un parcours en trois écrans progressifs — découverte, sélection, commande — avec un accent sur la lisibilité et la confiance à chaque étape. Les informations clés apparaissent au bon moment, sans surcharger l'utilisateur ni ralentir sa décision.",
+      en: "A three-screen progressive flow — discovery, selection, checkout — with a focus on readability and trust at each step. Key information appears at the right moment, without overwhelming the user or slowing their decision.",
+    },
+    tags: ["Flutter", "Figma", "Firebase", "UX Research"],
+    links: [
+      // Ajoutez votre lien prototype Figma ici :
+      // { label: { fr: "Prototype Figma", en: "Figma Prototype" }, href: "https://figma.com/proto/...", type: "prototype" },
+    ],
+    screens: [
+      { name: "fastgrab-home",       label: { fr: "Accueil",    en: "Home" } },
+      { name: "fastgrab-restaurant", label: { fr: "Restaurant", en: "Restaurant" } },
+      { name: "fastgrab-item",       label: { fr: "Article",    en: "Item" } },
+      { name: "fastgrab-checkout",   label: { fr: "Commande",   en: "Checkout" } },
+    ],
+    insights: [
+      {
+        title: { fr: "Une progression lisible", en: "A clear progression" },
+        detail: {
+          fr: "Séparer la découverte, le choix du restaurant et la commande réduit la charge cognitive et guide l'utilisateur naturellement sans qu'il ait besoin de réfléchir à l'étape suivante.",
+          en: "Separating discovery, restaurant selection, and checkout reduces cognitive load and guides the user naturally without them having to think about the next step.",
+        },
+      },
+      {
+        title: { fr: "Le choix avant l'action", en: "Choice before action" },
+        detail: {
+          fr: "Montrer les informations utiles — horaires, avis, délai — avant de confirmer l'étape suivante évite les abandons à mi-parcours et renforce la confiance.",
+          en: "Showing useful information — hours, reviews, delivery time — before confirming the next step prevents mid-flow drop-offs and builds trust.",
+        },
+      },
+      {
+        title: { fr: "Une validation compréhensible", en: "An understandable checkout" },
+        detail: {
+          fr: "Garder le récapitulatif de commande au centre de l'écran, avec le total et le CTA de paiement toujours visibles, réduit l'hésitation avant la confirmation.",
+          en: "Keeping the order summary central on screen, with total and payment CTA always visible, reduces hesitation before confirmation.",
+        },
+      },
+    ],
+  },
   // ── Salesium ────────────────────────────────────────────────────────────
   {
     slug: "salesium",
@@ -486,71 +691,68 @@ export const projects: Project[] = [
       },
     ],
   },
-  // ── MyMonto ─────────────────────────────────────────────────────────────
+  // ── E-commerce App ─────────────────────────────────────────────────────────────
   {
-    slug: "mymonto",
-    year: "2024 – 2025",
-    scope: "dev",
-    categories: ["mobile"],
-    name: "MyMonto",
-    type: { fr: "Services automobiles · Application Flutter", en: "Car services · Flutter app" },
+    slug: "ecommerce-app",
+    year: "2024",
+    scope: "both",
+    categories: ["mobile", "design"],
+    name: "E-commerce App",
+    type: { fr: "Shopping mobile · MVP Flutter", en: "Mobile shopping · Flutter MVP" },
     summary: {
-      fr: "Application Flutter (Play Store) centralisant assurance, réparations et GPS pour les conducteurs au Bénin. Développement front-end et intégration API au sein d'une équipe de trois.",
-      en: "Flutter app (Play Store) centralizing insurance, repairs and GPS for drivers in Benin. Front-end development and API integration within a three-person team.",
+      fr: "Démo d'une application mobile e-commerce pour produits électroniques — conçue pour les startups et solopreneurs qui veulent tester leur marché rapidement.",
+      en: "Demo of a mobile e-commerce app for electronics — designed for startups and solopreneurs who want to test their market fast.",
     },
     description: {
-      fr: "MyMonto Garage est une application Flutter disponible sur le Play Store, développée pour COSIT-BÉNIN (2024-2025). L'application regroupe les services clés pour les conducteurs : assurance, réparations en garage et localisation GPS. Elle dispose de deux espaces distincts — espace client et espace garage. J'ai construit l'intégralité de l'interface Flutter et intégré les APIs REST backend, en collaboration avec le designer et le développeur back-end.",
-      en: "MyMonto Garage is a Flutter app available on the Play Store, built for COSIT-BÉNIN (2024-2025). The app brings together key driver services: insurance, garage repairs, and GPS location. It has two distinct spaces — customer space and garage space. I built the full Flutter interface and integrated the backend REST APIs, working with the designer and backend developer.",
+      fr: "Une application mobile Flutter e-commerce pour la vente de produits électroniques (montres, écouteurs, TV, etc.). Simple, prête à vendre et rapide à lancer : idéale comme base MVP pour une startup early-stage ou un solopreneur qui veut valider son marché sans partir de zéro. Interface soignée, parcours d'achat fluide, et architecture modulaire pour s'adapter rapidement à n'importe quelle gamme de produits.",
+      en: "A Flutter mobile e-commerce app for selling electronics (watches, earbuds, TVs, etc.). Simple, ready to sell and fast to launch: ideal as an MVP base for an early-stage startup or solopreneur who wants to validate their market without starting from scratch. Polished UI, smooth purchase flow, and modular architecture to quickly adapt to any product range.",
     },
     role: {
-      fr: "Développeur Flutter (front-end & intégration API)",
-      en: "Flutter Developer (front-end & API integration)",
+      fr: "Designer UI/UX · Développeur Flutter",
+      en: "UI/UX Designer · Flutter Developer",
     },
-    duration: { fr: "6 mois", en: "6 months" },
+    duration: { fr: "1 mois", en: "1 month" },
     problem: {
-      fr: "Les conducteurs au Bénin devaient jongler entre plusieurs interlocuteurs pour gérer leur assurance, trouver un garage et localiser leur véhicule. Il n'existait pas d'application centralisant ces services dans une interface unifiée et mobile.",
-      en: "Drivers in Benin had to juggle multiple contacts to manage their insurance, find a garage, and locate their vehicle. No app centralized these services in a unified, mobile interface.",
+      fr: "Lancer une boutique en ligne mobile prend trop de temps et coûte trop cher pour une startup ou un solopreneur en phase de validation. Les solutions no-code manquent de personnalisation, et partir de zéro demande plusieurs mois.",
+      en: "Launching a mobile online store takes too long and costs too much for a startup or solopreneur in validation phase. No-code solutions lack customisation, and starting from scratch takes several months.",
     },
     solution: {
-      fr: "Une application Flutter avec deux espaces (client et garage) intégrant assurance, réparations et GPS dans une interface cohérente. Développement de tous les écrans des deux espaces et intégration complète des APIs REST, en coordination avec le designer et le back-end.",
-      en: "A Flutter app with two spaces (customer and garage) integrating insurance, repairs and GPS in a coherent interface. All screens of both spaces built and full REST API integration, in coordination with the designer and backend.",
+      fr: "Une application Flutter e-commerce clé en main, avec catalogue produits, fiches détail, panier et paiement — livrable en quelques jours. L'architecture modulaire permet d'adapter facilement les catégories, les couleurs et les produits à n'importe quel secteur.",
+      en: "A turnkey Flutter e-commerce app with product catalogue, detail pages, cart and checkout — deliverable in a few days. The modular architecture makes it easy to adapt categories, colours and products to any sector.",
     },
-    tags: ["Flutter", "Dart", "REST API"],
-    links: [
-      {
-        label: { fr: "Télécharger sur Play Store", en: "Get on Play Store" },
-        href: "https://play.google.com/store/apps/details?id=com.cositbenin2021.my_monto_mobile_garage&hl=fr",
-        type: "app-store",
-      },
-    ],
-    video: "/videos/mymonto-demo.mp4",
-    videoChromeLabel: "MyMonto Garage · Démo Flutter",
+    tags: ["Flutter", "Dart", "UI/UX", "Figma"],
+    links: [],
+    video: "/videos/ecommerce-demo.mp4",
+    videoChromeLabel: "E-commerce App · Démo Flutter",
     screens: [
-      { name: "mymonto-1", label: { fr: "Capture 1", en: "Screen 1" }, frame: "web" },
-      { name: "mymonto-2", label: { fr: "Capture 2", en: "Screen 2" }, frame: "web" },
-      { name: "mymonto-3", label: { fr: "Capture 3", en: "Screen 3" }, frame: "web" },
-      { name: "mymonto-4", label: { fr: "Capture 4", en: "Screen 4" }, frame: "web" },
+      { name: "ecommerce-1", label: { fr: "Accueil",          en: "Home" } },
+      { name: "ecommerce-2", label: { fr: "Catalogue",        en: "Catalogue" } },
+      { name: "ecommerce-3", label: { fr: "Fiche produit",    en: "Product page" } },
+      { name: "ecommerce-4", label: { fr: "Détail",           en: "Detail" } },
+      { name: "ecommerce-5", label: { fr: "Panier",           en: "Cart" } },
+      { name: "ecommerce-6", label: { fr: "Commande",         en: "Checkout" } },
+      { name: "ecommerce-7", label: { fr: "Confirmation",     en: "Confirmation" } },
     ],
     insights: [
       {
-        title: { fr: "Deux espaces, une app", en: "Two spaces, one app" },
+        title: { fr: "Un MVP en jours, pas en mois", en: "An MVP in days, not months" },
         detail: {
-          fr: "Séparer clairement l'espace client et l'espace garage dans la même application permet aux deux types d'utilisateurs d'accéder directement à leurs fonctionnalités sans confusion, tout en partageant la même base de code Flutter.",
-          en: "Clearly separating the customer space and garage space within the same app lets both user types access their features directly without confusion, while sharing the same Flutter codebase.",
+          fr: "Une base Flutter bien structurée avec catalogue, panier et paiement permet à un entrepreneur de tester son idée e-commerce en quelques jours plutôt qu'en plusieurs mois de développement from scratch.",
+          en: "A well-structured Flutter base with catalogue, cart and checkout lets an entrepreneur test their e-commerce idea in a few days rather than months of development from scratch.",
         },
       },
       {
-        title: { fr: "L'intégration API comme discipline", en: "API integration as a discipline" },
+        title: { fr: "Le design comme premier levier de conversion", en: "Design as the first conversion lever" },
         detail: {
-          fr: "Travailler en équipe avec un designer et un back-end séparé demande une rigueur sur les contrats d'API : typage des réponses, gestion des erreurs et états de chargement cohérents dans tous les écrans.",
-          en: "Working as a team with a separate designer and backend requires rigour on API contracts: typed responses, error handling and consistent loading states across all screens.",
+          fr: "Dans une boutique mobile, la confiance se gagne d'abord par l'interface : photos nettes, hiérarchie lisible et bouton d'achat visible réduisent l'hésitation et augmentent les conversions avant même la première vente.",
+          en: "In a mobile shop, trust is built first through the interface: clear photos, readable hierarchy and a visible buy button reduce hesitation and boost conversions before the first sale.",
         },
       },
       {
-        title: { fr: "Un service complet en mobile", en: "A complete service on mobile" },
+        title: { fr: "Modulaire par conception", en: "Modular by design" },
         detail: {
-          fr: "Réunir assurance, garage et GPS dans une seule application réduit la friction pour le conducteur : un seul point d'entrée pour tout ce qui concerne son véhicule, accessible en quelques secondes depuis son téléphone.",
-          en: "Bringing insurance, garage, and GPS together in one app reduces friction for the driver: a single entry point for everything vehicle-related, accessible in seconds from their phone.",
+          fr: "Structurer l'app autour de composants réutilisables (carte produit, fiche, panier) permet de changer de secteur — électronique, mode, cosmétique — sans réécrire l'interface. L'idée se valide, l'app s'adapte.",
+          en: "Structuring the app around reusable components (product card, detail, cart) makes it easy to switch sectors — electronics, fashion, cosmetics — without rewriting the UI. The idea gets validated, the app adapts.",
         },
       },
     ],
@@ -690,209 +892,6 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    slug: "fastgrab",
-    year: "2025",
-    scope: "both",
-    categories: ["mobile", "design"],
-    name: "FastGrab",
-    type: { fr: "Livraison · UI/UX Design", en: "Food delivery · UI/UX Design" },
-    summary: {
-      fr: "Parcours de commande mobile fluide, de la découverte du restaurant à la validation. Conçu et développé de bout en bout.",
-      en: "Seamless mobile ordering flow, from restaurant discovery through checkout. Designed and built end-to-end.",
-    },
-    description: {
-      fr: "FastGrab est une application mobile de livraison de nourriture conçue et développée de bout en bout. J'ai pris en charge l'UX Research, la conception UI sur Figma et l'intégralité du développement Flutter — de la première maquette à l'app fonctionnelle.",
-      en: "FastGrab is a food delivery mobile app designed and built end-to-end. I handled UX Research, UI design in Figma, and all Flutter development — from the first wireframe to a working app.",
-    },
-    role: {
-      fr: "Designer UI/UX · Développeur Flutter",
-      en: "UI/UX Designer · Flutter Developer",
-    },
-    duration: { fr: "6 semaines", en: "6 weeks" },
-    problem: {
-      fr: "Les applications de livraison existantes sur le marché local étaient surchargées d'informations, rendant la commande stressante et lente. L'objectif était de concevoir un parcours où un utilisateur peut commander en moins de trois étapes, sans friction.",
-      en: "Existing delivery apps on the local market were overloaded with information, making ordering stressful and slow. The goal was to design a flow where a user can order in fewer than three steps, without friction.",
-    },
-    solution: {
-      fr: "Un parcours en trois écrans progressifs — découverte, sélection, commande — avec un accent sur la lisibilité et la confiance à chaque étape. Les informations clés apparaissent au bon moment, sans surcharger l'utilisateur ni ralentir sa décision.",
-      en: "A three-screen progressive flow — discovery, selection, checkout — with a focus on readability and trust at each step. Key information appears at the right moment, without overwhelming the user or slowing their decision.",
-    },
-    tags: ["Flutter", "Figma", "Firebase", "UX Research"],
-    links: [
-      // Ajoutez votre lien prototype Figma ici :
-      // { label: { fr: "Prototype Figma", en: "Figma Prototype" }, href: "https://figma.com/proto/...", type: "prototype" },
-    ],
-    screens: [
-      { name: "fastgrab-home",       label: { fr: "Accueil",    en: "Home" } },
-      { name: "fastgrab-restaurant", label: { fr: "Restaurant", en: "Restaurant" } },
-      { name: "fastgrab-item",       label: { fr: "Article",    en: "Item" } },
-      { name: "fastgrab-checkout",   label: { fr: "Commande",   en: "Checkout" } },
-    ],
-    insights: [
-      {
-        title: { fr: "Une progression lisible", en: "A clear progression" },
-        detail: {
-          fr: "Séparer la découverte, le choix du restaurant et la commande réduit la charge cognitive et guide l'utilisateur naturellement sans qu'il ait besoin de réfléchir à l'étape suivante.",
-          en: "Separating discovery, restaurant selection, and checkout reduces cognitive load and guides the user naturally without them having to think about the next step.",
-        },
-      },
-      {
-        title: { fr: "Le choix avant l'action", en: "Choice before action" },
-        detail: {
-          fr: "Montrer les informations utiles — horaires, avis, délai — avant de confirmer l'étape suivante évite les abandons à mi-parcours et renforce la confiance.",
-          en: "Showing useful information — hours, reviews, delivery time — before confirming the next step prevents mid-flow drop-offs and builds trust.",
-        },
-      },
-      {
-        title: { fr: "Une validation compréhensible", en: "An understandable checkout" },
-        detail: {
-          fr: "Garder le récapitulatif de commande au centre de l'écran, avec le total et le CTA de paiement toujours visibles, réduit l'hésitation avant la confirmation.",
-          en: "Keeping the order summary central on screen, with total and payment CTA always visible, reduces hesitation before confirmation.",
-        },
-      },
-    ],
-  },
-  // ── SIM AH ─────────────────────────────────────────────────────────────
-  {
-    slug: "sim-ah",
-    year: "2023",
-    scope: "dev",
-    categories: ["mobile"],
-    name: "SIM AH",
-    type: { fr: "Prix agricoles · Application Flutter", en: "Agricultural prices · Flutter app" },
-    summary: {
-      fr: "Application Flutter co-développée permettant de suivre les prix agricoles en temps réel, marché par marché, dans le cadre du projet SIM Agricole Harmonisé du Bénin.",
-      en: "Co-developed Flutter app for tracking agricultural prices in real time, market by market, as part of Benin's Harmonised Agricultural Market Information System.",
-    },
-    description: {
-      fr: "SIM AH (simagricole-harmonise.bj) est une application Flutter développée pour COSIT-BÉNIN (2023) permettant aux acteurs du marché agricole béninois de consulter les prix des produits en temps réel, par marché et par secteur. J'ai co-développé l'interface Flutter en binôme avec un autre développeur, et intégré les APIs REST backend en coordination avec le designer et le développeur back-end.",
-      en: "SIM AH (simagricole-harmonise.bj) is a Flutter app built for COSIT-BÉNIN (2023) letting Beninese agricultural market players check product prices in real time, by market and by sector. I co-developed the Flutter interface in pair with another developer, and integrated the backend REST APIs in coordination with the designer and backend developer.",
-    },
-    role: {
-      fr: "Co-développeur Flutter (front-end & intégration API)",
-      en: "Co-Flutter Developer (front-end & API integration)",
-    },
-    duration: { fr: "3 mois", en: "3 months" },
-    problem: {
-      fr: "Les producteurs, commerçants et acheteurs du marché agricole béninois n'avaient pas d'accès facile aux prix en vigueur dans les différents marchés. Cette opacité créait des inégalités : ceux qui connaissaient les prix négociaient mieux que ceux qui ne les connaissaient pas.",
-      en: "Producers, traders and buyers in Benin's agricultural market had no easy access to current prices across different markets. This opacity created inequalities: those who knew prices negotiated better than those who didn't.",
-    },
-    solution: {
-      fr: "Une application Flutter permettant de consulter les prix agricoles en temps réel, marché par marché et secteur par secteur. Co-développement des écrans en binôme et intégration des APIs REST de simagricole-harmonise.bj, avec une interface adaptée aux conditions d'usage mobile sur le terrain.",
-      en: "A Flutter app for consulting agricultural prices in real time, market by market and sector by sector. Co-development of screens in pair and integration of the simagricole-harmonise.bj REST APIs, with an interface adapted to mobile field conditions.",
-    },
-    tags: ["Flutter", "Dart", "REST API"],
-    links: [
-      {
-        label: { fr: "Plateforme SIM AH", en: "SIM AH Platform" },
-        href: "https://simagricole-harmonise.bj",
-        type: "website",
-      },
-      {
-        label: { fr: "Voir le design Figma", en: "View Figma design" },
-        href: "https://www.figma.com/design/fQMQmaFhFCpiQPRSfkP3Hk/Untitled?node-id=0-1&p=f&t=YSGqCJCJXaVzJnDV-0",
-        type: "prototype",
-      },
-    ],
-    screens: [
-      { name: "simah-1", label: { fr: "Splash", en: "Splash" }, objectFit: "contain" as const },
-      { name: "simah-2", label: { fr: "Onboarding", en: "Onboarding" }, objectFit: "contain" as const },
-      { name: "simah-3", label: { fr: "Vérification", en: "Verification" }, objectFit: "contain" as const },
-      { name: "simah-4", label: { fr: "Tableau de bord", en: "Dashboard" }, objectFit: "contain" as const },
-      { name: "simah-5", label: { fr: "Liste des filières", en: "Product list" }, objectFit: "contain" as const },
-    ],
-    insights: [
-      {
-        title: { fr: "L'information comme équité", en: "Information as equity" },
-        detail: {
-          fr: "Rendre les prix agricoles accessibles à tous les acteurs du marché en temps réel réduit l'asymétrie d'information — l'outil numérique devient un levier d'équité économique, pas seulement de commodité.",
-          en: "Making agricultural prices accessible to all market players in real time reduces information asymmetry — the digital tool becomes a lever for economic equity, not just convenience.",
-        },
-      },
-      {
-        title: { fr: "Le binôme comme méthode", en: "Pair programming as method" },
-        detail: {
-          fr: "Co-développer les écrans Flutter à deux permet une relecture en continu et une montée en qualité rapide : chaque fonctionnalité est écrite par un développeur et revue immédiatement par l'autre.",
-          en: "Co-developing Flutter screens in a pair allows continuous review and fast quality improvement: each feature is written by one developer and immediately reviewed by the other.",
-        },
-      },
-      {
-        title: { fr: "Adapté au terrain", en: "Adapted to the field" },
-        detail: {
-          fr: "Une application utilisée sur les marchés agricoles doit être lisible en plein soleil, rapide sur une connexion lente et intuitive sans formation. Ces contraintes réelles ont guidé les décisions d'interface tout au long du projet.",
-          en: "An app used on agricultural markets must be readable in full sunlight, fast on a slow connection and intuitive without training. These real constraints guided interface decisions throughout the project.",
-        },
-      },
-    ],
-  },
-  // ── E-commerce App ─────────────────────────────────────────────────────────────
-  {
-    slug: "ecommerce-app",
-    year: "2024",
-    scope: "both",
-    categories: ["mobile", "design"],
-    name: "E-commerce App",
-    type: { fr: "Shopping mobile · MVP Flutter", en: "Mobile shopping · Flutter MVP" },
-    summary: {
-      fr: "Démo d'une application mobile e-commerce pour produits électroniques — conçue pour les startups et solopreneurs qui veulent tester leur marché rapidement.",
-      en: "Demo of a mobile e-commerce app for electronics — designed for startups and solopreneurs who want to test their market fast.",
-    },
-    description: {
-      fr: "Une application mobile Flutter e-commerce pour la vente de produits électroniques (montres, écouteurs, TV, etc.). Simple, prête à vendre et rapide à lancer : idéale comme base MVP pour une startup early-stage ou un solopreneur qui veut valider son marché sans partir de zéro. Interface soignée, parcours d'achat fluide, et architecture modulaire pour s'adapter rapidement à n'importe quelle gamme de produits.",
-      en: "A Flutter mobile e-commerce app for selling electronics (watches, earbuds, TVs, etc.). Simple, ready to sell and fast to launch: ideal as an MVP base for an early-stage startup or solopreneur who wants to validate their market without starting from scratch. Polished UI, smooth purchase flow, and modular architecture to quickly adapt to any product range.",
-    },
-    role: {
-      fr: "Designer UI/UX · Développeur Flutter",
-      en: "UI/UX Designer · Flutter Developer",
-    },
-    duration: { fr: "1 mois", en: "1 month" },
-    problem: {
-      fr: "Lancer une boutique en ligne mobile prend trop de temps et coûte trop cher pour une startup ou un solopreneur en phase de validation. Les solutions no-code manquent de personnalisation, et partir de zéro demande plusieurs mois.",
-      en: "Launching a mobile online store takes too long and costs too much for a startup or solopreneur in validation phase. No-code solutions lack customisation, and starting from scratch takes several months.",
-    },
-    solution: {
-      fr: "Une application Flutter e-commerce clé en main, avec catalogue produits, fiches détail, panier et paiement — livrable en quelques jours. L'architecture modulaire permet d'adapter facilement les catégories, les couleurs et les produits à n'importe quel secteur.",
-      en: "A turnkey Flutter e-commerce app with product catalogue, detail pages, cart and checkout — deliverable in a few days. The modular architecture makes it easy to adapt categories, colours and products to any sector.",
-    },
-    tags: ["Flutter", "Dart", "UI/UX", "Figma"],
-    links: [],
-    video: "/videos/ecommerce-demo.mp4",
-    videoChromeLabel: "E-commerce App · Démo Flutter",
-    screens: [
-      { name: "ecommerce-1", label: { fr: "Accueil",          en: "Home" } },
-      { name: "ecommerce-2", label: { fr: "Catalogue",        en: "Catalogue" } },
-      { name: "ecommerce-3", label: { fr: "Fiche produit",    en: "Product page" } },
-      { name: "ecommerce-4", label: { fr: "Détail",           en: "Detail" } },
-      { name: "ecommerce-5", label: { fr: "Panier",           en: "Cart" } },
-      { name: "ecommerce-6", label: { fr: "Commande",         en: "Checkout" } },
-      { name: "ecommerce-7", label: { fr: "Confirmation",     en: "Confirmation" } },
-    ],
-    insights: [
-      {
-        title: { fr: "Un MVP en jours, pas en mois", en: "An MVP in days, not months" },
-        detail: {
-          fr: "Une base Flutter bien structurée avec catalogue, panier et paiement permet à un entrepreneur de tester son idée e-commerce en quelques jours plutôt qu'en plusieurs mois de développement from scratch.",
-          en: "A well-structured Flutter base with catalogue, cart and checkout lets an entrepreneur test their e-commerce idea in a few days rather than months of development from scratch.",
-        },
-      },
-      {
-        title: { fr: "Le design comme premier levier de conversion", en: "Design as the first conversion lever" },
-        detail: {
-          fr: "Dans une boutique mobile, la confiance se gagne d'abord par l'interface : photos nettes, hiérarchie lisible et bouton d'achat visible réduisent l'hésitation et augmentent les conversions avant même la première vente.",
-          en: "In a mobile shop, trust is built first through the interface: clear photos, readable hierarchy and a visible buy button reduce hesitation and boost conversions before the first sale.",
-        },
-      },
-      {
-        title: { fr: "Modulaire par conception", en: "Modular by design" },
-        detail: {
-          fr: "Structurer l'app autour de composants réutilisables (carte produit, fiche, panier) permet de changer de secteur — électronique, mode, cosmétique — sans réécrire l'interface. L'idée se valide, l'app s'adapte.",
-          en: "Structuring the app around reusable components (product card, detail, cart) makes it easy to switch sectors — electronics, fashion, cosmetics — without rewriting the UI. The idea gets validated, the app adapts.",
-        },
-      },
-    ],
-  },
-
 ];
 
 export function getProject(slug: string): Project | undefined {

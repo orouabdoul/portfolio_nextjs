@@ -204,10 +204,10 @@ export default function ProjectsSection() {
                         {project.type[locale]}
                       </span>
                       <div className="flex items-center gap-2">
-                        {project.links.some((l) => l.type === "website") && (
+                        {(project.links.some((l) => l.type === "website") || project.links.some((l) => l.type === "app-store")) && (
                           <span className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 font-['JetBrains_Mono'] text-[9px] font-semibold uppercase tracking-wider text-emerald-400">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                            Live
+                            {project.links.some((l) => l.type === "website") ? "Live" : "Play Store"}
                           </span>
                         )}
                         <span className="font-['JetBrains_Mono'] text-[10px] text-gray-600">{project.year}</span>
