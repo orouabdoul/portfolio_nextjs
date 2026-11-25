@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 
 const EMAIL = "orouabdoulayeissiaka@gmail.com";
-const WHATSAPP_NUMBER = "22959000892";
+const WHATSAPP_NUMBER = "2290159000892";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 type Brief = {

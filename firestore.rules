@@ -30,7 +30,7 @@ service cloud.firestore {
         && data.message.size() >= 20
         && data.message.size() <= 1200
         && data.consent == true
-        && data.status == 'pending'
+        && data.status == 'published'
         && data.createdAt == request.time;
     }
 

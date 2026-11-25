@@ -58,7 +58,7 @@ const navLinks = [
 const socialLinks = [
   { icon: <LinkedInIcon />, label: "LinkedIn", href: "https://www.linkedin.com/in/amadou-fullstack-mobile" },
   { icon: <GitHubIcon />,   label: "GitHub",   href: "https://github.com/orouabdoul"                       },
-  { icon: <WhatsAppIcon />, label: "WhatsApp", href: "https://wa.me/22959000892"                            },
+  { icon: <WhatsAppIcon />, label: "WhatsApp", href: "https://wa.me/2290159000892"                            },
   { icon: <StoreIcon />,    label: "ComeUp",   href: "https://comeup.com/fr/@abdoulayeissiaka"             },
   { icon: <StoreIcon />,    label: "Upwork",   href: "https://www.upwork.com/services/product/2124195442479888103" },
 ];

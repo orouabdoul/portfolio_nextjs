@@ -266,7 +266,7 @@ export default function Navbar() {
                 {[
                   { label: "LinkedIn", href: "https://www.linkedin.com/in/amadou-fullstack-mobile" },
                   { label: "GitHub",   href: "https://github.com/orouabdoul" },
-                  { label: "WhatsApp", href: "https://wa.me/22959000892" },
+                  { label: "WhatsApp", href: "https://wa.me/2290159000892" },
                 ].map(({ label, href }) => (
                   <a
                     key={label}

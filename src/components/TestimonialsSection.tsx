@@ -219,8 +219,8 @@ export default function TestimonialsSection() {
         role: String(data.get("role") ?? "").trim(),
         message: String(data.get("message") ?? "").trim(),
         consent: data.get("consent") === "on",
-        // Reviews are moderated: publish them manually in the Firebase console
-        status: "pending",
+        // Published immediately. To hide a review, set its status to "hidden" in the Firebase console.
+        status: "published",
         createdAt: serverTimestamp(),
         lang: language,
       });
@@ -431,8 +431,8 @@ export default function TestimonialsSection() {
               className="text-center font-['Manrope'] text-sm text-emerald-400"
             >
               {isEnglish
-                ? "Thank you! Your review will appear here once it has been approved."
-                : "Merci ! Votre avis apparaîtra ici après validation."}
+                ? "Thank you! Your review is now published."
+                : "Merci ! Votre avis est maintenant publié."}
             </motion.p>
           ) : (
             <motion.div
