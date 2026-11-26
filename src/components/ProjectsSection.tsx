@@ -33,7 +33,7 @@ function FadeInView({
 }
 
 const scopeStyles = {
-  design: "border-violet-400/40 bg-violet-500/10 text-violet-300",
+  design: "border-violet-400/40 bg-violet-500/10 text-violet-300 [.light_&]:text-violet-700",
   dev:    "border-blue-400/40 bg-blue-500/10 text-accent-hi",
   both:   "border-indigo-400/40 bg-gradient-to-r from-violet-500/10 to-blue-500/10 text-fg-soft",
 } as const;
@@ -51,8 +51,6 @@ const FILTERS = [
   { key: "mobile", label: { fr: "Mobile", en: "Mobile" } },
   { key: "web",    label: { fr: "Web",    en: "Web" } },
 ] as const;
-
-const MotionLink = motion(Link);
 
 export default function ProjectsSection() {
   const { language } = useLanguage();
@@ -129,7 +127,7 @@ export default function ProjectsSection() {
         </FadeInView>
 
         {/* Project grid */}
-        <div className="grid gap-5 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2">
           <AnimatePresence mode="wait" initial={false}>
             {visible.map((project, index) => (
               <motion.div
@@ -140,111 +138,117 @@ export default function ProjectsSection() {
                 transition={{ duration: 0.25, delay: index * 0.06, ease }}
                 className="h-full"
               >
-                <MotionLink
+                <Link
                   href={`/realisations/${project.slug}`}
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.25, ease }}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface transition-shadow duration-300 hover:border-line-strong hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_22px_50px_-24px_rgba(59,130,246,0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
                   aria-label={`${locale === "en" ? "View project" : "Voir le projet"} ${project.name}`}
                 >
-                  {/* Screens preview */}
-                  <div className="relative overflow-hidden bg-bg px-5 pt-7">
+                  {/* Visuel — scène fixe 16:10, mêmes dimensions pour toutes les cartes */}
+                  <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-surface-2">
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_85%_at_50%_0%,rgba(59,130,246,0.22),transparent_62%)]" />
+                    <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,var(--line)_1px,transparent_1px),linear-gradient(to_bottom,var(--line)_1px,transparent_1px)] bg-[size:26px_26px] opacity-60 [mask-image:radial-gradient(ellipse_at_50%_0%,black_10%,transparent_70%)]" />
+
                     {project.screens.length === 0 ? (
-                      <div className="flex h-44 items-center justify-center">
-                        <div className="flex flex-col items-center gap-3">
-                          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-line-strong/50 bg-surface-2/60">
-                            <span className="select-none font-['Sora'] text-2xl font-bold text-muted">
-                              {project.name.charAt(0)}
-                            </span>
-                          </div>
-                          <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-fg-soft">
-                            {locale === "en" ? "Screenshots coming" : "Captures à venir"}
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-line-strong bg-surface">
+                          <span className="select-none font-['Sora'] text-2xl font-bold text-muted">
+                            {project.name.charAt(0)}
                           </span>
                         </div>
+                        <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-fg-soft">
+                          {locale === "en" ? "Screenshots coming" : "Captures à venir"}
+                        </span>
                       </div>
                     ) : project.screens[0]?.frame === "web" ? (
-                      <div className="mx-auto w-[90%] transition-transform duration-500 group-hover:-translate-y-2">
+                      <div className="absolute left-1/2 top-[20%] w-[84%] sm:top-[15%] -translate-x-1/2 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
                         <PortfolioScreen
                           name={project.screens[0].name}
                           alt={`${project.name} — ${project.screens[0].label[locale]}`}
-                          sizes="(max-width: 767px) 80vw, 40vw"
+                          sizes="(max-width: 767px) 85vw, 40vw"
                           frame="web"
                           chromeLabel={project.screens[0].chromeLabel}
                           objectFit={project.screens[0].objectFit}
-                          className="w-full drop-shadow-xl"
+                          className="w-full"
                         />
                       </div>
                     ) : (
-                      <div className="flex items-end justify-center gap-2.5">
+                      <div className="absolute inset-x-0 top-[16%] flex sm:top-[12%] justify-center gap-[3%]">
                         {project.screens.slice(0, 3).map((screen, i) => (
                           <div
                             key={screen.name}
-                            className={`w-[30%] shrink-0 transition-transform duration-500 ${
-                              i === 1 ? "-translate-y-3 group-hover:-translate-y-5" : "group-hover:-translate-y-1"
+                            className={`w-[26%] shrink-0 transition-transform duration-500 ease-out ${
+                              i === 1 ? "-mt-[2.5%] group-hover:-translate-y-2" : "mt-[3%] group-hover:-translate-y-1"
                             }`}
                           >
                             <PortfolioScreen
                               name={screen.name}
                               alt={`${project.name} — ${screen.label[locale]}`}
-                              sizes="20vw"
+                              sizes="(max-width: 767px) 25vw, 12vw"
                               objectFit={screen.objectFit}
-                              className="w-full drop-shadow-xl"
+                              className="w-full"
                             />
                           </div>
                         ))}
                       </div>
                     )}
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
+
+                    {/* Pastilles statut + année */}
+                    <div className="absolute inset-x-3 top-3 flex items-center justify-between gap-2">
+                      {project.links.some((l) => l.type === "website" || l.type === "app-store") ? (
+                        <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-bg/80 px-2.5 py-1 font-['JetBrains_Mono'] text-[11px] font-semibold uppercase tracking-wider text-emerald-500 backdrop-blur-md">
+                          <span className="relative flex h-1.5 w-1.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                          </span>
+                          {project.links.some((l) => l.type === "website") ? (locale === "en" ? "Live" : "En ligne") : "Play Store"}
+                        </span>
+                      ) : (
+                        <span />
+                      )}
+                      <span className="rounded-full border border-line bg-bg/80 px-2.5 py-1 font-['JetBrains_Mono'] text-[11px] text-fg-soft backdrop-blur-md">
+                        {project.year}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-7">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
-                        {project.type[locale]}
+                  {/* Contenu */}
+                  <div className="flex flex-1 flex-col p-5 sm:p-6">
+                    <p className="font-['Manrope'] text-[13px] font-semibold text-accent-hi">
+                      {project.type[locale]}
+                    </p>
+                    <div className="mt-1.5 flex items-start justify-between gap-4">
+                      <h3 className="font-['Sora'] text-2xl font-bold leading-tight tracking-tight text-fg">
+                        {project.name}
+                      </h3>
+                      <span
+                        aria-hidden="true"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-all duration-300 group-hover:border-blue-600 group-hover:bg-blue-600 group-hover:text-white"
+                      >
+                        <svg width="15" height="15" viewBox="0 0 14 14" fill="none" className="transition-transform duration-300 group-hover:rotate-[-45deg]">
+                          <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                       </span>
-                      <div className="flex items-center gap-2">
-                        {(project.links.some((l) => l.type === "website") || project.links.some((l) => l.type === "app-store")) && (
-                          <span className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 font-['JetBrains_Mono'] text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                            {project.links.some((l) => l.type === "website") ? "Live" : "Play Store"}
-                          </span>
-                        )}
-                        <span className="font-['JetBrains_Mono'] text-[11px] text-muted">{project.year}</span>
-                      </div>
                     </div>
-
-                    <h3 className="mt-3 font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
-                      {project.name}
-                    </h3>
-                    <p className="mt-2 font-['Manrope'] text-[15px] leading-7 text-muted">
+                    <p className="mt-2.5 line-clamp-3 font-['Manrope'] text-[15px] leading-7 text-muted">
                       {project.summary[locale]}
                     </p>
 
-                    {/* Scope badge + tech tags */}
-                    <div className="mt-4 flex flex-wrap items-center gap-2">
-                      <span className={`rounded-full border px-3 py-1 font-['Sora'] text-[11px] font-semibold ${scopeStyles[project.scope]}`}>
+                    {/* Périmètre + technologies */}
+                    <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-5">
+                      <span className={`rounded-md border px-2.5 py-1 font-['Sora'] text-[11px] font-semibold ${scopeStyles[project.scope]}`}>
                         {scopeLabels[project.scope][locale]}
                       </span>
                       {project.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-line-strong bg-surface-2/60 px-3 py-1 font-['JetBrains_Mono'] text-[11px] tracking-wide text-muted"
+                          className="rounded-md border border-line bg-surface-2/70 px-2.5 py-1 font-['JetBrains_Mono'] text-[11px] text-fg-soft"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-
-                    {/* Click hint */}
-                    <div className="mt-auto flex items-center gap-1.5 pt-5 font-['Sora'] text-sm font-semibold text-subtle transition-colors group-hover:text-accent-hi">
-                      {locale === "en" ? "View project" : "Voir le projet"}
-                      <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-1">
-                        <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </div>
                   </div>
-                </MotionLink>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>
