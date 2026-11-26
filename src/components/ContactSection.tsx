@@ -117,24 +117,24 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
-      <div className="pointer-events-none absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full bg-blue-400/30 blur-[80px]" />
-      <div className="pointer-events-none absolute -bottom-10 left-10 h-[300px] w-[300px] rounded-full bg-indigo-500/20 blur-[60px]" />
+      <div className="pointer-events-none absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full bg-blue-600/12 blur-[110px]" />
+      <div className="pointer-events-none absolute -bottom-10 left-10 h-[300px] w-[300px] rounded-full bg-indigo-500/10 blur-[90px]" />
 
       <div className="relative mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-14">
 
         {/* ── Left — copy ── */}
         <FadeInView className="flex flex-col">
-          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-white/70">
+          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
             {isEnglish ? "09 — Contact" : "09 — Contact"}
           </p>
-          <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-[1.08] tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-[1.08] tracking-tight text-fg sm:text-4xl lg:text-5xl">
             {isEnglish
               ? "Have an idea? Let's build something that matters."
               : "Vous avez une idée. Construisons quelque chose qui compte."}
           </h2>
-          <p className="mt-5 font-['Manrope'] text-sm leading-7 text-white/80 sm:text-base">
+          <p className="mt-5 font-['Manrope'] text-sm leading-7 text-muted sm:text-base">
             {isEnglish
               ? "Tell me a little about it. Together, we'll find the right next step."
               : "Parlez-m'en. Ensemble, nous trouverons la prochaine étape adaptée."}
@@ -145,7 +145,7 @@ export default function ContactSection() {
             href="https://calendly.com/orouabdoulayeissiaka/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex w-fit min-h-[50px] items-center gap-2.5 rounded-full bg-white px-6 font-['Sora'] text-sm font-semibold text-blue-700 shadow-[0_10px_30px_rgba(15,23,42,0.25)] transition-transform duration-200 hover:-translate-y-0.5"
+            className="mt-8 inline-flex w-fit min-h-[50px] items-center gap-2.5 rounded-full bg-blue-500 px-6 font-['Sora'] text-sm font-semibold text-white shadow-[0_0_28px_rgba(59,130,246,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-400"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <rect x="1.5" y="2.5" width="11" height="10" rx="2" stroke="currentColor" strokeWidth="1.4" />
@@ -158,9 +158,9 @@ export default function ContactSection() {
           <div className="mt-8 flex flex-col gap-3">
             <a
               href={`mailto:${EMAIL}`}
-              className="group inline-flex items-center gap-3 font-['Manrope'] text-sm text-white/70 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-3 font-['Manrope'] text-sm text-muted transition-colors hover:text-fg"
             >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 transition-colors group-hover:bg-white/20">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line bg-surface transition-colors group-hover:bg-surface-2">
                 <EnvelopeIcon />
               </span>
               {EMAIL}
@@ -169,9 +169,9 @@ export default function ContactSection() {
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 font-['Manrope'] text-sm text-white/70 transition-colors hover:text-white"
+              className="group inline-flex items-center gap-3 font-['Manrope'] text-sm text-muted transition-colors hover:text-fg"
             >
-              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 transition-colors group-hover:bg-white/20">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line bg-surface transition-colors group-hover:bg-surface-2">
                 <WhatsAppIcon />
               </span>
               {isEnglish ? "Chat on WhatsApp" : "Discuter sur WhatsApp"}
@@ -182,18 +182,18 @@ export default function ContactSection() {
         {/* ── Right — form card ── */}
         <FadeInView
           delay={0.15}
-          className="rounded-3xl bg-white p-5 text-gray-950 shadow-[0_24px_70px_rgba(15,23,42,0.2)] sm:p-7 lg:p-8"
+          className="rounded-3xl border border-line bg-surface p-5 text-fg shadow-[0_24px_70px_rgba(0,0,0,0.25)] sm:p-7 lg:p-8"
         >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.16em] text-blue-600">
+              <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.16em] text-accent">
                 {isEnglish ? "A quick project brief" : "Brief intelligent en 3 clics"}
               </p>
-              <h3 className="mt-2 font-['Sora'] text-xl font-bold leading-tight text-gray-950 sm:text-2xl">
+              <h3 className="mt-2 font-['Sora'] text-xl font-bold leading-tight text-fg sm:text-2xl">
                 {isEnglish ? "Let's talk about your project." : "Parlons de votre projet."}
               </h3>
             </div>
-            <span className="shrink-0 rounded-full bg-blue-50 px-3 py-1.5 font-['JetBrains_Mono'] text-[10px] text-blue-700">
+            <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1.5 font-['JetBrains_Mono'] text-[10px] text-accent">
               {step} / 3
             </span>
           </div>
@@ -204,8 +204,8 @@ export default function ContactSection() {
           >
             {[1, 2, 3].map((item) => (
               <div key={item} className="flex flex-col gap-1.5">
-                <span className={`h-1 rounded-full transition-colors duration-300 ${item <= step ? "bg-blue-600" : "bg-gray-200"}`} />
-                <span className={`font-['JetBrains_Mono'] text-[9px] uppercase tracking-wider transition-colors duration-300 ${item === step ? "text-blue-700" : "text-gray-400"}`}>
+                <span className={`h-1 rounded-full transition-colors duration-300 ${item <= step ? "bg-blue-600" : "bg-line-strong"}`} />
+                <span className={`font-['JetBrains_Mono'] text-[9px] uppercase tracking-wider transition-colors duration-300 ${item === step ? "text-accent" : "text-muted"}`}>
                   {isEnglish
                     ? ["Project", "Plan", "Contact"][item - 1]
                     : ["Projet", "Plan", "Contact"][item - 1]}
@@ -217,7 +217,7 @@ export default function ContactSection() {
           <form onSubmit={handleSubmit}>
             {step === 1 && (
               <fieldset className="mt-5">
-                <legend className="font-['Sora'] text-sm font-semibold text-gray-900">
+                <legend className="font-['Sora'] text-sm font-semibold text-fg">
                   {isEnglish ? "What would you like to create?" : "Quel projet souhaitez-vous réaliser ?"}
                 </legend>
                 <div className="mt-3 grid grid-cols-2 gap-2">
@@ -231,7 +231,7 @@ export default function ContactSection() {
                         onChange={(event) => updateBrief("projectType", event.target.value)}
                         className="peer sr-only"
                       />
-                      <span className="flex min-h-10 items-center rounded-xl border border-gray-200 px-3 py-2 font-['Manrope'] text-xs text-gray-600 transition-colors peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-800 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-500 sm:text-sm">
+                      <span className="flex min-h-10 items-center rounded-xl border border-line px-3 py-2 font-['Manrope'] text-xs text-muted transition-colors peer-checked:border-blue-500 peer-checked:bg-accent/10 peer-checked:text-accent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-500 sm:text-sm">
                         {option}
                       </span>
                     </label>
@@ -243,7 +243,7 @@ export default function ContactSection() {
             {step === 2 && (
               <div className="mt-5 flex flex-col gap-4">
                 <fieldset>
-                  <legend className="font-['Sora'] text-sm font-semibold text-gray-900">
+                  <legend className="font-['Sora'] text-sm font-semibold text-fg">
                     {isEnglish ? "Where are you with it?" : "Où en êtes-vous dans le projet ?"}
                   </legend>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -257,7 +257,7 @@ export default function ContactSection() {
                           onChange={(event) => updateBrief("stage", event.target.value)}
                           className="peer sr-only"
                         />
-                        <span className="inline-flex min-h-9 items-center rounded-full border border-gray-200 px-3 py-1.5 font-['Manrope'] text-xs text-gray-600 transition-colors peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-800 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-500">
+                        <span className="inline-flex min-h-9 items-center rounded-full border border-line px-3 py-1.5 font-['Manrope'] text-xs text-muted transition-colors peer-checked:border-blue-500 peer-checked:bg-accent/10 peer-checked:text-accent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-500">
                           {option}
                         </span>
                       </label>
@@ -265,7 +265,7 @@ export default function ContactSection() {
                   </div>
                 </fieldset>
                 <fieldset>
-                  <legend className="font-['Sora'] text-sm font-semibold text-gray-900">
+                  <legend className="font-['Sora'] text-sm font-semibold text-fg">
                     {isEnglish ? "When would you like to start?" : "Quand souhaitez-vous commencer ?"}
                   </legend>
                   <div className="mt-2 flex flex-wrap gap-2">
@@ -279,20 +279,20 @@ export default function ContactSection() {
                           onChange={(event) => updateBrief("timeline", event.target.value)}
                           className="peer sr-only"
                         />
-                        <span className="inline-flex min-h-9 items-center rounded-full border border-gray-200 px-3 py-1.5 font-['Manrope'] text-xs text-gray-600 transition-colors peer-checked:border-blue-500 peer-checked:bg-blue-50 peer-checked:text-blue-800 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-500">
+                        <span className="inline-flex min-h-9 items-center rounded-full border border-line px-3 py-1.5 font-['Manrope'] text-xs text-muted transition-colors peer-checked:border-blue-500 peer-checked:bg-accent/10 peer-checked:text-accent peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-blue-500">
                           {option}
                         </span>
                       </label>
                     ))}
                   </div>
                 </fieldset>
-                <label className="flex flex-col gap-1.5 font-['Sora'] text-sm font-semibold text-gray-900">
+                <label className="flex flex-col gap-1.5 font-['Sora'] text-sm font-semibold text-fg">
                   {isEnglish ? "Estimated budget" : "Budget estimé"}
                   <select
                     required
                     value={brief.budget}
                     onChange={(event) => updateBrief("budget", event.target.value)}
-                    className="h-10 rounded-xl border border-gray-200 bg-white px-3 font-['Manrope'] text-xs font-normal text-gray-700 outline-none focus:border-blue-500"
+                    className="h-10 rounded-xl border border-line bg-surface px-3 font-['Manrope'] text-xs font-normal text-fg-soft outline-none focus:border-blue-500"
                   >
                     <option value="" disabled>
                       {isEnglish ? "Choose a range" : "Choisissez une fourchette"}
@@ -307,7 +307,7 @@ export default function ContactSection() {
 
             {step === 3 && (
               <div className="mt-5 flex flex-col gap-3">
-                <label className="flex flex-col gap-1.5 font-['Sora'] text-xs font-semibold text-gray-800">
+                <label className="flex flex-col gap-1.5 font-['Sora'] text-xs font-semibold text-fg-soft">
                   {isEnglish ? "A few words about your project" : "Quelques mots sur votre projet"}
                   <textarea
                     required
@@ -317,21 +317,21 @@ export default function ContactSection() {
                     value={brief.message}
                     onChange={(event) => updateBrief("message", event.target.value)}
                     placeholder={isEnglish ? "What would you like to achieve?" : "Quel résultat souhaitez-vous obtenir ?"}
-                    className="resize-y rounded-xl border border-gray-200 px-3 py-2.5 font-['Manrope'] text-xs font-normal leading-5 text-gray-800 outline-none placeholder:text-gray-400 focus:border-blue-500"
+                    className="resize-y rounded-xl border border-line px-3 py-2.5 font-['Manrope'] text-xs font-normal leading-5 text-fg-soft outline-none placeholder:text-muted focus:border-blue-500"
                   />
                 </label>
                 <div className="grid gap-3 sm:grid-cols-2">
-                  <label className="flex flex-col gap-1.5 font-['Sora'] text-xs font-semibold text-gray-800">
+                  <label className="flex flex-col gap-1.5 font-['Sora'] text-xs font-semibold text-fg-soft">
                     {isEnglish ? "Your name" : "Votre nom"}
                     <input
                       required
                       autoComplete="name"
                       value={brief.name}
                       onChange={(event) => updateBrief("name", event.target.value)}
-                      className="h-10 rounded-xl border border-gray-200 px-3 font-['Manrope'] text-xs font-normal text-gray-800 outline-none focus:border-blue-500"
+                      className="h-10 rounded-xl border border-line px-3 font-['Manrope'] text-xs font-normal text-fg-soft outline-none focus:border-blue-500"
                     />
                   </label>
-                  <label className="flex flex-col gap-1.5 font-['Sora'] text-xs font-semibold text-gray-800">
+                  <label className="flex flex-col gap-1.5 font-['Sora'] text-xs font-semibold text-fg-soft">
                     {isEnglish ? "Your email" : "Votre e-mail"}
                     <input
                       required
@@ -339,7 +339,7 @@ export default function ContactSection() {
                       autoComplete="email"
                       value={brief.email}
                       onChange={(event) => updateBrief("email", event.target.value)}
-                      className="h-10 rounded-xl border border-gray-200 px-3 font-['Manrope'] text-xs font-normal text-gray-800 outline-none focus:border-blue-500"
+                      className="h-10 rounded-xl border border-line px-3 font-['Manrope'] text-xs font-normal text-fg-soft outline-none focus:border-blue-500"
                     />
                   </label>
                 </div>
@@ -351,7 +351,7 @@ export default function ContactSection() {
                 <button
                   type="button"
                   onClick={() => setStep((current) => current - 1)}
-                  className="min-h-11 rounded-xl border border-gray-200 px-4 font-['Sora'] text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50"
+                  className="min-h-11 rounded-xl border border-line px-4 font-['Sora'] text-xs font-semibold text-fg-soft transition-colors hover:bg-bg"
                 >
                   {isEnglish ? "Back" : "Retour"}
                 </button>
@@ -365,7 +365,7 @@ export default function ContactSection() {
                       : !brief.stage || !brief.timeline || !brief.budget
                   }
                   onClick={() => setStep((current) => current + 1)}
-                  className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-gray-950 px-4 font-['Sora'] text-xs font-semibold text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 font-['Sora'] text-xs font-semibold text-white transition-colors hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   {isEnglish ? "Continue" : "Continuer"}
                   <span aria-hidden="true">→</span>
@@ -373,14 +373,14 @@ export default function ContactSection() {
               ) : (
                 <button
                   type="submit"
-                  className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-gray-950 px-4 font-['Sora'] text-xs font-semibold text-white transition-colors hover:bg-gray-800"
+                  className="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 font-['Sora'] text-xs font-semibold text-white transition-colors hover:bg-blue-500"
                 >
                   {isEnglish ? "Send my brief" : "Envoyer mon brief"}
                   <span aria-hidden="true">→</span>
                 </button>
               )}
             </div>
-            <p className="mt-2 text-center font-['Manrope'] text-[10px] leading-4 text-gray-500">
+            <p className="mt-2 text-center font-['Manrope'] text-[10px] leading-4 text-subtle">
               {isEnglish
                 ? "WhatsApp will open with your brief ready to send."
                 : "WhatsApp s'ouvrira avec votre brief prêt à envoyer."}

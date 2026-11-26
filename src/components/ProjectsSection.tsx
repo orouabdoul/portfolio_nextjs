@@ -34,8 +34,8 @@ function FadeInView({
 
 const scopeStyles = {
   design: "border-violet-400/40 bg-violet-500/10 text-violet-300",
-  dev:    "border-blue-400/40 bg-blue-500/10 text-blue-300",
-  both:   "border-indigo-400/40 bg-gradient-to-r from-violet-500/10 to-blue-500/10 text-slate-200",
+  dev:    "border-blue-400/40 bg-blue-500/10 text-accent-hi",
+  both:   "border-indigo-400/40 bg-gradient-to-r from-violet-500/10 to-blue-500/10 text-fg-soft",
 } as const;
 
 const scopeLabels = {
@@ -81,7 +81,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="realisations"
-      className="relative w-full overflow-hidden bg-gray-950 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="pointer-events-none absolute -right-20 top-20 h-[500px] w-[500px] rounded-full bg-violet-600/8 blur-[120px]" />
       <div className="pointer-events-none absolute -left-10 bottom-20 h-[350px] w-[350px] rounded-full bg-violet-500/5 blur-[90px]" />
@@ -90,11 +90,11 @@ export default function ProjectsSection() {
 
         {/* Header + filters */}
         <FadeInView>
-          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-400">
+          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
             {locale === "en" ? "02 — Selected work" : "02 — Réalisations"}
           </p>
           <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
+            <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
               {locale === "en" ? "What I design and deliver." : "Ce que je conçois et livre."}
             </h2>
 
@@ -109,14 +109,14 @@ export default function ProjectsSection() {
                     onClick={() => handleFilterChange(filter.key)}
                     className={`relative rounded-full px-4 py-2 font-['Sora'] text-[13px] font-semibold transition-colors duration-200 ${
                       isActive
-                        ? "bg-white text-gray-950"
-                        : "border border-gray-700 text-gray-400 hover:border-gray-500 hover:text-gray-200"
+                        ? "bg-surface text-fg"
+                        : "border border-line-strong text-muted hover:border-line-strong hover:text-fg-soft"
                     }`}
                   >
                     {isActive && (
                       <motion.span
                         layoutId="filter-pill"
-                        className="absolute inset-0 rounded-full bg-white"
+                        className="absolute inset-0 rounded-full bg-surface"
                         transition={{ duration: 0.25, ease }}
                       />
                     )}
@@ -144,20 +144,20 @@ export default function ProjectsSection() {
                   href={`/realisations/${project.slug}`}
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.25, ease }}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-gray-800 bg-gray-900 transition-shadow duration-300 hover:border-gray-700 hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface transition-shadow duration-300 hover:border-line-strong hover:shadow-[0_8px_40px_rgba(59,130,246,0.1)]"
                   aria-label={`${locale === "en" ? "View project" : "Voir le projet"} ${project.name}`}
                 >
                   {/* Screens preview */}
-                  <div className="relative overflow-hidden bg-gray-950 px-5 pt-7">
+                  <div className="relative overflow-hidden bg-bg px-5 pt-7">
                     {project.screens.length === 0 ? (
                       <div className="flex h-44 items-center justify-center">
                         <div className="flex flex-col items-center gap-3">
-                          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-700/50 bg-gray-800/60">
-                            <span className="select-none font-['Sora'] text-2xl font-bold text-gray-600">
+                          <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-line-strong/50 bg-surface-2/60">
+                            <span className="select-none font-['Sora'] text-2xl font-bold text-muted">
                               {project.name.charAt(0)}
                             </span>
                           </div>
-                          <span className="font-['JetBrains_Mono'] text-[9px] uppercase tracking-widest text-gray-700">
+                          <span className="font-['JetBrains_Mono'] text-[9px] uppercase tracking-widest text-fg-soft">
                             {locale === "en" ? "Screenshots coming" : "Captures à venir"}
                           </span>
                         </div>
@@ -194,13 +194,13 @@ export default function ProjectsSection() {
                         ))}
                       </div>
                     )}
-                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-gray-900 to-transparent" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
                   </div>
 
                   {/* Content */}
                   <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-7">
                     <div className="flex items-center justify-between gap-3">
-                      <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
+                      <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
                         {project.type[locale]}
                       </span>
                       <div className="flex items-center gap-2">
@@ -210,14 +210,14 @@ export default function ProjectsSection() {
                             {project.links.some((l) => l.type === "website") ? "Live" : "Play Store"}
                           </span>
                         )}
-                        <span className="font-['JetBrains_Mono'] text-[10px] text-gray-600">{project.year}</span>
+                        <span className="font-['JetBrains_Mono'] text-[10px] text-muted">{project.year}</span>
                       </div>
                     </div>
 
-                    <h3 className="mt-3 font-['Sora'] text-2xl font-bold leading-tight text-slate-100 sm:text-3xl">
+                    <h3 className="mt-3 font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
                       {project.name}
                     </h3>
-                    <p className="mt-2 font-['Manrope'] text-sm leading-6 text-gray-400">
+                    <p className="mt-2 font-['Manrope'] text-sm leading-6 text-muted">
                       {project.summary[locale]}
                     </p>
 
@@ -229,7 +229,7 @@ export default function ProjectsSection() {
                       {project.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-gray-700 bg-gray-800/60 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-gray-400"
+                          className="rounded-full border border-line-strong bg-surface-2/60 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-muted"
                         >
                           {tag}
                         </span>
@@ -237,7 +237,7 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* Click hint */}
-                    <div className="mt-auto flex items-center gap-1.5 pt-5 font-['Sora'] text-sm font-semibold text-gray-500 transition-colors group-hover:text-blue-400">
+                    <div className="mt-auto flex items-center gap-1.5 pt-5 font-['Sora'] text-sm font-semibold text-subtle transition-colors group-hover:text-accent-hi">
                       {locale === "en" ? "View project" : "Voir le projet"}
                       <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                         <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -261,7 +261,7 @@ export default function ProjectsSection() {
             <button
               type="button"
               onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2.5 rounded-full border border-gray-700 px-6 py-3 font-['Sora'] text-sm font-semibold text-gray-300 transition-all duration-200 hover:border-gray-500 hover:text-slate-100"
+              className="inline-flex items-center gap-2.5 rounded-full border border-line-strong px-6 py-3 font-['Sora'] text-sm font-semibold text-fg-soft transition-all duration-200 hover:border-line-strong hover:text-fg"
             >
               {locale === "en"
                 ? `View all projects (${filtered.length})`
@@ -280,7 +280,7 @@ export default function ProjectsSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
-              className="py-16 text-center font-['Manrope'] text-sm text-gray-600"
+              className="py-16 text-center font-['Manrope'] text-sm text-muted"
             >
               {locale === "en" ? "No projects in this category yet." : "Aucun projet dans cette catégorie pour l'instant."}
             </motion.div>
@@ -292,13 +292,13 @@ export default function ProjectsSection() {
           <article className="relative overflow-hidden rounded-3xl border border-blue-500/30 bg-gradient-to-br from-blue-600/15 via-blue-500/8 to-indigo-600/10 p-5 sm:p-7 lg:p-9">
             <div className="pointer-events-none absolute -right-10 -top-10 h-[200px] w-[200px] rounded-full bg-blue-500/15 blur-[60px]" />
             <div className="relative flex flex-col gap-5">
-              <span className="font-['JetBrains_Mono'] text-xs tracking-widest text-blue-400">
+              <span className="font-['JetBrains_Mono'] text-xs tracking-widest text-accent-hi">
                 {String(projects.length + 1).padStart(2, "0")} · {locale === "en" ? "Your project" : "Votre projet"}
               </span>
-              <h3 className="font-['Sora'] text-3xl font-bold leading-tight text-slate-100 sm:text-4xl">
+              <h3 className="font-['Sora'] text-3xl font-bold leading-tight text-fg sm:text-4xl">
                 {locale === "en" ? "Your project, my next realisation." : "Votre projet, ma prochaine réalisation."}
               </h3>
-              <p className="max-w-xl font-['Manrope'] text-sm leading-6 text-gray-300 sm:text-base">
+              <p className="max-w-xl font-['Manrope'] text-sm leading-6 text-fg-soft sm:text-base">
                 {locale === "en"
                   ? "You have an idea or a need to structure. Let's talk and see how to turn it into a usable product."
                   : "Vous avez une idée ou un besoin à structurer. Parlons-en et voyons comment le transformer en produit utilisable."}

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Sora, Manrope, JetBrains_Mono } from "next/font/google";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import BackToTop from "@/components/BackToTop";
@@ -67,6 +67,14 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#060e18",
+};
+
+// Appliqué avant l'affichage pour éviter un flash de la mauvaise couleur.
+// Sombre par défaut ; « light » seulement si le visiteur l'a choisi.
+const themeScript = `(function(){try{if(localStorage.getItem("theme")==="light"){document.documentElement.classList.add("light");var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content","#f5f9fc");}}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: {
@@ -76,8 +84,12 @@ export default function RootLayout({
     <html
       lang="fr"
       className={`${sora.variable} ${manrope.variable} ${jetbrainsMono.variable} h-full antialiased scroll-smooth`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-gray-950">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="min-h-full flex flex-col bg-bg">
         <LanguageProvider>
           {children}
           <BackToTop />

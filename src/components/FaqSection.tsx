@@ -86,7 +86,7 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="w-full bg-white px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="w-full bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <motion.div
@@ -95,13 +95,13 @@ export default function FaqSection() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease }}
         >
-          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-500">
+          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
             {isEnglish ? "07 — FAQ" : "07 — Questions fréquentes"}
           </p>
-          <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
             {isEnglish ? "Before you order." : "Avant de commander."}
           </h2>
-          <p className="mt-4 max-w-md font-['Manrope'] text-sm leading-7 text-gray-500 sm:text-base">
+          <p className="mt-4 max-w-md font-['Manrope'] text-sm leading-7 text-subtle sm:text-base">
             {isEnglish
               ? "The answers to the questions clients ask most often. Something else? Write to me in the form below."
               : "Les réponses aux questions que les clients posent le plus souvent. Une autre question ? Écrivez-moi dans le formulaire ci-dessous."}
@@ -116,20 +116,20 @@ export default function FaqSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: 0.04 * index, ease }}
-              className="group rounded-2xl border border-gray-200 bg-white px-5 py-4 transition-colors open:border-blue-200 open:bg-blue-50/40 sm:px-6"
+              className="group rounded-2xl border border-line bg-surface px-5 py-4 transition-colors open:border-accent/30 open:bg-accent/5 sm:px-6"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-['Sora'] text-[15px] font-semibold text-gray-950 sm:text-base [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-['Sora'] text-[15px] font-semibold text-fg sm:text-base [&::-webkit-details-marker]:hidden">
                 {item.q[locale]}
                 <span
                   aria-hidden="true"
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-gray-200 text-gray-500 transition-transform duration-200 group-open:rotate-45 group-open:border-blue-200 group-open:text-blue-600"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line text-subtle transition-transform duration-200 group-open:rotate-45 group-open:border-accent/30 group-open:text-accent"
                 >
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path d="M6 1.5v9M1.5 6h9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
                   </svg>
                 </span>
               </summary>
-              <p className="mt-3 font-['Manrope'] text-sm leading-7 text-gray-600 sm:text-[15px]">
+              <p className="mt-3 font-['Manrope'] text-sm leading-7 text-muted sm:text-[15px]">
                 {item.a[locale]}
               </p>
             </motion.details>

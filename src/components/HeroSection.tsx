@@ -87,7 +87,7 @@ export default function HeroSection() {
   return (
     <section
       id="accueil"
-      className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gray-950 px-5 pb-16 pt-28 sm:px-8 sm:pt-32 xl:justify-center xl:px-20 xl:py-24"
+      className="relative flex min-h-screen w-full flex-col overflow-hidden bg-bg px-5 pb-16 pt-28 sm:px-8 sm:pt-32 xl:justify-center xl:px-20 xl:py-24"
     >
       {/* Mesh gradient blobs */}
       <motion.div
@@ -97,7 +97,7 @@ export default function HeroSection() {
       />
       <div className="pointer-events-none absolute -bottom-20 left-0 h-[400px] w-[500px] rounded-full bg-indigo-600/8 blur-[100px]" />
       <div className="pointer-events-none absolute right-1/4 top-1/3 h-[300px] w-[300px] rounded-full bg-blue-500/5 blur-[80px]" />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-gray-950/80 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-bg/80 via-transparent to-transparent" />
 
       <div className="relative mx-auto grid w-full max-w-[1280px] items-center gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-16">
 
@@ -106,10 +106,10 @@ export default function HeroSection() {
 
           {/* 1 · Identity */}
           <motion.div {...fadeUp(0.15)} className="flex flex-col gap-2">
-            <span className="font-['Manrope'] text-[13px] tracking-[0.05em] text-gray-400">
+            <span className="font-['Manrope'] text-[13px] tracking-[0.05em] text-muted">
               Amadou Issiaka Abdoulaye
             </span>
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.18em] text-blue-400 sm:text-[11px]">
+            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.18em] text-accent-hi sm:text-[11px]">
               <ScrambleText
                 text={isEnglish ? "Mobile & backend developer · Flutter · Laravel" : "Développeur mobile & backend · Flutter · Laravel"}
                 delay={700}
@@ -120,11 +120,11 @@ export default function HeroSection() {
           {/* 2 · H1 */}
           <motion.h1
             {...fadeUp(0.35)}
-            className="mt-7 flex flex-col font-['Sora'] text-[clamp(30px,7vw,50px)] font-bold leading-[1.08] tracking-[-0.5px] text-slate-100 sm:mt-9"
+            className="mt-7 flex flex-col font-['Sora'] text-[clamp(30px,7vw,50px)] font-bold leading-[1.08] tracking-[-0.5px] text-fg sm:mt-9"
           >
             <span>{isEnglish ? "I design" : "Je conçois"}</span>
             <span>{isEnglish ? "and build apps" : "et développe des apps"}</span>
-            <span className="text-blue-500">
+            <span className="text-accent-hi">
               {isEnglish ? "people actually use." : "qu'on adopte vraiment."}
             </span>
           </motion.h1>
@@ -141,16 +141,16 @@ export default function HeroSection() {
             ].map((stat, i) => (
               <div key={i} className="flex items-stretch">
                 <div className="flex flex-col gap-1 pr-6 sm:pr-8">
-                  <span className="font-['Sora'] text-2xl font-bold leading-none text-white sm:text-3xl">
+                  <span className="font-['Sora'] text-2xl font-bold leading-none text-fg sm:text-3xl">
                     {stat.delay > 0 ? <CountUp to={stat.value} delay={stat.delay} /> : stat.value}
                     {stat.suffix}
                   </span>
-                  <span className="font-['Manrope'] text-[11px] leading-4 text-gray-500 sm:text-xs">
+                  <span className="font-['Manrope'] text-[11px] leading-4 text-subtle sm:text-xs">
                     {stat.label}
                   </span>
                 </div>
                 {i < 2 && (
-                  <div className="mr-6 w-px self-stretch bg-gray-800 sm:mr-8" />
+                  <div className="mr-6 w-px self-stretch bg-surface-2 sm:mr-8" />
                 )}
               </div>
             ))}
@@ -174,7 +174,7 @@ export default function HeroSection() {
               href="https://calendly.com/orouabdoulayeissiaka/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-gray-700 px-6 font-['Sora'] text-sm font-semibold tracking-tight text-slate-100 transition-colors duration-200 hover:border-gray-500 hover:bg-white/5 sm:text-[15px]"
+              className="flex min-h-[52px] items-center justify-center gap-2.5 rounded-full border border-line-strong px-6 font-['Sora'] text-sm font-semibold tracking-tight text-fg transition-colors duration-200 hover:border-line-strong hover:bg-fg/5 sm:text-[15px]"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <rect x="1.5" y="2.5" width="11" height="10" rx="2" stroke="currentColor" strokeWidth="1.4" />
@@ -185,7 +185,7 @@ export default function HeroSection() {
             <a
               href={isEnglish ? "/cv-en.pdf" : "/cv-fr.pdf"}
               download={isEnglish ? "CV-Amadou-Issiaka-EN.pdf" : "CV-Amadou-Issiaka-FR.pdf"}
-              className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-dashed border-gray-600 px-5 font-['Sora'] text-sm font-medium tracking-tight text-gray-400 transition-all duration-200 hover:border-gray-400 hover:text-white sm:text-[15px]"
+              className="flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-dashed border-line-strong px-5 font-['Sora'] text-sm font-medium tracking-tight text-muted transition-all duration-200 hover:border-line-strong hover:text-fg sm:text-[15px]"
             >
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M7 2V9M4 7L7 10L10 7M2 11.5H12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -203,7 +203,7 @@ export default function HeroSection() {
           className="relative mx-auto mt-4 flex w-full max-w-[440px] justify-center xl:mt-16 xl:max-w-none"
         >
           <div className="pointer-events-none absolute inset-x-8 bottom-8 top-8 rounded-full bg-blue-500/18 blur-3xl" />
-          <div className="relative aspect-[4/5] w-[min(82vw,320px)] overflow-hidden rounded-3xl border border-white/10 bg-gray-900 shadow-[0_28px_80px_rgba(0,0,0,0.5)] sm:w-[340px] xl:w-[min(100%,430px)]">
+          <div className="relative aspect-[4/5] w-[min(82vw,320px)] overflow-hidden rounded-3xl border border-line bg-surface shadow-[0_28px_80px_rgba(0,0,0,0.5)] sm:w-[340px] xl:w-[min(100%,430px)]">
             <Image
               src="/amadou-transparent.png"
               alt={isEnglish ? "Professional portrait of Amadou Issiaka" : "Portrait professionnel d'Amadou Issiaka"}

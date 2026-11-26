@@ -70,7 +70,7 @@ export default function FooterSection() {
   const sectionHref = (href: string) => (pathname === "/" ? href : `/${href}`);
 
   return (
-    <footer className="relative w-full overflow-hidden border-t border-gray-800 bg-gray-950 px-5 py-10 sm:px-8 sm:py-12 lg:px-20 lg:py-14">
+    <footer className="relative w-full overflow-hidden border-t border-line bg-bg px-5 py-10 sm:px-8 sm:py-12 lg:px-20 lg:py-14">
 
       <div className="relative mx-auto flex max-w-[1280px] flex-col gap-10">
 
@@ -88,15 +88,15 @@ export default function FooterSection() {
             <div className="flex items-center gap-3">
               <BrandMark size={40} className="h-10 w-10 shrink-0" />
               <span className="flex flex-col leading-tight">
-                <span className="font-['Sora'] text-[15px] font-bold tracking-tight text-slate-100">
+                <span className="font-['Sora'] text-[15px] font-bold tracking-tight text-fg">
                   Amadou Issiaka
                 </span>
-                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.14em] text-gray-400">
+                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.14em] text-muted">
                   Mobile &amp; Backend
                 </span>
               </span>
             </div>
-            <p className="font-['Manrope'] text-sm leading-6 text-gray-400 lg:max-w-[200px]">
+            <p className="font-['Manrope'] text-sm leading-6 text-muted lg:max-w-[200px]">
               {isEnglish
                 ? "Mobile & backend developer based in Benin."
                 : "Développeur mobile & backend basé au Bénin."}
@@ -111,7 +111,7 @@ export default function FooterSection() {
 
           {/* Navigation */}
           <div className="flex flex-col gap-3">
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
+            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
               {isEnglish ? "Navigation" : "Navigation"}
             </p>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -119,7 +119,7 @@ export default function FooterSection() {
                 <li key={href}>
                   <a
                     href={sectionHref(href)}
-                    className="font-['Manrope'] text-sm text-gray-400 transition-colors hover:text-slate-100"
+                    className="font-['Manrope'] text-sm text-muted transition-colors hover:text-fg"
                   >
                     {label[language]}
                   </a>
@@ -130,7 +130,7 @@ export default function FooterSection() {
 
           {/* Social */}
           <div className="flex flex-col gap-3">
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
+            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
               Social
             </p>
             <ul className="flex flex-col gap-2.5">
@@ -140,7 +140,7 @@ export default function FooterSection() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 text-gray-400 transition-colors hover:text-slate-100"
+                    className="flex items-center gap-2.5 text-muted transition-colors hover:text-fg"
                   >
                     <span className="shrink-0">{icon}</span>
                     <span className="font-['Manrope'] text-sm">{label}</span>
@@ -152,7 +152,7 @@ export default function FooterSection() {
 
           {/* Language */}
           <div className="flex flex-col gap-3">
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-400">
+            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
               {isEnglish ? "Language" : "Langue"}
             </p>
             <div className="flex flex-col gap-2">
@@ -165,7 +165,7 @@ export default function FooterSection() {
                   type="button"
                   onClick={() => setLanguage(code)}
                   className={`flex items-center gap-2.5 font-['Manrope'] text-sm transition-colors ${
-                    language === code ? "text-slate-100" : "text-gray-500 hover:text-gray-300"
+                    language === code ? "text-fg" : "text-subtle hover:text-fg-soft"
                   }`}
                 >
                   <span>{flag}</span>
@@ -183,14 +183,14 @@ export default function FooterSection() {
         </motion.div>
 
         {/* ── Bottom bar ── */}
-        <div className="flex flex-col-reverse items-start justify-between gap-3 border-t border-gray-800 pt-6 sm:flex-row sm:items-center">
-          <span className="font-['JetBrains_Mono'] text-[10px] text-gray-600">
+        <div className="flex flex-col-reverse items-start justify-between gap-3 border-t border-line pt-6 sm:flex-row sm:items-center">
+          <span className="font-['JetBrains_Mono'] text-[10px] text-muted">
             © 2026 Amadou Issiaka Abdoulaye
             {isEnglish ? " — All rights reserved" : " — Tous droits réservés"}
           </span>
           <a
             href={sectionHref("#accueil")}
-            className="flex items-center gap-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-gray-500 transition-colors hover:text-blue-400"
+            className="flex items-center gap-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-subtle transition-colors hover:text-accent-hi"
           >
             {isEnglish ? "Back to top" : "Retour en haut"}
             <svg width="8" height="10" viewBox="0 0 8 10" fill="none" aria-hidden="true">

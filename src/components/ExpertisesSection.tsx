@@ -67,21 +67,21 @@ export default function ExpertisesSection() {
   return (
     <section
       id="expertises"
-      className="w-full bg-white px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="w-full bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="mx-auto flex max-w-[1280px] flex-col gap-10 sm:gap-12">
 
         {/* Header */}
         <FadeInView>
-          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-500">
+          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
             {locale === "en" ? "03 — Expertise" : "03 — Expertises"}
           </p>
-          <h2 className="mt-5 max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-gray-950 sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
             {locale === "en"
               ? "Two expertises. One person."
               : "Deux expertises. Un seul interlocuteur."}
           </h2>
-          <p className="mt-4 max-w-xl font-['Manrope'] text-sm leading-7 text-gray-500 sm:text-base">
+          <p className="mt-4 max-w-xl font-['Manrope'] text-sm leading-7 text-subtle sm:text-base">
             {locale === "en"
               ? "From the first Figma wireframe to the deployed app — without switching contacts."
               : "Du premier wireframe Figma à l'app déployée, sans changer d'interlocuteur."}
@@ -96,7 +96,7 @@ export default function ExpertisesSection() {
             <motion.article
               whileHover={{ y: -3 }}
               transition={{ duration: 0.22, ease }}
-              className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-violet-200/80 bg-gradient-to-br from-violet-50 to-white p-7 sm:p-8"
+              className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-violet-500/30 bg-gradient-to-br from-violet-500/10 to-surface p-7 sm:p-8"
             >
               {/* Decorative Figma-frame shapes */}
               <div className="pointer-events-none absolute right-0 top-0 text-violet-400 opacity-[0.07]">
@@ -109,26 +109,26 @@ export default function ExpertisesSection() {
               </div>
 
               <div className="flex items-start justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-violet-200 bg-violet-100 text-violet-600">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-violet-500/30 bg-violet-500/15 text-violet-500">
                   <DesignIcon />
                 </div>
                 <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-violet-400">01</span>
               </div>
 
-              <h3 className="mt-6 font-['Sora'] text-2xl font-bold leading-tight text-gray-950 sm:text-3xl">
+              <h3 className="mt-6 font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
                 {locale === "en" ? "UI/UX Design" : "Design UI/UX"}
               </h3>
-              <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-sm leading-7 text-gray-600 sm:text-base">
+              <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-sm leading-7 text-muted sm:text-base">
                 {locale === "en"
                   ? "User journeys, wireframes and high-fidelity mockups — all validated in Figma before writing a single line of code. UX structured, flows tested, prototype delivered."
                   : "Parcours utilisateurs, wireframes et maquettes haute-fidélité — tout validé dans Figma avant d'écrire une ligne de code. UX structurée, parcours testés, prototype livré."}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-2 border-t border-violet-100 pt-5">
+              <div className="mt-6 flex flex-wrap gap-2 border-t border-violet-500/20 pt-5">
                 {["Figma", "Prototype", "Design System", "User Flows", "UX Research"].map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-violet-600"
+                    className="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-violet-500"
                   >
                     {tag}
                   </span>
@@ -142,26 +142,26 @@ export default function ExpertisesSection() {
             <motion.article
               whileHover={{ y: -3 }}
               transition={{ duration: 0.22, ease }}
-              className="flex h-full flex-col rounded-3xl border border-gray-200 bg-white p-6 sm:p-7"
+              className="flex h-full flex-col rounded-3xl border border-line bg-surface p-6 sm:p-7"
             >
               <div className="flex items-start justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 text-gray-600">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-bg text-muted">
                   <SoloIcon />
                 </div>
-                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-gray-400">02</span>
+                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-muted">02</span>
               </div>
 
-              <h3 className="mt-6 font-['Sora'] text-xl font-bold leading-tight text-gray-950">
+              <h3 className="mt-6 font-['Sora'] text-xl font-bold leading-tight text-fg">
                 {locale === "en" ? "Solo, end-to-end" : "Solo, de bout en bout"}
               </h3>
-              <p className="mt-3 flex-1 font-['Manrope'] text-sm leading-6 text-gray-500">
+              <p className="mt-3 flex-1 font-['Manrope'] text-sm leading-6 text-subtle">
                 {locale === "en"
                   ? "One person for the whole product. No information lost between mockup and code — the designer and the developer are the same."
                   : "Une seule personne pour tout le produit. Aucune information perdue entre la maquette et le code — le designer et le développeur, c'est la même personne."}
               </p>
 
-              <div className="mt-5 border-t border-gray-100 pt-4">
-                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-gray-400">
+              <div className="mt-5 border-t border-line pt-4">
+                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-muted">
                   {locale === "en" ? "1 contact · Full ownership" : "1 interlocuteur · Produit complet"}
                 </span>
               </div>
@@ -173,19 +173,19 @@ export default function ExpertisesSection() {
             <motion.article
               whileHover={{ y: -3 }}
               transition={{ duration: 0.22, ease }}
-              className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-blue-200/80 bg-gradient-to-br from-blue-50 to-white p-6 sm:p-7"
+              className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-accent/30 bg-gradient-to-br from-accent/10 to-surface p-6 sm:p-7"
             >
               <div className="flex items-start justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-blue-200 bg-blue-100 text-blue-600">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/30 bg-accent/15 text-accent">
                   <MobileIcon />
                 </div>
-                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-blue-400">03</span>
+                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-accent-hi">03</span>
               </div>
 
-              <h3 className="mt-6 font-['Sora'] text-xl font-bold leading-tight text-gray-950">
+              <h3 className="mt-6 font-['Sora'] text-xl font-bold leading-tight text-fg">
                 {locale === "en" ? "Mobile Development" : "Développement Mobile"}
               </h3>
-              <p className="mt-3 flex-1 font-['Manrope'] text-sm leading-6 text-gray-600">
+              <p className="mt-3 flex-1 font-['Manrope'] text-sm leading-6 text-muted">
                 {locale === "en"
                   ? "Flutter and React Native for native iOS and Android apps. Pixel-perfect implementation."
                   : "Flutter et React Native pour des apps natives iOS et Android. Fidèle à la maquette au pixel près."}
@@ -195,7 +195,7 @@ export default function ExpertisesSection() {
                 {["Flutter", "React Native", "iOS", "Android"].map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-blue-600"
+                    className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-accent"
                   >
                     {tag}
                   </span>
@@ -209,35 +209,35 @@ export default function ExpertisesSection() {
             <motion.article
               whileHover={{ y: -3 }}
               transition={{ duration: 0.22, ease }}
-              className="relative flex h-full flex-col overflow-hidden rounded-3xl bg-gray-950 p-7 sm:p-8"
+              className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface p-7 sm:p-8"
             >
               {/* Decorative code hint */}
-              <div className="pointer-events-none absolute bottom-6 right-7 text-right font-['JetBrains_Mono'] text-[11px] leading-6 text-gray-600 opacity-60 select-none">
+              <div className="pointer-events-none absolute bottom-6 right-7 text-right font-['JetBrains_Mono'] text-[11px] leading-6 text-muted opacity-60 select-none">
                 <div>Route::middleware(&apos;auth:sanctum&apos;)</div>
                 <div>&nbsp;&nbsp;-&gt;get(&apos;/orders&apos;, [OrderController::class, &apos;index&apos;]);</div>
               </div>
 
               <div className="flex items-start justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-gray-700 bg-gray-800 text-gray-300">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line-strong bg-surface-2 text-fg-soft">
                   <APIIcon />
                 </div>
-                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-gray-600">04</span>
+                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-muted">04</span>
               </div>
 
-              <h3 className="mt-6 font-['Sora'] text-2xl font-bold leading-tight text-slate-100 sm:text-3xl">
+              <h3 className="mt-6 font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
                 {locale === "en" ? "Backend & Integrations" : "Backend & Intégrations"}
               </h3>
-              <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-sm leading-7 text-gray-400 sm:text-base">
+              <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-sm leading-7 text-muted sm:text-base">
                 {locale === "en"
                   ? "REST APIs with Laravel, Vue 3 admin panels, authentication, databases and real-time sync. The app connects cleanly to your existing ecosystem."
                   : "API REST avec Laravel, back-offices Vue 3, authentification, bases de données et synchronisation temps réel. L'application s'intègre dans votre écosystème existant sans friction."}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-2 border-t border-gray-800 pt-5">
+              <div className="mt-6 flex flex-wrap gap-2 border-t border-line pt-5">
                 {["Laravel", "PHP", "Vue 3", "MySQL", "REST API", "Firebase", "Supabase", "Git"].map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-gray-700 bg-gray-800/60 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-gray-400"
+                    className="rounded-full border border-line-strong bg-surface-2/60 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-muted"
                   >
                     {tag}
                   </span>

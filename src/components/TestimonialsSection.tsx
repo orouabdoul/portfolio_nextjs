@@ -65,31 +65,31 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
     .toUpperCase();
 
   return (
-    <article className="flex h-full flex-col gap-5 rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-colors hover:border-gray-700 sm:p-7">
+    <article className="flex h-full flex-col gap-5 rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-line-strong sm:p-7">
       <svg
-        className="h-7 w-7 text-blue-500/40"
+        className="h-7 w-7 text-accent-hi/40"
         viewBox="0 0 24 24"
         fill="currentColor"
         aria-hidden="true"
       >
         <path d="M9.5 6C6.5 6 4 8.6 4 11.8V18h6v-6H7c0-1.9 1.1-3.3 2.5-3.6V6Zm10 0C16.5 6 14 8.6 14 11.8V18h6v-6h-3c0-1.9 1.1-3.3 2.5-3.6V6Z" />
       </svg>
-      <blockquote className="-mt-2 font-['Manrope'] text-[15px] leading-7 text-gray-300">
+      <blockquote className="-mt-2 font-['Manrope'] text-[15px] leading-7 text-fg-soft">
         &ldquo;{testimonial.message}&rdquo;
       </blockquote>
-      <div className="mt-auto flex items-center gap-3 border-t border-gray-800 pt-5">
+      <div className="mt-auto flex items-center gap-3 border-t border-line pt-5">
         <div
-          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${gradient} font-['Sora'] text-sm font-bold text-white`}
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${gradient} font-['Sora'] text-sm font-bold text-fg`}
           aria-hidden="true"
         >
           {initials}
         </div>
         <div>
-          <p className="font-['Sora'] text-sm font-semibold text-slate-100">
+          <p className="font-['Sora'] text-sm font-semibold text-fg">
             {name}
           </p>
           {role && (
-            <p className="mt-0.5 font-['Manrope'] text-xs text-blue-300/90">
+            <p className="mt-0.5 font-['Manrope'] text-xs text-accent-hi/90">
               {role}
             </p>
           )}
@@ -102,20 +102,20 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 function SkeletonCard() {
   return (
     <div
-      className="flex flex-col gap-5 rounded-2xl border border-gray-800 bg-gray-900/50 p-6 sm:p-7"
+      className="flex flex-col gap-5 rounded-2xl border border-line bg-surface/50 p-6 sm:p-7"
       aria-hidden="true"
     >
       <div className="flex flex-col gap-2.5">
-        <div className="h-3 w-full rounded-full bg-gray-800" />
-        <div className="h-3 w-5/6 rounded-full bg-gray-800" />
-        <div className="h-3 w-4/6 rounded-full bg-gray-800" />
-        <div className="h-3 w-3/6 rounded-full bg-gray-800" />
+        <div className="h-3 w-full rounded-full bg-surface-2" />
+        <div className="h-3 w-5/6 rounded-full bg-surface-2" />
+        <div className="h-3 w-4/6 rounded-full bg-surface-2" />
+        <div className="h-3 w-3/6 rounded-full bg-surface-2" />
       </div>
-      <div className="mt-auto flex items-center gap-3 border-t border-gray-800 pt-5">
-        <div className="h-10 w-10 shrink-0 rounded-full bg-gray-800" />
+      <div className="mt-auto flex items-center gap-3 border-t border-line pt-5">
+        <div className="h-10 w-10 shrink-0 rounded-full bg-surface-2" />
         <div className="flex flex-col gap-1.5">
-          <div className="h-2.5 w-24 rounded-full bg-gray-800" />
-          <div className="h-2 w-16 rounded-full bg-gray-800" />
+          <div className="h-2.5 w-24 rounded-full bg-surface-2" />
+          <div className="h-2 w-16 rounded-full bg-surface-2" />
         </div>
       </div>
     </div>
@@ -291,7 +291,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="temoignages"
-      className="relative w-full overflow-hidden bg-[#0B1220] px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       {/* Ambient glows */}
       <div className="pointer-events-none absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/6 blur-[120px]" />
@@ -306,14 +306,14 @@ export default function TestimonialsSection() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-400">
+          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
             {isEnglish ? "08 — Testimonials" : "08 — Témoignages"}
           </p>
           <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
+            <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
               {isEnglish ? "People I've worked with." : "Ils ont travaillé avec moi."}
             </h2>
-            <p className="max-w-sm font-['Manrope'] text-sm leading-6 text-gray-400 sm:text-base">
+            <p className="max-w-sm font-['Manrope'] text-sm leading-6 text-muted sm:text-base">
               {isEnglish
                 ? "Genuine feedback from clients and colleagues, published as written."
                 : "Des retours authentiques de clients et de collègues, publiés tels quels."}
@@ -336,11 +336,11 @@ export default function TestimonialsSection() {
             )}
 
             {(loadState === "unconfigured" || (loadState === "ready" && testimonials.length === 0)) && (
-              <div className="flex min-h-[180px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-gray-800 bg-gray-900/40 px-6 py-10 text-center">
-                <p className="font-['Sora'] text-base font-semibold text-slate-100">
+              <div className="flex min-h-[180px] flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-line bg-surface/40 px-6 py-10 text-center">
+                <p className="font-['Sora'] text-base font-semibold text-fg">
                   {isEnglish ? "No reviews published yet." : "Aucun avis publié pour l'instant."}
                 </p>
-                <p className="max-w-md font-['Manrope'] text-sm leading-6 text-gray-400">
+                <p className="max-w-md font-['Manrope'] text-sm leading-6 text-muted">
                   {isEnglish
                     ? "Have we worked together? Be the first to share your experience."
                     : "Nous avons travaillé ensemble ? Soyez le premier à partager votre expérience."}
@@ -391,7 +391,7 @@ export default function TestimonialsSection() {
                 onClick={goPrev}
                 disabled={safePage === 0}
                 aria-label={isEnglish ? "Previous" : "Précédent"}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-700 text-gray-400 transition-colors hover:border-gray-500 hover:text-slate-100 disabled:opacity-30"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-line-strong text-muted transition-colors hover:border-line-strong hover:text-fg disabled:opacity-30"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M10 3L5 8L10 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -417,7 +417,7 @@ export default function TestimonialsSection() {
                     className={`h-1.5 rounded-full transition-all duration-300 ${
                       i === safePage
                         ? "w-6 bg-blue-400"
-                        : "w-1.5 bg-gray-700 hover:bg-gray-500"
+                        : "w-1.5 bg-surface-2 hover:bg-line-strong"
                     }`}
                   />
                 ))}
@@ -428,7 +428,7 @@ export default function TestimonialsSection() {
                 onClick={goNext}
                 disabled={safePage >= totalPages - 1}
                 aria-label={isEnglish ? "Next" : "Suivant"}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-700 text-gray-400 transition-colors hover:border-gray-500 hover:text-slate-100 disabled:opacity-30"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-line-strong text-muted transition-colors hover:border-line-strong hover:text-fg disabled:opacity-30"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -457,13 +457,13 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-gray-800 bg-gray-900 px-6 py-5 sm:flex-row sm:items-center sm:px-8"
+              className="flex flex-col items-start justify-between gap-4 rounded-2xl border border-line bg-surface px-6 py-5 sm:flex-row sm:items-center sm:px-8"
             >
               <div>
-                <p className="font-['Sora'] text-base font-semibold text-slate-100">
+                <p className="font-['Sora'] text-base font-semibold text-fg">
                   {isEnglish ? "Worked with me?" : "Vous avez travaillé avec moi ?"}
                 </p>
-                <p className="mt-0.5 font-['Manrope'] text-sm text-gray-400">
+                <p className="mt-0.5 font-['Manrope'] text-sm text-muted">
                   {isEnglish
                     ? "Your feedback helps future clients make the right choice."
                     : "Votre retour aide les futurs clients à faire le bon choix."}
@@ -495,7 +495,7 @@ export default function TestimonialsSection() {
         onClick={(event) => {
           if (event.target === event.currentTarget) closeDialog();
         }}
-        className="m-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-xl overflow-y-auto rounded-3xl border-0 bg-white p-0 text-gray-950 shadow-2xl backdrop:bg-gray-950/80 backdrop:backdrop-blur-sm"
+        className="m-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-xl overflow-y-auto rounded-3xl border-0 bg-surface p-0 text-fg shadow-2xl backdrop:bg-bg/80 backdrop:backdrop-blur-sm"
       >
         <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-5 sm:gap-5 sm:p-8">
           <div className="flex items-start justify-between gap-4">
@@ -506,7 +506,7 @@ export default function TestimonialsSection() {
               >
                 {isEnglish ? "Leave a review" : "Laisser un témoignage"}
               </h3>
-              <p className="mt-2 font-['Manrope'] text-sm leading-6 text-gray-600">
+              <p className="mt-2 font-['Manrope'] text-sm leading-6 text-muted">
                 {isEnglish
                   ? "Your review will appear on the site as soon as you submit it."
                   : "Votre avis apparaîtra sur le site dès que vous l'aurez envoyé."}
@@ -516,14 +516,14 @@ export default function TestimonialsSection() {
               type="button"
               onClick={closeDialog}
               aria-label={isEnglish ? "Close form" : "Fermer le formulaire"}
-              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 text-xl text-gray-600 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-xl text-muted transition-colors hover:bg-surface-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
             >
               ×
             </button>
           </div>
 
           {!firebaseConfigured && (
-            <p className="rounded-xl bg-amber-50 p-3 font-['Manrope'] text-sm leading-6 text-amber-900">
+            <p className="rounded-xl bg-amber-500/10 p-3 font-['Manrope'] text-sm leading-6 text-amber-900">
               {isEnglish
                 ? "The form will be available once Firebase is configured."
                 : "Le formulaire sera disponible dès que Firebase sera configuré."}
@@ -531,7 +531,7 @@ export default function TestimonialsSection() {
           )}
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className="flex flex-col gap-1.5 font-['Manrope'] text-xs font-medium text-gray-700">
+            <label className="flex flex-col gap-1.5 font-['Manrope'] text-xs font-medium text-fg-soft">
               {isEnglish ? "Name" : "Nom"}
               <input
                 name="name"
@@ -540,17 +540,17 @@ export default function TestimonialsSection() {
                 minLength={2}
                 maxLength={80}
                 autoComplete="name"
-                className="h-11 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-950 caret-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
+                className="h-11 rounded-xl border border-line bg-surface px-3 text-sm text-fg caret-fg outline-none transition-colors placeholder:text-muted focus:border-blue-500"
                 placeholder={isEnglish ? "Your name" : "Votre nom"}
               />
             </label>
-            <label className="flex flex-col gap-1.5 font-['Manrope'] text-xs font-medium text-gray-700">
+            <label className="flex flex-col gap-1.5 font-['Manrope'] text-xs font-medium text-fg-soft">
               {isEnglish ? "Role or project (optional)" : "Rôle ou projet (facultatif)"}
               <input
                 name="role"
                 type="text"
                 maxLength={100}
-                className="h-11 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-950 caret-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
+                className="h-11 rounded-xl border border-line bg-surface px-3 text-sm text-fg caret-fg outline-none transition-colors placeholder:text-muted focus:border-blue-500"
                 placeholder={
                   isEnglish ? "e.g. Founder, mobile app" : "Ex. Fondateur, application mobile"
                 }
@@ -558,7 +558,7 @@ export default function TestimonialsSection() {
             </label>
           </div>
 
-          <label className="flex flex-col gap-1.5 font-['Manrope'] text-xs font-medium text-gray-700">
+          <label className="flex flex-col gap-1.5 font-['Manrope'] text-xs font-medium text-fg-soft">
             {isEnglish ? "Your review" : "Votre avis"}
             <textarea
               name="message"
@@ -566,7 +566,7 @@ export default function TestimonialsSection() {
               minLength={20}
               maxLength={1200}
               rows={4}
-              className="resize-y rounded-xl border border-gray-200 bg-white px-3 py-2.5 text-sm leading-6 text-gray-950 caret-gray-950 outline-none transition-colors placeholder:text-gray-400 focus:border-blue-500"
+              className="resize-y rounded-xl border border-line bg-surface px-3 py-2.5 text-sm leading-6 text-fg caret-fg outline-none transition-colors placeholder:text-muted focus:border-blue-500"
               placeholder={
                 isEnglish
                   ? "Tell us about your experience working together"
@@ -582,7 +582,7 @@ export default function TestimonialsSection() {
             <input name="website" type="text" tabIndex={-1} autoComplete="off" />
           </div>
 
-          <label className="flex items-start gap-2.5 font-['Manrope'] text-xs leading-5 text-gray-600">
+          <label className="flex items-start gap-2.5 font-['Manrope'] text-xs leading-5 text-muted">
             <input
               name="consent"
               type="checkbox"
@@ -597,7 +597,7 @@ export default function TestimonialsSection() {
           </label>
 
           {formError && (
-            <p role="alert" className="font-['Manrope'] text-sm text-red-700">
+            <p role="alert" className="font-['Manrope'] text-sm text-red-500">
               {formError}
             </p>
           )}
@@ -605,7 +605,7 @@ export default function TestimonialsSection() {
           <button
             type="submit"
             disabled={!firebaseConfigured || isSubmitting}
-            className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-gray-950 px-5 font-['Sora'] text-sm font-semibold text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex min-h-12 items-center justify-center gap-2 rounded-full bg-blue-600 px-5 font-['Sora'] text-sm font-semibold text-white transition-colors hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {isSubmitting
               ? isEnglish

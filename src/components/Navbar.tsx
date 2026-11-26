@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage, type Language } from "@/components/LanguageProvider";
+import ThemeToggle from "@/components/ThemeToggle";
 import BrandMark from "@/components/BrandMark";
 
 const navLinks: { label: Record<Language, string>; href: string }[] = [
@@ -71,7 +72,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-4 left-0 right-0 px-4 z-50 sm:px-8 lg:top-6 lg:px-20">
-      <nav className={`w-full h-14 pl-2 pr-2 rounded-full border border-white/10 backdrop-blur-xl flex justify-between items-center transition-all duration-500 sm:h-16 sm:pl-4 sm:pr-3 ${scrolled ? "bg-gray-950/85 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" : "bg-gray-950/55"}`}>
+      <nav className={`w-full h-14 pl-2 pr-2 rounded-full border border-line backdrop-blur-xl flex justify-between items-center transition-all duration-500 sm:h-16 sm:pl-4 sm:pr-3 ${scrolled ? "bg-bg/85 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" : "bg-bg/55"}`}>
         {/* ── Logo ── */}
         <a
           href={sectionHref("#accueil")}
@@ -80,10 +81,10 @@ export default function Navbar() {
         >
           <BrandMark size={40} className="h-9 w-9 shrink-0 drop-shadow-[0_0_14px_rgba(59,130,246,0.35)] sm:h-10 sm:w-10" />
           <span className="hidden flex-col leading-tight sm:flex">
-            <span className="font-['Sora'] text-[15px] font-bold tracking-tight text-slate-100">
+            <span className="font-['Sora'] text-[15px] font-bold tracking-tight text-fg">
               Amadou Issiaka
             </span>
-            <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.14em] text-gray-400">
+            <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.14em] text-muted">
               Mobile &amp; Backend
             </span>
           </span>
@@ -93,7 +94,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-3.5 xl:flex 2xl:gap-8">
           <a href={sectionHref("#accueil")} className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-            <span className="text-slate-100 text-sm font-medium font-['Manrope'] tracking-tight">
+            <span className="text-fg text-sm font-medium font-['Manrope'] tracking-tight">
             {language === "fr" ? "Accueil" : "Home"}
             </span>
           </a>
@@ -104,7 +105,7 @@ export default function Navbar() {
               <a
                 key={href}
                 href={sectionHref(href)}
-                className={`text-sm font-medium font-['Manrope'] tracking-tight transition-colors duration-200 ${isActive ? "text-slate-100" : "text-gray-400 hover:text-slate-100"}`}
+                className={`text-sm font-medium font-['Manrope'] tracking-tight transition-colors duration-200 ${isActive ? "text-fg" : "text-muted hover:text-fg"}`}
               >
                 {label[language]}
               </a>
@@ -119,7 +120,7 @@ export default function Navbar() {
             aria-label={mobileMenuOpen ? (language === "fr" ? "Fermer le menu" : "Close menu") : (language === "fr" ? "Ouvrir le menu" : "Open menu")}
             aria-expanded={mobileMenuOpen}
             onClick={() => setMobileMenuOpen((open) => !open)}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-800 text-slate-100 hover:bg-gray-800 xl:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-fg hover:bg-surface-2 xl:hidden"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               {mobileMenuOpen ? (
@@ -130,6 +131,8 @@ export default function Navbar() {
             </svg>
           </button>
           {/* Language selector */}
+          <ThemeToggle />
+
           <div className="relative" ref={dropdownRef}>
             <button
               type="button"
@@ -137,9 +140,9 @@ export default function Navbar() {
               aria-expanded={langOpen}
               aria-haspopup="listbox"
               aria-label={language === "fr" ? "Choisir la langue" : "Choose language"}
-              className="h-10 px-4 bg-gray-950/60 rounded-full border border-gray-800 flex items-center gap-2 hover:border-gray-700 transition-colors duration-200 cursor-pointer"
+              className="h-10 px-4 bg-bg/60 rounded-full border border-line flex items-center gap-2 hover:border-line-strong transition-colors duration-200 cursor-pointer"
             >
-              <span className="text-slate-100 text-xs font-medium font-['Manrope'] tracking-wide">
+              <span className="text-fg text-xs font-medium font-['Manrope'] tracking-wide">
                 {language.toUpperCase()}
               </span>
               <svg
@@ -161,7 +164,7 @@ export default function Navbar() {
             {langOpen && (
               <div
                 role="listbox"
-                className="absolute right-0 top-12 w-48 p-2 bg-gray-900 rounded-2xl border border-gray-800 flex flex-col gap-1 z-50 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150"
+                className="absolute right-0 top-12 w-48 p-2 bg-surface rounded-2xl border border-line flex flex-col gap-1 z-50 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150"
               >
                 <button
                   type="button"
@@ -172,13 +175,13 @@ export default function Navbar() {
                     setLangOpen(false);
                   }}
                   className={`px-3 py-2.5 rounded-xl flex justify-between items-center cursor-pointer transition-colors ${
-                    language === "fr" ? "bg-blue-500/20" : "hover:bg-gray-800"
+                    language === "fr" ? "bg-blue-500/20" : "hover:bg-surface-2"
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
                     <span>🇫🇷</span>
                     <span                     className={`text-sm font-medium font-['Manrope'] tracking-tight ${
-                      language === "fr" ? "text-slate-100" : "text-gray-400"
+                      language === "fr" ? "text-fg" : "text-muted"
                     }`}>
                       Français
                     </span>
@@ -204,13 +207,13 @@ export default function Navbar() {
                     setLangOpen(false);
                   }}
                   className={`px-3 py-2.5 rounded-xl flex justify-between items-center cursor-pointer transition-colors duration-150 ${
-                    language === "en" ? "bg-blue-500/20" : "hover:bg-gray-800"
+                    language === "en" ? "bg-blue-500/20" : "hover:bg-surface-2"
                   }`}
                 >
                   <span className="flex items-center gap-2.5">
                     <span>🇬🇧</span>
                     <span className={`text-sm font-medium font-['Manrope'] tracking-tight ${
-                      language === "en" ? "text-slate-100" : "text-gray-400"
+                      language === "en" ? "text-fg" : "text-muted"
                     }`}>
                       English
                     </span>
@@ -235,12 +238,12 @@ export default function Navbar() {
         </div>
       </nav>
       {mobileMenuOpen && (
-        <div className="absolute left-4 right-4 top-[calc(100%+0.5rem)] rounded-2xl border border-gray-800 bg-gray-900/95 p-4 shadow-2xl backdrop-blur-xl sm:left-8 sm:right-8 xl:hidden">
+        <div className="absolute left-4 right-4 top-[calc(100%+0.5rem)] rounded-2xl border border-line bg-surface/95 p-4 shadow-2xl backdrop-blur-xl sm:left-8 sm:right-8 xl:hidden">
           <div className="grid grid-cols-2 gap-x-3 gap-y-4">
 
             {/* Left — Navigation */}
             <div className="flex flex-col gap-0.5">
-              <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-gray-500">
+              <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-subtle">
                 {language === "fr" ? "Navigation" : "Navigation"}
               </p>
               {[{ label: language === "fr" ? "Accueil" : "Home", href: sectionHref("#accueil") }, ...navLinks.map(({ label, href }) => ({ label: label[language], href: sectionHref(href) }))].map(({ label, href }) => (
@@ -248,7 +251,7 @@ export default function Navbar() {
                   key={href}
                   href={href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-xl px-2 py-2 text-sm font-medium font-['Manrope'] text-slate-100 hover:bg-gray-800"
+                  className="rounded-xl px-2 py-2 text-sm font-medium font-['Manrope'] text-fg hover:bg-surface-2"
                 >
                   {label}
                 </a>
@@ -260,7 +263,7 @@ export default function Navbar() {
 
               {/* Social */}
               <div className="flex flex-col gap-0.5">
-                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-gray-500">
+                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-subtle">
                   Social
                 </p>
                 {[
@@ -274,7 +277,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="rounded-xl px-2 py-2 text-sm font-medium font-['Manrope'] text-slate-100 hover:bg-gray-800"
+                    className="rounded-xl px-2 py-2 text-sm font-medium font-['Manrope'] text-fg hover:bg-surface-2"
                   >
                     {label}
                   </a>
@@ -283,7 +286,7 @@ export default function Navbar() {
 
               {/* Language */}
               <div className="flex flex-col gap-0.5">
-                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-gray-500">
+                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-subtle">
                   {language === "fr" ? "Langue" : "Language"}
                 </p>
                 {([
@@ -295,7 +298,7 @@ export default function Navbar() {
                     type="button"
                     onClick={() => { setLanguage(code); setMobileMenuOpen(false); }}
                     className={`flex items-center gap-2 rounded-xl px-2 py-2 text-sm font-medium font-['Manrope'] transition-colors ${
-                      language === code ? "bg-blue-500/20 text-blue-300" : "text-gray-400 hover:bg-gray-800 hover:text-slate-100"
+                      language === code ? "bg-blue-500/20 text-accent-hi" : "text-muted hover:bg-surface-2 hover:text-fg"
                     }`}
                   >
                     <span>{flag}</span>

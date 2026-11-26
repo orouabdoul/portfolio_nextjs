@@ -36,7 +36,7 @@ export default function BackToTop() {
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label={label}
       title={label}
-      className={`fixed bottom-5 right-5 z-40 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-gray-950/90 shadow-[0_10px_30px_rgba(0,0,0,0.35)] ring-1 ring-white/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 sm:bottom-7 sm:right-7 ${
+      className={`fixed bottom-5 right-5 z-40 flex h-[52px] w-[52px] items-center justify-center rounded-full bg-bg/90 shadow-[0_10px_30px_rgba(0,0,0,0.35)] ring-1 ring-line backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 sm:bottom-7 sm:right-7 ${
         visible ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >

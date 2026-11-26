@@ -31,23 +31,23 @@ function FadeInView({
 
 const stepAccents = [
   {
-    dot: "border-gray-600 bg-gray-800/60 text-gray-400",
-    output: "text-gray-500",
-    line: "bg-gray-700/50",
+    dot: "border-line-strong bg-surface-2/60 text-muted",
+    output: "text-subtle",
+    line: "bg-surface-2/50",
   },
   {
-    dot: "border-gray-600 bg-gray-800/60 text-gray-400",
-    output: "text-gray-500",
-    line: "bg-gray-700/50",
+    dot: "border-line-strong bg-surface-2/60 text-muted",
+    output: "text-subtle",
+    line: "bg-surface-2/50",
   },
   {
-    dot: "border-blue-500/50 bg-blue-500/10 text-blue-300",
-    output: "text-blue-400",
+    dot: "border-blue-500/50 bg-blue-500/10 text-accent-hi",
+    output: "text-accent-hi",
     line: "bg-blue-500/25",
   },
   {
-    dot: "border-blue-500/50 bg-blue-500/10 text-blue-300",
-    output: "text-blue-400",
+    dot: "border-blue-500/50 bg-blue-500/10 text-accent-hi",
+    output: "text-accent-hi",
     line: "bg-transparent",
   },
 ] as const;
@@ -98,7 +98,7 @@ export default function MethodSection() {
   return (
     <section
       id="processus"
-      className="relative w-full overflow-hidden bg-gray-950 px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       {/* Glow */}
       <div className="pointer-events-none absolute -left-20 top-1/3 h-[400px] w-[400px] rounded-full bg-emerald-500/8 blur-[100px]" />
@@ -108,15 +108,15 @@ export default function MethodSection() {
 
         {/* ── Left — header ── */}
         <FadeInView className="flex flex-col lg:sticky lg:top-24 lg:self-start">
-          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-blue-400">
+          <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
             {locale === "en" ? "06 — How I work" : "06 — Ma méthode"}
           </p>
-          <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
             {locale === "en"
               ? "From a clear need to a usable product."
               : "D'un besoin clair à un produit utilisable."}
           </h2>
-          <p className="mt-5 font-['Manrope'] text-sm leading-7 text-gray-400 sm:text-base">
+          <p className="mt-5 font-['Manrope'] text-sm leading-7 text-muted sm:text-base">
             {locale === "en"
               ? "Each phase has a clear purpose and a concrete deliverable — so decisions stay visible and nothing gets lost."
               : "Chaque étape a un objectif précis et un livrable concret — pour que les décisions restent visibles et que rien ne se perde."}
@@ -124,7 +124,7 @@ export default function MethodSection() {
 
           <Link
             href="#contact"
-            className="mt-8 inline-flex w-fit items-center gap-2.5 rounded-full border border-gray-700 px-5 py-3 font-['Sora'] text-sm font-semibold text-slate-300 transition-colors duration-200 hover:border-gray-500 hover:text-white"
+            className="mt-8 inline-flex w-fit items-center gap-2.5 rounded-full border border-line-strong px-5 py-3 font-['Sora'] text-sm font-semibold text-fg-soft transition-colors duration-200 hover:border-line-strong hover:text-fg"
           >
             {locale === "en" ? "Start a project" : "Démarrer un projet"}
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -168,14 +168,14 @@ export default function MethodSection() {
 
                 {/* Step content */}
                 <div className={`pb-10 pt-2 ${isLast ? "pb-0" : ""}`}>
-                  <h3 className="font-['Sora'] text-xl font-bold leading-tight text-slate-100 sm:text-2xl">
+                  <h3 className="font-['Sora'] text-xl font-bold leading-tight text-fg sm:text-2xl">
                     {step.title[locale]}
                   </h3>
-                  <p className="mt-2.5 font-['Manrope'] text-sm leading-7 text-gray-400">
+                  <p className="mt-2.5 font-['Manrope'] text-sm leading-7 text-muted">
                     {step.description[locale]}
                   </p>
                   <div className="mt-4 flex items-center gap-2">
-                    <span className="font-['JetBrains_Mono'] text-[10px] text-gray-700">↳</span>
+                    <span className="font-['JetBrains_Mono'] text-[10px] text-fg-soft">↳</span>
                     <span className={`font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest ${accent.output}`}>
                       {step.output[locale]}
                     </span>
