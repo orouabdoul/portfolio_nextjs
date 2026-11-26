@@ -116,9 +116,18 @@ export default function HeroSection() {
 
           <motion.div
             {...fadeUp(0.28)}
-            className="mt-6 max-w-xl rounded-lg border border-line bg-surface/60 p-4 font-['JetBrains_Mono'] text-sm"
+            className="mt-6 flex w-full max-w-[24rem] items-center gap-3 rounded-lg border border-line bg-surface/60 px-4 py-2.5 font-['JetBrains_Mono'] text-sm shadow-[0_8px_30px_-18px_rgba(59,130,246,0.55)] backdrop-blur-sm"
           >
-            <TypedRole key={language} roles={ROLES[language]} />
+            <span aria-hidden="true" className="hidden shrink-0 items-center gap-1.5 sm:flex">
+              <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+              <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+              <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+            </span>
+            <span aria-hidden="true" className="hidden h-4 w-px shrink-0 bg-line sm:block" />
+            <span aria-hidden="true" className="shrink-0 text-subtle">~$</span>
+            <span className="min-w-0 whitespace-nowrap">
+              <TypedRole key={language} roles={ROLES[language]} />
+            </span>
           </motion.div>
 
           <motion.p {...fadeUp(0.36)} className="mt-6 max-w-xl font-['Manrope'] text-base leading-[1.6] text-muted">
