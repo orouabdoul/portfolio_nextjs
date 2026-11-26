@@ -41,35 +41,35 @@ export default function AboutSection() {
       id="a-propos"
       className="w-full bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
-      <div className="mx-auto grid max-w-[1280px] gap-12 lg:grid-cols-[0.85fr_1fr] lg:items-stretch lg:gap-16 xl:gap-24">
+      <div className="mx-auto grid max-w-[1280px] gap-12 lg:grid-cols-[auto_1fr] lg:items-center lg:gap-16 xl:gap-20">
 
         {/* ── Left — photo + facts ── */}
-        <FadeInView delay={0.1} className="flex h-full flex-col gap-4">
+        <FadeInView delay={0.1} className="mx-auto w-full max-w-[320px] sm:max-w-[340px] lg:w-[340px] lg:max-w-none xl:w-[380px]">
 
-          {/* Photo — mobile: ratio fixe / desktop: s'étire avec la colonne droite */}
-          <div className="relative flex-1 overflow-hidden rounded-3xl bg-bg">
-            <div className="aspect-[3/4] w-full lg:aspect-auto lg:h-full">
+          {/* Photo — taille contenue, ratio 4:5 */}
+          <div className="relative overflow-hidden rounded-3xl bg-bg">
+            <div className="relative aspect-[4/5] w-full">
               <Image
                 src="/amadou-transparent.png"
                 alt={isEnglish ? "Portrait of Amadou Issiaka" : "Portrait d'Amadou Issiaka"}
                 fill
-                sizes="(max-width: 1023px) 90vw, 42vw"
+                sizes="(max-width: 639px) 320px, (max-width: 1279px) 340px, 380px"
                 className="object-cover object-[center_15%]"
               />
             </div>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bg/80 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 rounded-xl border border-line bg-surface/90 px-4 py-2.5 backdrop-blur-sm">
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 rounded-xl border border-line bg-surface/90 px-3 py-2.5 sm:px-4 backdrop-blur-sm">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2.5 w-2.5 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
                 </span>
-                <span className="font-['Manrope'] text-xs font-semibold text-fg">
+                <span className="whitespace-nowrap font-['Manrope'] text-xs font-semibold text-fg">
                   {isEnglish ? "Available for projects" : "Disponible pour de nouveaux projets"}
                 </span>
               </div>
               <span className="shrink-0 font-['JetBrains_Mono'] text-[11px] text-subtle inline-flex items-center gap-1.5">
-                <FlagBJ /> Bénin
+                <FlagBJ /> <span className="hidden sm:inline">Bénin</span>
               </span>
             </div>
           </div>
