@@ -50,9 +50,9 @@ const navLinks = [
   { label: { fr: "Réalisations", en: "Work"         }, href: "#realisations"},
   { label: { fr: "Expertises",   en: "Expertise"    }, href: "#expertises"  },
   { label: { fr: "Services",     en: "Services"     }, href: "#services"    },
+  { label: { fr: "Témoignages",  en: "Testimonials" }, href: "#temoignages" },
   { label: { fr: "Méthode",      en: "Approach"     }, href: "#processus"   },
   { label: { fr: "FAQ",          en: "FAQ"          }, href: "#faq"         },
-  { label: { fr: "Témoignages",  en: "Testimonials" }, href: "#temoignages" },
   { label: { fr: "Contact",      en: "Contact"      }, href: "#contact"     },
 ];
 
@@ -92,7 +92,7 @@ export default function FooterSection() {
                 <span className="font-['Sora'] text-[15px] font-bold tracking-tight text-fg">
                   Amadou Issiaka
                 </span>
-                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.14em] text-muted">
+                <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-[0.14em] text-muted">
                   Mobile &amp; Backend
                 </span>
               </span>
@@ -112,7 +112,7 @@ export default function FooterSection() {
 
           {/* Navigation */}
           <div className="flex flex-col gap-3">
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+            <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
               {isEnglish ? "Navigation" : "Navigation"}
             </p>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -131,7 +131,7 @@ export default function FooterSection() {
 
           {/* Social */}
           <div className="flex flex-col gap-3">
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+            <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
               Social
             </p>
             <ul className="flex flex-col gap-2.5">
@@ -153,7 +153,7 @@ export default function FooterSection() {
 
           {/* Language */}
           <div className="flex flex-col gap-3">
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+            <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
               {isEnglish ? "Language" : "Langue"}
             </p>
             <div className="flex flex-col gap-2">
@@ -184,20 +184,12 @@ export default function FooterSection() {
         </motion.div>
 
         {/* ── Bottom bar ── */}
-        <div className="flex flex-col-reverse items-start justify-between gap-3 border-t border-line pt-6 sm:flex-row sm:items-center">
-          <span className="font-['JetBrains_Mono'] text-[10px] text-muted">
+        {/* Le bouton flottant « retour en haut » est à droite : on garde la ligne dégagée. */}
+        <div className="border-t border-line pt-6 pr-16 sm:pr-20">
+          <span className="font-['JetBrains_Mono'] text-[11px] text-muted">
             © 2026 Amadou Issiaka Abdoulaye
             {isEnglish ? " — All rights reserved" : " — Tous droits réservés"}
           </span>
-          <a
-            href={sectionHref("#accueil")}
-            className="flex items-center gap-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-subtle transition-colors hover:text-accent-hi"
-          >
-            {isEnglish ? "Back to top" : "Retour en haut"}
-            <svg width="8" height="10" viewBox="0 0 8 10" fill="none" aria-hidden="true">
-              <path d="M4 9V1M1 4L4 1L7 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
         </div>
 
       </div>

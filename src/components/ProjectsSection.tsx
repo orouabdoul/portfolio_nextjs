@@ -81,10 +81,10 @@ export default function ProjectsSection() {
   return (
     <section
       id="realisations"
-      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden border-t border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
-      <div className="pointer-events-none absolute -right-20 top-20 h-[500px] w-[500px] rounded-full bg-violet-600/8 blur-[120px]" />
-      <div className="pointer-events-none absolute -left-10 bottom-20 h-[350px] w-[350px] rounded-full bg-violet-500/5 blur-[90px]" />
+      <div className="pointer-events-none absolute -right-20 top-20 h-[500px] w-[500px] rounded-full bg-blue-600/8 blur-[120px]" />
+      <div className="pointer-events-none absolute -left-10 bottom-20 h-[350px] w-[350px] rounded-full bg-blue-600/5 blur-[90px]" />
 
       <div className="relative mx-auto flex max-w-[1280px] flex-col gap-10 sm:gap-12">
 
@@ -107,7 +107,7 @@ export default function ProjectsSection() {
                     key={filter.key}
                     type="button"
                     onClick={() => handleFilterChange(filter.key)}
-                    className={`relative rounded-full px-4 py-2 font-['Sora'] text-[13px] font-semibold transition-colors duration-200 ${
+                    className={`relative rounded-full px-4 py-2 font-['Sora'] text-sm font-semibold transition-colors duration-200 ${
                       isActive
                         ? "bg-surface text-fg"
                         : "border border-line-strong text-muted hover:border-line-strong hover:text-fg-soft"
@@ -157,7 +157,7 @@ export default function ProjectsSection() {
                               {project.name.charAt(0)}
                             </span>
                           </div>
-                          <span className="font-['JetBrains_Mono'] text-[9px] uppercase tracking-widest text-fg-soft">
+                          <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-fg-soft">
                             {locale === "en" ? "Screenshots coming" : "Captures à venir"}
                           </span>
                         </div>
@@ -200,24 +200,24 @@ export default function ProjectsSection() {
                   {/* Content */}
                   <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-7">
                     <div className="flex items-center justify-between gap-3">
-                      <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+                      <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
                         {project.type[locale]}
                       </span>
                       <div className="flex items-center gap-2">
                         {(project.links.some((l) => l.type === "website") || project.links.some((l) => l.type === "app-store")) && (
-                          <span className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 font-['JetBrains_Mono'] text-[9px] font-semibold uppercase tracking-wider text-emerald-400">
+                          <span className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 font-['JetBrains_Mono'] text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                             {project.links.some((l) => l.type === "website") ? "Live" : "Play Store"}
                           </span>
                         )}
-                        <span className="font-['JetBrains_Mono'] text-[10px] text-muted">{project.year}</span>
+                        <span className="font-['JetBrains_Mono'] text-[11px] text-muted">{project.year}</span>
                       </div>
                     </div>
 
                     <h3 className="mt-3 font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
                       {project.name}
                     </h3>
-                    <p className="mt-2 font-['Manrope'] text-sm leading-6 text-muted">
+                    <p className="mt-2 font-['Manrope'] text-[15px] leading-7 text-muted">
                       {project.summary[locale]}
                     </p>
 
@@ -229,7 +229,7 @@ export default function ProjectsSection() {
                       {project.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-line-strong bg-surface-2/60 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-muted"
+                          className="rounded-full border border-line-strong bg-surface-2/60 px-3 py-1 font-['JetBrains_Mono'] text-[11px] tracking-wide text-muted"
                         >
                           {tag}
                         </span>
@@ -293,12 +293,12 @@ export default function ProjectsSection() {
             <div className="pointer-events-none absolute -right-10 -top-10 h-[200px] w-[200px] rounded-full bg-blue-500/15 blur-[60px]" />
             <div className="relative flex flex-col gap-5">
               <span className="font-['JetBrains_Mono'] text-xs tracking-widest text-accent-hi">
-                {String(projects.length + 1).padStart(2, "0")} · {locale === "en" ? "Your project" : "Votre projet"}
+                {locale === "en" ? "Your project" : "Votre projet"}
               </span>
               <h3 className="font-['Sora'] text-3xl font-bold leading-tight text-fg sm:text-4xl">
                 {locale === "en" ? "Your project, my next realisation." : "Votre projet, ma prochaine réalisation."}
               </h3>
-              <p className="max-w-xl font-['Manrope'] text-sm leading-6 text-fg-soft sm:text-base">
+              <p className="max-w-xl font-['Manrope'] text-base leading-7 text-fg-soft">
                 {locale === "en"
                   ? "You have an idea or a need to structure. Let's talk and see how to turn it into a usable product."
                   : "Vous avez une idée ou un besoin à structurer. Parlons-en et voyons comment le transformer en produit utilisable."}

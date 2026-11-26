@@ -39,7 +39,7 @@ export default function AboutSection() {
   return (
     <section
       id="a-propos"
-      className="w-full bg-bg px-5 py-20 sm:px-8 md:py-28 lg:px-20"
+      className="w-full bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="mx-auto grid max-w-[1280px] gap-12 lg:grid-cols-[0.85fr_1fr] lg:items-stretch lg:gap-16 xl:gap-24">
 
@@ -64,11 +64,11 @@ export default function AboutSection() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
                   <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
                 </span>
-                <span className="font-['Manrope'] text-[12px] font-semibold text-fg">
+                <span className="font-['Manrope'] text-xs font-semibold text-fg">
                   {isEnglish ? "Available for projects" : "Disponible pour de nouveaux projets"}
                 </span>
               </div>
-              <span className="shrink-0 font-['JetBrains_Mono'] text-[10px] text-subtle inline-flex items-center gap-1.5">
+              <span className="shrink-0 font-['JetBrains_Mono'] text-[11px] text-subtle inline-flex items-center gap-1.5">
                 <FlagBJ /> Bénin
               </span>
             </div>
@@ -86,7 +86,7 @@ export default function AboutSection() {
           </FadeInView>
 
           <FadeInView delay={0.1}>
-            <h2 className="mt-5 font-['Sora'] text-[clamp(26px,4.5vw,42px)] font-bold leading-[1.1] tracking-tight text-fg">
+            <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
               {isEnglish ? (
                 <>
                   I&apos;m Amadou —<br />
@@ -117,13 +117,13 @@ export default function AboutSection() {
             <div className="mt-7 grid grid-cols-2 gap-3">
               <div className="flex flex-col gap-1.5 rounded-2xl border border-accent/20 bg-accent/10 p-4">
                 <span className="font-['Sora'] text-3xl font-bold leading-none text-accent">3+</span>
-                <span className="font-['Manrope'] text-[12px] leading-5 text-muted">
+                <span className="font-['Manrope'] text-xs leading-5 text-muted">
                   {isEnglish ? "Years of experience" : "Ans d'expérience"}
                 </span>
               </div>
               <div className="flex flex-col gap-1.5 rounded-2xl border border-line bg-surface p-4">
                 <span className="font-['Sora'] text-3xl font-bold leading-none text-fg">10+</span>
-                <span className="font-['Manrope'] text-[12px] leading-5 text-muted">
+                <span className="font-['Manrope'] text-xs leading-5 text-muted">
                   {isEnglish ? "Projects delivered" : "Projets livrés"}
                 </span>
               </div>
@@ -137,7 +137,7 @@ export default function AboutSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="font-['Sora'] text-[13px] font-semibold leading-5 text-fg">
+                  <p className="font-['Sora'] text-sm font-semibold leading-5 text-fg">
                     {isEnglish ? "Design → Code, solo" : "Design → Code, en solo"}
                   </p>
                   <p className="font-['Manrope'] text-[11px] text-subtle">

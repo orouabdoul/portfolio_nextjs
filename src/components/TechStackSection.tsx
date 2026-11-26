@@ -48,10 +48,10 @@ export default function TechStackSection() {
   return (
     <section
       id="stack"
-      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden border-t border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="pointer-events-none absolute -left-20 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-blue-600/8 blur-[100px]" />
-      <div className="pointer-events-none absolute -right-20 bottom-0 h-[300px] w-[300px] rounded-full bg-indigo-600/6 blur-[80px]" />
+      <div className="pointer-events-none absolute -right-20 bottom-0 h-[300px] w-[300px] rounded-full bg-blue-600/6 blur-[80px]" />
       <div className="mx-auto flex max-w-[1280px] flex-col gap-8 sm:gap-10 relative">
         <FadeUp visibleBeforeInView>
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
@@ -63,7 +63,7 @@ export default function TechStackSection() {
                 ? "Tools selected for the work."
                 : "Des outils choisis selon le besoin."}
             </h2>
-            <p className="max-w-md font-['Manrope'] text-sm leading-6 text-muted sm:text-base">
+            <p className="max-w-md font-['Manrope'] text-base leading-7 text-muted">
               {locale === "en"
                 ? "A selection of technologies and tools I work with—not a fixed recipe for every product."
                 : "Une sélection des technologies et outils que j’utilise, pas une recette imposée à chaque produit."}

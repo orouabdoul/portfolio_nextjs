@@ -58,7 +58,7 @@ function LanguageBadge({ lang }: { lang: "fr" | "en" }) {
   const label = lang === "fr" ? "Avis rédigé en français" : "Review written in English";
   return (
     <span
-      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line bg-bg/60 px-2.5 py-1 font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-muted"
+      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line bg-bg/60 px-2.5 py-1 font-['JetBrains_Mono'] text-[11px] uppercase tracking-wider text-muted"
       title={label}
     >
       <LanguageFlag lang={lang} />
@@ -309,11 +309,11 @@ export default function TestimonialsSection() {
   return (
     <section
       id="temoignages"
-      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden border-t border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       {/* Ambient glows */}
       <div className="pointer-events-none absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/6 blur-[120px]" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-[400px] w-[400px] rounded-full bg-indigo-600/5 blur-[100px]" />
+      <div className="pointer-events-none absolute -right-32 bottom-0 h-[400px] w-[400px] rounded-full bg-blue-600/5 blur-[100px]" />
 
       <div className="relative mx-auto flex max-w-[1280px] flex-col gap-10 sm:gap-12">
 
@@ -325,13 +325,13 @@ export default function TestimonialsSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
-            {isEnglish ? "08 — Testimonials" : "08 — Témoignages"}
+            {isEnglish ? "06 — Testimonials" : "06 — Témoignages"}
           </p>
           <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
               {isEnglish ? "People I've worked with." : "Ils ont travaillé avec moi."}
             </h2>
-            <p className="max-w-sm font-['Manrope'] text-sm leading-6 text-muted sm:text-base">
+            <p className="max-w-sm font-['Manrope'] text-base leading-7 text-muted">
               {isEnglish
                 ? "Genuine feedback from clients and colleagues, published as written."
                 : "Des retours authentiques de clients et de collègues, publiés tels quels."}
@@ -358,7 +358,7 @@ export default function TestimonialsSection() {
                 <p className="font-['Sora'] text-base font-semibold text-fg">
                   {isEnglish ? "No reviews published yet." : "Aucun avis publié pour l'instant."}
                 </p>
-                <p className="max-w-md font-['Manrope'] text-sm leading-6 text-muted">
+                <p className="max-w-md font-['Manrope'] text-[15px] leading-7 text-muted">
                   {isEnglish
                     ? "Have we worked together? Be the first to share your experience."
                     : "Nous avons travaillé ensemble ? Soyez le premier à partager votre expérience."}

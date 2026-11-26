@@ -98,10 +98,10 @@ export default function MethodSection() {
   return (
     <section
       id="processus"
-      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden border-t border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       {/* Glow */}
-      <div className="pointer-events-none absolute -left-20 top-1/3 h-[400px] w-[400px] rounded-full bg-emerald-500/8 blur-[100px]" />
+      <div className="pointer-events-none absolute -left-20 top-1/3 h-[400px] w-[400px] rounded-full bg-blue-600/8 blur-[100px]" />
       <div className="pointer-events-none absolute -right-20 bottom-0 h-[300px] w-[300px] rounded-full bg-blue-800/6 blur-[80px]" />
 
       <div className="relative mx-auto grid max-w-[1280px] gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
@@ -109,14 +109,14 @@ export default function MethodSection() {
         {/* ── Left — header ── */}
         <FadeInView className="flex flex-col lg:sticky lg:top-24 lg:self-start">
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
-            {locale === "en" ? "06 — How I work" : "06 — Ma méthode"}
+            {locale === "en" ? "07 — How I work" : "07 — Ma méthode"}
           </p>
           <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
             {locale === "en"
               ? "From a clear need to a usable product."
               : "D'un besoin clair à un produit utilisable."}
           </h2>
-          <p className="mt-5 font-['Manrope'] text-sm leading-7 text-muted sm:text-base">
+          <p className="mt-5 font-['Manrope'] text-base leading-7 text-muted">
             {locale === "en"
               ? "Each phase has a clear purpose and a concrete deliverable — so decisions stay visible and nothing gets lost."
               : "Chaque étape a un objectif précis et un livrable concret — pour que les décisions restent visibles et que rien ne se perde."}
@@ -171,12 +171,12 @@ export default function MethodSection() {
                   <h3 className="font-['Sora'] text-xl font-bold leading-tight text-fg sm:text-2xl">
                     {step.title[locale]}
                   </h3>
-                  <p className="mt-2.5 font-['Manrope'] text-sm leading-7 text-muted">
+                  <p className="mt-2.5 font-['Manrope'] text-[15px] leading-7 text-muted">
                     {step.description[locale]}
                   </p>
                   <div className="mt-4 flex items-center gap-2">
-                    <span className="font-['JetBrains_Mono'] text-[10px] text-fg-soft">↳</span>
-                    <span className={`font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest ${accent.output}`}>
+                    <span className="font-['JetBrains_Mono'] text-[11px] text-fg-soft">↳</span>
+                    <span className={`font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest ${accent.output}`}>
                       {step.output[locale]}
                     </span>
                   </div>

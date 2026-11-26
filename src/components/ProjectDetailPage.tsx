@@ -115,7 +115,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
       {/* ── Hero ── */}
       <div className="relative overflow-hidden bg-bg">
         <div className="pointer-events-none absolute -right-40 -top-40 h-[700px] w-[700px] rounded-full bg-blue-600/8 blur-[140px]" />
-        <div className="pointer-events-none absolute -left-20 bottom-0 h-[400px] w-[400px] rounded-full bg-indigo-600/6 blur-[100px]" />
+        <div className="pointer-events-none absolute -left-20 bottom-0 h-[400px] w-[400px] rounded-full bg-blue-600/6 blur-[100px]" />
 
         <Navbar />
 
@@ -177,7 +177,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4, ease }}
-                  className="mt-6 max-w-2xl font-['Manrope'] text-base leading-[1.85] text-fg-soft sm:text-[17px]"
+                  className="mt-6 max-w-2xl font-['Manrope'] text-base leading-[1.85] text-fg-soft sm:text-lg"
                 >
                   {project.description[locale]}
                 </motion.p>
@@ -192,7 +192,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
               >
                 <dl className="flex flex-col gap-3">
                   <div className="rounded-2xl border border-line bg-surface p-5">
-                    <dt className="font-['JetBrains_Mono'] text-[9px] uppercase tracking-widest text-subtle">
+                    <dt className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-subtle">
                       {locale === "en" ? "Role" : "Rôle"}
                     </dt>
                     <dd className="mt-2 font-['Sora'] text-sm font-semibold leading-5 text-fg">
@@ -200,7 +200,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                     </dd>
                   </div>
                   <div className="rounded-2xl border border-line bg-surface p-5">
-                    <dt className="font-['JetBrains_Mono'] text-[9px] uppercase tracking-widest text-subtle">
+                    <dt className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-subtle">
                       {locale === "en" ? "Duration" : "Durée"}
                     </dt>
                     <dd className="mt-2 font-['Sora'] text-sm font-semibold text-fg">
@@ -208,14 +208,14 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                     </dd>
                   </div>
                   <div className="rounded-2xl border border-line bg-surface p-5">
-                    <dt className="font-['JetBrains_Mono'] text-[9px] uppercase tracking-widest text-subtle">
+                    <dt className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-subtle">
                       {locale === "en" ? "Stack" : "Stack"}
                     </dt>
                     <dd className="mt-3 flex flex-wrap gap-1.5">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-line-strong bg-surface-2 px-2.5 py-1 font-['JetBrains_Mono'] text-[10px] text-muted"
+                          className="rounded-full border border-line-strong bg-surface-2 px-2.5 py-1 font-['JetBrains_Mono'] text-[11px] text-muted"
                         >
                           {tag}
                         </span>
@@ -255,7 +255,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
         <section className="bg-bg px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
           <div className="mx-auto max-w-[1280px]">
             <FadeInView>
-              <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+              <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
                 {locale === "en" ? "Demo" : "Démo"}
               </p>
               <h2 className="mt-3 font-['Sora'] text-2xl font-bold text-fg sm:text-3xl">
@@ -272,7 +272,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                     <span className="h-3 w-3 rounded-full bg-[#28c840]" />
                   </div>
                   <div className="mx-auto flex h-6 w-[min(55%,320px)] items-center justify-center rounded-full bg-[#1e2638] px-3">
-                    <span className="font-['JetBrains_Mono'] text-[10px] text-subtle">
+                    <span className="font-['JetBrains_Mono'] text-[11px] text-subtle">
                       {project.videoChromeLabel ?? project.name}
                     </span>
                   </div>
@@ -308,7 +308,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                     <span className="h-3 w-3 rounded-full bg-[#28c840]" />
                   </div>
                   <div className="mx-auto flex h-6 w-[min(55%,320px)] items-center justify-center rounded-full bg-[#1e2638] px-3">
-                    <span className="font-['JetBrains_Mono'] text-[10px] text-subtle">
+                    <span className="font-['JetBrains_Mono'] text-[11px] text-subtle">
                       {project.videoChromeLabel2 ?? project.name}
                     </span>
                   </div>
@@ -334,7 +334,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
       {project.screens.length > 0 && <section className="bg-bg px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
         <div className="mx-auto max-w-[1280px]">
           <FadeInView>
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+            <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
               {locale === "en" ? "Screens" : "Les écrans"}
             </p>
             <h2 className="mt-3 font-['Sora'] text-2xl font-bold text-fg sm:text-3xl">
@@ -371,7 +371,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
       <section className="bg-bg px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
         <div className="mx-auto max-w-[1280px]">
           <FadeInView>
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+            <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
               {locale === "en" ? "Context" : "Contexte"}
             </p>
             <h2 className="mt-3 font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
@@ -382,7 +382,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             <FadeInView delay={0.1}>
               <article className="flex h-full flex-col rounded-3xl border border-line bg-surface p-7 sm:p-8">
-                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-muted">
+                <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-muted">
                   {locale === "en" ? "Problem" : "Problème"}
                 </span>
                 <p className="mt-4 flex-1 font-['Manrope'] text-base leading-[1.85] text-fg-soft">
@@ -392,7 +392,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
             </FadeInView>
             <FadeInView delay={0.18}>
               <article className="flex h-full flex-col rounded-3xl bg-blue-600 p-7 sm:p-8">
-                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-blue-200">
+                <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-blue-200">
                   {locale === "en" ? "Solution" : "Solution"}
                 </span>
                 <p className="mt-4 flex-1 font-['Manrope'] text-base leading-[1.85] text-white">
@@ -408,7 +408,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
       <section className="bg-bg px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
         <div className="mx-auto max-w-[1280px]">
           <FadeInView>
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+            <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
               {locale === "en" ? "Flow notes" : "Lecture du parcours"}
             </p>
             <h2 className="mt-3 max-w-2xl font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
@@ -422,13 +422,13 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
             {project.insights.map((insight, i) => (
               <FadeInView key={i} delay={i * 0.1}>
                 <article className="flex h-full flex-col rounded-2xl border border-line bg-bg p-6 sm:p-7">
-                  <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-accent-hi">
+                  <span className="font-['JetBrains_Mono'] text-[11px] tracking-widest text-accent-hi">
                     0{i + 1}
                   </span>
                   <h3 className="mt-4 font-['Sora'] text-base font-semibold leading-5 text-fg">
                     {insight.title[locale]}
                   </h3>
-                  <p className="mt-3 flex-1 font-['Manrope'] text-sm leading-6 text-muted">
+                  <p className="mt-3 flex-1 font-['Manrope'] text-[15px] leading-7 text-muted">
                     {insight.detail[locale]}
                   </p>
                 </article>
@@ -447,7 +447,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
 
             {/* Contact CTA */}
             <FadeInView>
-              <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-accent-hi">
+              <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
                 {locale === "en" ? "Let's work together" : "Travaillons ensemble"}
               </p>
               <p className="mt-3 max-w-sm font-['Sora'] text-2xl font-bold text-fg sm:text-3xl">
@@ -472,7 +472,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                 href={`/realisations/${nextProject.slug}`}
                 className="group flex flex-col items-start gap-2 lg:items-end"
               >
-                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-subtle transition-colors group-hover:text-muted">
+                <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-subtle transition-colors group-hover:text-muted">
                   {locale === "en" ? "Next project" : "Projet suivant"}
                 </span>
                 <span className="flex items-center gap-3 font-['Sora'] text-3xl font-bold leading-tight text-fg transition-colors group-hover:text-accent-hi sm:text-4xl">

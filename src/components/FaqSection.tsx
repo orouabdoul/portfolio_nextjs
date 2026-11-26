@@ -86,7 +86,7 @@ export default function FaqSection() {
   return (
     <section
       id="faq"
-      className="w-full bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="w-full border-t border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <motion.div
@@ -96,12 +96,12 @@ export default function FaqSection() {
           transition={{ duration: 0.6, ease }}
         >
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
-            {isEnglish ? "07 — FAQ" : "07 — Questions fréquentes"}
+            {isEnglish ? "08 — FAQ" : "08 — Questions fréquentes"}
           </p>
           <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
             {isEnglish ? "Before you order." : "Avant de commander."}
           </h2>
-          <p className="mt-4 max-w-md font-['Manrope'] text-sm leading-7 text-subtle sm:text-base">
+          <p className="mt-4 max-w-md font-['Manrope'] text-base leading-7 text-subtle">
             {isEnglish
               ? "The answers to the questions clients ask most often. Something else? Write to me in the form below."
               : "Les réponses aux questions que les clients posent le plus souvent. Une autre question ? Écrivez-moi dans le formulaire ci-dessous."}
@@ -129,7 +129,7 @@ export default function FaqSection() {
                   </svg>
                 </span>
               </summary>
-              <p className="mt-3 font-['Manrope'] text-sm leading-7 text-muted sm:text-[15px]">
+              <p className="mt-3 font-['Manrope'] text-[15px] leading-7 text-muted">
                 {item.a[locale]}
               </p>
             </motion.details>

@@ -67,7 +67,7 @@ export default function ExpertisesSection() {
   return (
     <section
       id="expertises"
-      className="w-full bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="w-full border-t border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="mx-auto flex max-w-[1280px] flex-col gap-10 sm:gap-12">
 
@@ -81,7 +81,7 @@ export default function ExpertisesSection() {
               ? "Two expertises. One person."
               : "Deux expertises. Un seul interlocuteur."}
           </h2>
-          <p className="mt-4 max-w-xl font-['Manrope'] text-sm leading-7 text-subtle sm:text-base">
+          <p className="mt-4 max-w-xl font-['Manrope'] text-base leading-7 text-subtle">
             {locale === "en"
               ? "From the first Figma wireframe to the deployed app — without switching contacts."
               : "Du premier wireframe Figma à l'app déployée, sans changer d'interlocuteur."}
@@ -112,13 +112,13 @@ export default function ExpertisesSection() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-violet-500/30 bg-violet-500/15 text-violet-500">
                   <DesignIcon />
                 </div>
-                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-violet-400">01</span>
+                <span className="font-['JetBrains_Mono'] text-[11px] tracking-widest text-violet-400">01</span>
               </div>
 
               <h3 className="mt-6 font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
                 {locale === "en" ? "UI/UX Design" : "Design UI/UX"}
               </h3>
-              <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-sm leading-7 text-muted sm:text-base">
+              <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-base leading-7 text-muted">
                 {locale === "en"
                   ? "User journeys, wireframes and high-fidelity mockups — all validated in Figma before writing a single line of code. UX structured, flows tested, prototype delivered."
                   : "Parcours utilisateurs, wireframes et maquettes haute-fidélité — tout validé dans Figma avant d'écrire une ligne de code. UX structurée, parcours testés, prototype livré."}
@@ -128,7 +128,7 @@ export default function ExpertisesSection() {
                 {["Figma", "Prototype", "Design System", "User Flows", "UX Research"].map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-violet-500"
+                    className="rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 font-['JetBrains_Mono'] text-[11px] tracking-wide text-violet-500"
                   >
                     {tag}
                   </span>
@@ -148,20 +148,20 @@ export default function ExpertisesSection() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-bg text-muted">
                   <SoloIcon />
                 </div>
-                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-muted">02</span>
+                <span className="font-['JetBrains_Mono'] text-[11px] tracking-widest text-muted">02</span>
               </div>
 
               <h3 className="mt-6 font-['Sora'] text-xl font-bold leading-tight text-fg">
                 {locale === "en" ? "Solo, end-to-end" : "Solo, de bout en bout"}
               </h3>
-              <p className="mt-3 flex-1 font-['Manrope'] text-sm leading-6 text-subtle">
+              <p className="mt-3 flex-1 font-['Manrope'] text-[15px] leading-7 text-subtle">
                 {locale === "en"
                   ? "One person for the whole product. No information lost between mockup and code — the designer and the developer are the same."
                   : "Une seule personne pour tout le produit. Aucune information perdue entre la maquette et le code — le designer et le développeur, c'est la même personne."}
               </p>
 
               <div className="mt-5 border-t border-line pt-4">
-                <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-muted">
+                <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-muted">
                   {locale === "en" ? "1 contact · Full ownership" : "1 interlocuteur · Produit complet"}
                 </span>
               </div>
@@ -179,13 +179,13 @@ export default function ExpertisesSection() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-accent/30 bg-accent/15 text-accent">
                   <MobileIcon />
                 </div>
-                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-accent-hi">03</span>
+                <span className="font-['JetBrains_Mono'] text-[11px] tracking-widest text-accent-hi">03</span>
               </div>
 
               <h3 className="mt-6 font-['Sora'] text-xl font-bold leading-tight text-fg">
                 {locale === "en" ? "Mobile Development" : "Développement Mobile"}
               </h3>
-              <p className="mt-3 flex-1 font-['Manrope'] text-sm leading-6 text-muted">
+              <p className="mt-3 flex-1 font-['Manrope'] text-[15px] leading-7 text-muted">
                 {locale === "en"
                   ? "Flutter and React Native for native iOS and Android apps. Pixel-perfect implementation."
                   : "Flutter et React Native pour des apps natives iOS et Android. Fidèle à la maquette au pixel près."}
@@ -195,7 +195,7 @@ export default function ExpertisesSection() {
                 {["Flutter", "React Native", "iOS", "Android"].map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-accent"
+                    className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-['JetBrains_Mono'] text-[11px] tracking-wide text-accent"
                   >
                     {tag}
                   </span>
@@ -221,13 +221,13 @@ export default function ExpertisesSection() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line-strong bg-surface-2 text-fg-soft">
                   <APIIcon />
                 </div>
-                <span className="font-['JetBrains_Mono'] text-[10px] tracking-widest text-muted">04</span>
+                <span className="font-['JetBrains_Mono'] text-[11px] tracking-widest text-muted">04</span>
               </div>
 
               <h3 className="mt-6 font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
                 {locale === "en" ? "Backend & Integrations" : "Backend & Intégrations"}
               </h3>
-              <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-sm leading-7 text-muted sm:text-base">
+              <p className="mt-3 max-w-lg flex-1 font-['Manrope'] text-base leading-7 text-muted">
                 {locale === "en"
                   ? "REST APIs with Laravel, Vue 3 admin panels, authentication, databases and real-time sync. The app connects cleanly to your existing ecosystem."
                   : "API REST avec Laravel, back-offices Vue 3, authentification, bases de données et synchronisation temps réel. L'application s'intègre dans votre écosystème existant sans friction."}
@@ -237,7 +237,7 @@ export default function ExpertisesSection() {
                 {["Laravel", "PHP", "Vue 3", "MySQL", "REST API", "Firebase", "Supabase", "Git"].map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-line-strong bg-surface-2/60 px-3 py-1 font-['JetBrains_Mono'] text-[10px] tracking-wide text-muted"
+                    className="rounded-full border border-line-strong bg-surface-2/60 px-3 py-1 font-['JetBrains_Mono'] text-[11px] tracking-wide text-muted"
                   >
                     {tag}
                   </span>

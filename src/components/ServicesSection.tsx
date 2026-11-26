@@ -229,7 +229,7 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="w-full border-y border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="w-full border-t border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="mx-auto flex max-w-[1280px] flex-col gap-10 sm:gap-12">
         <FadeInView>
@@ -240,7 +240,7 @@ export default function ServicesSection() {
             <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
               {isEnglish ? "Fixed-price services." : "Des services à prix fixe."}
             </h2>
-            <p className="max-w-md font-['Manrope'] text-sm leading-6 text-subtle sm:text-base">
+            <p className="max-w-md font-['Manrope'] text-base leading-7 text-subtle">
               {isEnglish
                 ? "Clear scope, clear delivery time and secure payment through ComeUp or Upwork."
                 : "Un périmètre clair, un délai annoncé et un paiement sécurisé via ComeUp ou Upwork."}
@@ -248,21 +248,26 @@ export default function ServicesSection() {
           </div>
         </FadeInView>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <p className="-mb-4 flex items-center gap-2 font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-subtle sm:hidden">
+          {isEnglish ? "Swipe to see all 7 services" : "Faites glisser pour voir les 7 services"}
+          <ArrowIcon />
+        </p>
+        {/* Mobile : carrousel horizontal ; à partir de sm : grille. */}
+        <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3 xl:grid-cols-4 [&::-webkit-scrollbar]:hidden">
           {services.map((service, index) => (
-            <FadeInView key={service.id} delay={0.08 * index} className="h-full">
+            <FadeInView key={service.id} delay={0.08 * index} className="h-full w-[84%] shrink-0 snap-center sm:w-auto">
               <motion.article
                 whileHover={{ y: -3 }}
                 transition={{ duration: 0.22, ease }}
                 className={`relative flex h-full flex-col rounded-3xl border bg-surface p-6 sm:p-7 ${service.popular ? "border-blue-500 shadow-[0_18px_40px_rgba(37,99,235,0.14)]" : "border-line"}`}
               >
                 {service.popular && (
-                  <span className="absolute right-5 top-5 rounded-full bg-blue-600 px-3 py-1 font-['JetBrains_Mono'] text-[10px] font-semibold uppercase tracking-widest text-white">
+                  <span className="absolute right-5 top-5 rounded-full bg-blue-600 px-3 py-1 font-['JetBrains_Mono'] text-[11px] font-semibold uppercase tracking-widest text-white">
                     {isEnglish ? "Popular" : "Populaire"}
                   </span>
                 )}
                 {!service.popular && service.badge && (
-                  <span className="absolute right-5 top-5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 font-['JetBrains_Mono'] text-[10px] font-semibold uppercase tracking-widest text-amber-500">
+                  <span className="absolute right-5 top-5 rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 font-['JetBrains_Mono'] text-[11px] font-semibold uppercase tracking-widest text-amber-500">
                     {service.badge[locale]}
                   </span>
                 )}
@@ -272,7 +277,7 @@ export default function ServicesSection() {
                 <h3 className="mt-6 font-['Sora'] text-xl font-bold leading-tight text-fg">
                   {service.title[locale]}
                 </h3>
-                <p className="mt-3 font-['Manrope'] text-sm leading-6 text-muted xl:min-h-[72px]">
+                <p className="mt-3 font-['Manrope'] text-[15px] leading-7 text-muted xl:min-h-[84px]">
                   {service.description[locale]}
                 </p>
                 <ul className="mt-5 flex flex-1 flex-col gap-2 border-t border-line pt-5">
@@ -309,7 +314,7 @@ export default function ServicesSection() {
                           href={primary.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-blue-600 px-5 font-['Sora'] text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+                          className="flex min-h-[44px] items-center justify-center gap-2 whitespace-nowrap rounded-full bg-blue-600 px-4 font-['Sora'] text-sm font-semibold text-white transition-colors hover:bg-blue-500"
                         >
                           {primary.label}
                           <ArrowIcon />

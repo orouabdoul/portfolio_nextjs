@@ -117,10 +117,10 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full overflow-hidden bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
+      className="relative w-full overflow-hidden border-t border-line bg-bg px-5 py-16 sm:px-8 md:py-20 lg:px-20 lg:py-24"
     >
       <div className="pointer-events-none absolute -right-20 -top-20 h-[400px] w-[400px] rounded-full bg-blue-600/12 blur-[110px]" />
-      <div className="pointer-events-none absolute -bottom-10 left-10 h-[300px] w-[300px] rounded-full bg-indigo-500/10 blur-[90px]" />
+      <div className="pointer-events-none absolute -bottom-10 left-10 h-[300px] w-[300px] rounded-full bg-blue-500/8 blur-[90px]" />
 
       <div className="relative mx-auto grid max-w-[1280px] gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-14">
 
@@ -129,12 +129,12 @@ export default function ContactSection() {
           <p className="font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-accent-hi">
             {isEnglish ? "09 — Contact" : "09 — Contact"}
           </p>
-          <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-[1.08] tracking-tight text-fg sm:text-4xl lg:text-5xl">
+          <h2 className="mt-5 font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-fg sm:text-4xl lg:text-5xl">
             {isEnglish
               ? "Have an idea? Let's build something that matters."
               : "Vous avez une idée. Construisons quelque chose qui compte."}
           </h2>
-          <p className="mt-5 font-['Manrope'] text-sm leading-7 text-muted sm:text-base">
+          <p className="mt-5 font-['Manrope'] text-base leading-7 text-muted">
             {isEnglish
               ? "Tell me a little about it. Together, we'll find the right next step."
               : "Parlez-m'en. Ensemble, nous trouverons la prochaine étape adaptée."}
@@ -186,14 +186,14 @@ export default function ContactSection() {
         >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.16em] text-accent">
+              <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-[0.16em] text-accent">
                 {isEnglish ? "A quick project brief" : "Brief intelligent en 3 clics"}
               </p>
               <h3 className="mt-2 font-['Sora'] text-xl font-bold leading-tight text-fg sm:text-2xl">
                 {isEnglish ? "Let's talk about your project." : "Parlons de votre projet."}
               </h3>
             </div>
-            <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1.5 font-['JetBrains_Mono'] text-[10px] text-accent">
+            <span className="shrink-0 rounded-full bg-accent/10 px-3 py-1.5 font-['JetBrains_Mono'] text-[11px] text-accent">
               {step} / 3
             </span>
           </div>
@@ -205,7 +205,7 @@ export default function ContactSection() {
             {[1, 2, 3].map((item) => (
               <div key={item} className="flex flex-col gap-1.5">
                 <span className={`h-1 rounded-full transition-colors duration-300 ${item <= step ? "bg-blue-600" : "bg-line-strong"}`} />
-                <span className={`font-['JetBrains_Mono'] text-[9px] uppercase tracking-wider transition-colors duration-300 ${item === step ? "text-accent" : "text-muted"}`}>
+                <span className={`font-['JetBrains_Mono'] text-[11px] uppercase tracking-wider transition-colors duration-300 ${item === step ? "text-accent" : "text-muted"}`}>
                   {isEnglish
                     ? ["Project", "Plan", "Contact"][item - 1]
                     : ["Projet", "Plan", "Contact"][item - 1]}
@@ -380,7 +380,7 @@ export default function ContactSection() {
                 </button>
               )}
             </div>
-            <p className="mt-2 text-center font-['Manrope'] text-[10px] leading-4 text-subtle">
+            <p className="mt-2 text-center font-['Manrope'] text-[11px] leading-4 text-subtle">
               {isEnglish
                 ? "WhatsApp will open with your brief ready to send."
                 : "WhatsApp s'ouvrira avec votre brief prêt à envoyer."}

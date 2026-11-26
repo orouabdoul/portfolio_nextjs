@@ -12,8 +12,8 @@ const navLinks: { label: Record<Language, string>; href: string }[] = [
   { label: { fr: "Réalisations", en: "Work" }, href: "#realisations" },
   { label: { fr: "Expertises", en: "Expertise" }, href: "#expertises" },
   { label: { fr: "Services", en: "Services" }, href: "#services" },
-  { label: { fr: "Méthode", en: "Approach" }, href: "#processus" },
   { label: { fr: "Témoignages", en: "Testimonials" }, href: "#temoignages" },
+  { label: { fr: "Méthode", en: "Approach" }, href: "#processus" },
   { label: { fr: "Contact", en: "Contact" }, href: "#contact" },
 ];
 
@@ -85,17 +85,17 @@ export default function Navbar() {
             <span className="font-['Sora'] text-[15px] font-bold tracking-tight text-fg">
               Amadou Issiaka
             </span>
-            <span className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.14em] text-muted">
+            <span className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-[0.14em] text-muted">
               Mobile &amp; Backend
             </span>
           </span>
         </a>
 
         {/* ── Nav links ── */}
-        <div className="hidden items-center gap-3.5 xl:flex 2xl:gap-8">
+        <div className="hidden items-center gap-3 whitespace-nowrap xl:flex 2xl:gap-8">
           <a href={sectionHref("#accueil")} className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-            <span className="text-fg text-sm font-medium font-['Manrope'] tracking-tight">
+            <span className="whitespace-nowrap text-fg text-sm font-medium font-['Manrope'] tracking-tight">
             {language === "fr" ? "Accueil" : "Home"}
             </span>
           </a>
@@ -106,7 +106,7 @@ export default function Navbar() {
               <a
                 key={href}
                 href={sectionHref(href)}
-                className={`text-sm font-medium font-['Manrope'] tracking-tight transition-colors duration-200 ${isActive ? "text-fg" : "text-muted hover:text-fg"}`}
+                className={`whitespace-nowrap text-sm font-medium font-['Manrope'] tracking-tight transition-colors duration-200 ${isActive ? "text-fg" : "text-muted hover:text-fg"}`}
               >
                 {label[language]}
               </a>
@@ -232,7 +232,7 @@ export default function Navbar() {
           {/* CTA */}
           <a
             href={sectionHref("#contact")}
-            className="hidden h-11 px-6 bg-blue-500 rounded-full text-white text-xs font-semibold font-['Sora'] tracking-tight hover:bg-blue-400 transition-all duration-200 shadow-[0_0_20px_rgba(59,130,246,0.30)] hover:shadow-[0_0_28px_rgba(59,130,246,0.50)] items-center sm:flex"
+            className="hidden h-11 shrink-0 whitespace-nowrap px-4 2xl:px-6 bg-blue-500 rounded-full text-white text-xs font-semibold font-['Sora'] tracking-tight hover:bg-blue-400 transition-all duration-200 shadow-[0_0_20px_rgba(59,130,246,0.30)] hover:shadow-[0_0_28px_rgba(59,130,246,0.50)] items-center sm:flex"
           >
             {language === "fr" ? "Démarrer un projet" : "Start a project"}
           </a>
@@ -244,7 +244,7 @@ export default function Navbar() {
 
             {/* Left — Navigation */}
             <div className="flex flex-col gap-0.5">
-              <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-subtle">
+              <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-subtle">
                 {language === "fr" ? "Navigation" : "Navigation"}
               </p>
               {[{ label: language === "fr" ? "Accueil" : "Home", href: sectionHref("#accueil") }, ...navLinks.map(({ label, href }) => ({ label: label[language], href: sectionHref(href) }))].map(({ label, href }) => (
@@ -264,7 +264,7 @@ export default function Navbar() {
 
               {/* Social */}
               <div className="flex flex-col gap-0.5">
-                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-subtle">
+                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-subtle">
                   Social
                 </p>
                 {[
@@ -287,7 +287,7 @@ export default function Navbar() {
 
               {/* Language */}
               <div className="flex flex-col gap-0.5">
-                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest text-subtle">
+                <p className="px-2 pb-1.5 font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-subtle">
                   {language === "fr" ? "Langue" : "Language"}
                 </p>
                 {([

@@ -95,21 +95,21 @@ export default function HeroSection() {
         animate={{ x: [0, 28, -18, 0], y: [0, -22, 28, 0] }}
         transition={{ duration: 14, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}
       />
-      <div className="pointer-events-none absolute -bottom-20 left-0 h-[400px] w-[500px] rounded-full bg-indigo-600/8 blur-[100px]" />
+      <div className="pointer-events-none absolute -bottom-20 left-0 h-[400px] w-[500px] rounded-full bg-blue-600/8 blur-[100px]" />
       <div className="pointer-events-none absolute right-1/4 top-1/3 h-[300px] w-[300px] rounded-full bg-blue-500/5 blur-[80px]" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-bg/80 via-transparent to-transparent" />
 
-      <div className="relative mx-auto grid w-full max-w-[1280px] items-center gap-12 xl:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-16">
+      <div className="relative mx-auto grid w-full max-w-[1280px] items-center gap-12 xl:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] xl:gap-14">
 
         {/* ── Left column ── */}
-        <div className="relative z-10 mx-auto w-full max-w-[620px] xl:mx-0">
+        <div className="relative z-10 mx-auto w-full max-w-[720px] xl:mx-0">
 
           {/* 1 · Identity */}
           <motion.div {...fadeUp(0.15)} className="flex flex-col gap-2">
-            <span className="font-['Manrope'] text-[13px] tracking-[0.05em] text-muted">
+            <span className="font-['Manrope'] text-sm tracking-[0.05em] text-muted">
               Amadou Issiaka Abdoulaye
             </span>
-            <p className="font-['JetBrains_Mono'] text-[10px] uppercase tracking-[0.18em] text-accent-hi sm:text-[11px]">
+            <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-[0.18em] text-accent-hi sm:text-[11px]">
               <ScrambleText
                 text={isEnglish ? "Mobile & backend developer · Flutter · Laravel" : "Développeur mobile & backend · Flutter · Laravel"}
                 delay={700}
@@ -120,10 +120,10 @@ export default function HeroSection() {
           {/* 2 · H1 */}
           <motion.h1
             {...fadeUp(0.35)}
-            className="mt-7 flex flex-col font-['Sora'] text-[clamp(30px,7vw,50px)] font-bold leading-[1.08] tracking-[-0.5px] text-fg sm:mt-9"
+            className="mt-7 font-['Sora'] text-[clamp(38px,4.4vw,60px)] font-bold leading-[1.06] tracking-[-0.03em] text-fg sm:mt-9 xl:flex xl:flex-col"
           >
-            <span>{isEnglish ? "I design" : "Je conçois"}</span>
-            <span>{isEnglish ? "and build apps" : "et développe des apps"}</span>
+            <span>{isEnglish ? "I design" : "Je conçois"}</span>{" "}
+            <span>{isEnglish ? "and build apps" : "et développe des apps"}</span>{" "}
             <span className="text-accent-hi">
               {isEnglish ? "people actually use." : "qu'on adopte vraiment."}
             </span>
