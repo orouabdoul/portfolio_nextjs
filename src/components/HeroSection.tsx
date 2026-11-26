@@ -105,9 +105,9 @@ export default function HeroSection() {
 
           <motion.h1
             {...fadeUp(0.12)}
-            className="font-['Sora'] text-4xl font-bold tracking-[-0.03em] text-fg sm:text-6xl"
+            className="font-['Sora'] text-4xl font-bold leading-[1.08] tracking-[-0.03em] text-fg sm:text-5xl xl:text-6xl"
           >
-            Amadou ISSIAKA
+            AMADOU ISSIAKA <span className="whitespace-nowrap">Abdoulaye</span>
           </motion.h1>
 
           <motion.p {...fadeUp(0.2)} className="mt-3 font-['Sora'] text-lg text-muted sm:text-xl">
