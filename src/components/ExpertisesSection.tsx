@@ -191,7 +191,7 @@ export default function ExpertisesSection() {
                   : "Flutter (architecture GetX) et React Native pour des apps natives iOS et Android. Code structuré, facile à maintenir, fidèle à la maquette."}
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-1.5 border-t border-blue-100 pt-4">
+              <div className="mt-5 flex flex-wrap gap-1.5 border-t border-accent/25 pt-4">
                 {["Flutter", "GetX", "React Native", "iOS", "Android"].map((tag) => (
                   <span
                     key={tag}
@@ -211,12 +211,6 @@ export default function ExpertisesSection() {
               transition={{ duration: 0.22, ease }}
               className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface p-7 sm:p-8"
             >
-              {/* Decorative code hint */}
-              <div className="pointer-events-none absolute bottom-6 right-7 text-right font-['JetBrains_Mono'] text-[11px] leading-6 text-muted opacity-60 select-none">
-                <div>Route::middleware(&apos;auth:sanctum&apos;)</div>
-                <div>&nbsp;&nbsp;-&gt;get(&apos;/orders&apos;, [OrderController::class, &apos;index&apos;]);</div>
-              </div>
-
               <div className="flex items-start justify-between">
                 <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-line-strong bg-surface-2 text-fg-soft">
                   <APIIcon />
@@ -232,6 +226,12 @@ export default function ExpertisesSection() {
                   ? "REST APIs with Laravel, Vue 3 admin panels, authentication, databases and real-time sync. The app connects cleanly to your existing ecosystem."
                   : "API REST avec Laravel, back-offices Vue 3, authentification, bases de données et synchronisation temps réel. L'application s'intègre dans votre écosystème existant sans friction."}
               </p>
+
+              <div aria-hidden="true" className="mt-5 hidden w-fit select-none rounded-lg border border-line bg-surface-2/50 px-4 py-3 font-['JetBrains_Mono'] text-[11px] leading-5 text-muted md:block">
+                <div><span className="text-accent-hi">Route</span>::middleware(&apos;auth:sanctum&apos;)</div>
+                <div>&nbsp;&nbsp;-&gt;get(&apos;/orders&apos;,</div>
+                <div>&nbsp;&nbsp;&nbsp;&nbsp;[<span className="text-accent-hi">OrderController</span>::class, &apos;index&apos;]);</div>
+              </div>
 
               <div className="mt-6 flex flex-wrap gap-2 border-t border-line pt-5">
                 {["Laravel", "PHP", "Vue 3", "MySQL", "REST API", "Firebase", "Supabase", "Git"].map((tag) => (
