@@ -187,12 +187,13 @@ export default function HeroSection() {
         >
           <div className="relative aspect-square overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_35%,rgba(59,130,246,0.45),var(--surface)_70%)] shadow-[0_0_0_1px_rgba(96,165,250,0.35),0_18px_60px_-22px_rgba(59,130,246,0.6)]">
             <Image
-              src="/amadou-transparent.png"
+              src="/amadou-hero.webp"
               alt={isEnglish ? "Professional portrait of Amadou Issiaka" : "Portrait professionnel d'Amadou Issiaka"}
               fill
               priority
+              unoptimized
               sizes="(max-width: 639px) 224px, 288px"
-              className="origin-[50%_6%] scale-[1.6] object-cover object-top"
+              className="object-cover"
             />
           </div>
         </motion.div>
