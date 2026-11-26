@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/components/LanguageProvider";
 import { usePathname } from "next/navigation";
 import BrandMark from "@/components/BrandMark";
+import { LanguageFlag } from "@/components/Flags";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -157,9 +158,9 @@ export default function FooterSection() {
             </p>
             <div className="flex flex-col gap-2">
               {([
-                { code: "fr" as const, flag: "🇫🇷", label: "Français" },
-                { code: "en" as const, flag: "🇬🇧", label: "English"  },
-              ]).map(({ code, flag, label }) => (
+                { code: "fr" as const, label: "Français" },
+                { code: "en" as const, label: "English"  },
+              ]).map(({ code, label }) => (
                 <button
                   key={code}
                   type="button"
@@ -168,7 +169,7 @@ export default function FooterSection() {
                     language === code ? "text-fg" : "text-subtle hover:text-fg-soft"
                   }`}
                 >
-                  <span>{flag}</span>
+                  <LanguageFlag lang={code} />
                   <span>{label}</span>
                   {language === code && (
                     <svg width="8" height="6" viewBox="0 0 10 8" fill="none" aria-hidden="true">

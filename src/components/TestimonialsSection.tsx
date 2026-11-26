@@ -16,6 +16,7 @@ import {
   where,
 } from "firebase/firestore";
 import type { Unsubscribe } from "firebase/firestore";
+import { LanguageFlag } from "@/components/Flags";
 
 const TESTIMONIALS_LIMIT = 12;
 type LoadState = "loading" | "ready" | "unconfigured" | "error";
@@ -53,6 +54,20 @@ function formatRole(value: string) {
   return role ? role.charAt(0).toLocaleUpperCase("fr") + role.slice(1) : role;
 }
 
+function LanguageBadge({ lang }: { lang: "fr" | "en" }) {
+  const label = lang === "fr" ? "Avis rédigé en français" : "Review written in English";
+  return (
+    <span
+      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-line bg-bg/60 px-2.5 py-1 font-['JetBrains_Mono'] text-[10px] uppercase tracking-wider text-muted"
+      title={label}
+    >
+      <LanguageFlag lang={lang} />
+      <span className="sr-only">{label}</span>
+      <span aria-hidden="true">{lang}</span>
+    </span>
+  );
+}
+
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const name = formatName(testimonial.name);
   const role = testimonial.role ? formatRole(testimonial.role) : "";
@@ -66,20 +81,23 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
   return (
     <article className="flex h-full flex-col gap-5 rounded-2xl border border-line bg-surface p-6 transition-colors hover:border-line-strong sm:p-7">
-      <svg
-        className="h-7 w-7 text-accent-hi/40"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        aria-hidden="true"
-      >
-        <path d="M9.5 6C6.5 6 4 8.6 4 11.8V18h6v-6H7c0-1.9 1.1-3.3 2.5-3.6V6Zm10 0C16.5 6 14 8.6 14 11.8V18h6v-6h-3c0-1.9 1.1-3.3 2.5-3.6V6Z" />
-      </svg>
+      <div className="flex items-start justify-between gap-3">
+        <svg
+          className="h-7 w-7 text-accent-hi/40"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M9.5 6C6.5 6 4 8.6 4 11.8V18h6v-6H7c0-1.9 1.1-3.3 2.5-3.6V6Zm10 0C16.5 6 14 8.6 14 11.8V18h6v-6h-3c0-1.9 1.1-3.3 2.5-3.6V6Z" />
+        </svg>
+        {testimonial.lang && <LanguageBadge lang={testimonial.lang} />}
+      </div>
       <blockquote className="-mt-2 font-['Manrope'] text-[15px] leading-7 text-fg-soft">
         &ldquo;{testimonial.message}&rdquo;
       </blockquote>
       <div className="mt-auto flex items-center gap-3 border-t border-line pt-5">
         <div
-          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${gradient} font-['Sora'] text-sm font-bold text-fg`}
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br ${gradient} font-['Sora'] text-sm font-bold text-white`}
           aria-hidden="true"
         >
           {initials}

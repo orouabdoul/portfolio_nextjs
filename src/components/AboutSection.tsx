@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { type ReactNode } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
+import { FlagBJ } from "@/components/Flags";
 
 const techStack = ["Flutter", "React Native", "Laravel", "Vue 3", "Figma", "Firebase", "MySQL", "TypeScript"];
 
@@ -57,7 +58,7 @@ export default function AboutSection() {
               />
             </div>
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bg/80 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 rounded-xl bg-fg/90 px-4 py-2.5 backdrop-blur-sm">
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-2 rounded-xl border border-line bg-surface/90 px-4 py-2.5 backdrop-blur-sm">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2.5 w-2.5 shrink-0">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
@@ -67,8 +68,8 @@ export default function AboutSection() {
                   {isEnglish ? "Available for projects" : "Disponible pour de nouveaux projets"}
                 </span>
               </div>
-              <span className="shrink-0 font-['JetBrains_Mono'] text-[10px] text-subtle">
-                🇧🇯 Bénin
+              <span className="shrink-0 font-['JetBrains_Mono'] text-[10px] text-subtle inline-flex items-center gap-1.5">
+                <FlagBJ /> Bénin
               </span>
             </div>
           </div>

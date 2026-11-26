@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useLanguage, type Language } from "@/components/LanguageProvider";
 import ThemeToggle from "@/components/ThemeToggle";
 import BrandMark from "@/components/BrandMark";
+import { FlagFR, FlagGB, LanguageFlag } from "@/components/Flags";
 
 const navLinks: { label: Record<Language, string>; href: string }[] = [
   { label: { fr: "À propos", en: "About" }, href: "#a-propos" },
@@ -179,7 +180,7 @@ export default function Navbar() {
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <span>🇫🇷</span>
+                    <FlagFR />
                     <span                     className={`text-sm font-medium font-['Manrope'] tracking-tight ${
                       language === "fr" ? "text-fg" : "text-muted"
                     }`}>
@@ -211,7 +212,7 @@ export default function Navbar() {
                   }`}
                 >
                   <span className="flex items-center gap-2.5">
-                    <span>🇬🇧</span>
+                    <FlagGB />
                     <span className={`text-sm font-medium font-['Manrope'] tracking-tight ${
                       language === "en" ? "text-fg" : "text-muted"
                     }`}>
@@ -290,9 +291,9 @@ export default function Navbar() {
                   {language === "fr" ? "Langue" : "Language"}
                 </p>
                 {([
-                  { code: "fr" as Language, flag: "🇫🇷", label: "FR" },
-                  { code: "en" as Language, flag: "🇬🇧", label: "EN" },
-                ] as const).map(({ code, flag, label }) => (
+                  { code: "fr" as Language, label: "FR" },
+                  { code: "en" as Language, label: "EN" },
+                ] as const).map(({ code, label }) => (
                   <button
                     key={code}
                     type="button"
@@ -301,7 +302,7 @@ export default function Navbar() {
                       language === code ? "bg-blue-500/20 text-accent-hi" : "text-muted hover:bg-surface-2 hover:text-fg"
                     }`}
                   >
-                    <span>{flag}</span>
+                    <LanguageFlag lang={code} />
                     <span>{label}</span>
                   </button>
                 ))}
