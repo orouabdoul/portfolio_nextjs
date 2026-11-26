@@ -1,9 +1,13 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 
 type Theme = "dark" | "light";
+
+/** Bouton carré du header : bordure fine, se soulève et s'éclaire au survol. */
+export const headerButton =
+  "inline-flex items-center justify-center rounded-md border border-line text-muted transition-[color,border-color,transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:scale-[1.06] hover:border-accent-hi/60 hover:text-accent-hi hover:shadow-[0_6px_18px_-8px_rgba(59,130,246,0.6)] active:scale-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500";
 
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
@@ -30,14 +34,14 @@ function getSnapshot(): Theme {
 }
 
 const SunIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <circle cx="12" cy="12" r="4.2" />
     <path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" />
   </svg>
 );
 
 const MoonIcon = () => (
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" />
   </svg>
 );
@@ -54,17 +58,22 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       ? next === "light" ? "Switch to light mode" : "Switch to dark mode"
       : next === "light" ? "Passer en mode clair" : "Passer en mode sombre";
 
+  const [spin, setSpin] = useState(0);
+
   return (
     <button
       type="button"
       onClick={() => {
         applyTheme(next);
+        setSpin((n) => n + 1);
       }}
       aria-label={label}
       title={label}
-      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-bg/60 text-fg transition-colors duration-200 hover:border-line-strong hover:text-accent-hi focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 ${className}`}
+      className={`${headerButton} p-2.5 ${className}`}
     >
-      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+      <span key={spin} className={spin ? "inline-flex animate-[icon-spin_0.45s_cubic-bezier(0.22,1,0.36,1)]" : "inline-flex"}>
+        {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+      </span>
     </button>
   );
 }
