@@ -6,7 +6,7 @@ import { useLanguage } from "@/components/LanguageProvider";
 const stackGroups = [
   {
     title: { fr: "Mobile", en: "Mobile" },
-    tools: ["Flutter", "React Native", "Dart", "Expo"],
+    tools: ["Flutter", "GetX", "Dart", "React Native", "Expo"],
   },
   {
     title: { fr: "Backend & web", en: "Backend & web" },

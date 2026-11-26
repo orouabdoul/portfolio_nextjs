@@ -404,6 +404,46 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* ── Architecture technique ── */}
+      {project.architecture && project.architecture.length > 0 && (
+        <section className="bg-bg px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
+          <div className="mx-auto max-w-[1280px]">
+            <FadeInView>
+              <p className="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-accent-hi">
+                {locale === "en" ? "Technical architecture" : "Architecture technique"}
+              </p>
+              <h2 className="mt-3 max-w-2xl font-['Sora'] text-2xl font-bold leading-tight text-fg sm:text-3xl">
+                {locale === "en"
+                  ? "Structured code, fast and easy to maintain."
+                  : "Un code structuré, performant et facile à maintenir."}
+              </h2>
+            </FadeInView>
+
+            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {project.architecture.map((item, i) => (
+                <FadeInView key={item.title.fr} delay={i * 0.08}>
+                  <article className="flex h-full flex-col rounded-2xl border border-line bg-surface p-6 sm:p-7">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/30 bg-accent/10 text-accent-hi">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+                        </svg>
+                      </span>
+                      <h3 className="font-['Sora'] text-base font-semibold leading-5 text-fg">
+                        {item.title[locale]}
+                      </h3>
+                    </div>
+                    <p className="mt-4 flex-1 font-['Manrope'] text-[15px] leading-7 text-muted">
+                      {item.detail[locale]}
+                    </p>
+                  </article>
+                </FadeInView>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── Insights ── */}
       <section className="bg-bg px-5 py-14 sm:px-8 sm:py-18 lg:px-20 lg:py-24">
         <div className="mx-auto max-w-[1280px]">

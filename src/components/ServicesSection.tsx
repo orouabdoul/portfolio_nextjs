@@ -182,8 +182,8 @@ const services: Service[] = [
       en: "From idea to published app: Figma design, Flutter or React Native app, API and admin panel.",
     },
     points: {
-      fr: ["Android et iOS", "API Laravel + back-office Vue 3", "Code source inclus"],
-      en: ["Android and iOS", "Laravel API + Vue 3 admin panel", "Source code included"],
+      fr: ["Android et iOS", "Code Flutter structuré avec GetX", "API Laravel + back-office Vue 3", "Code source inclus"],
+      en: ["Android and iOS", "Flutter code structured with GetX", "Laravel API + Vue 3 admin panel", "Source code included"],
     },
     priceEur: "100 €",
     priceXof: "65 600 FCFA",

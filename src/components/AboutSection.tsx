@@ -6,7 +6,7 @@ import { type ReactNode } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import { FlagBJ } from "@/components/Flags";
 
-const techStack = ["Flutter", "React Native", "Laravel", "Vue 3", "Figma", "Firebase", "MySQL", "TypeScript"];
+const techStack = ["Flutter", "GetX", "React Native", "Laravel", "Vue 3", "Figma", "Firebase", "MySQL", "TypeScript"];
 
 const ease = [0.22, 1, 0.36, 1] as const;
 

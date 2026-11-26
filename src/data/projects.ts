@@ -35,7 +35,62 @@ export interface Project {
     title: { fr: string; en: string };
     detail: { fr: string; en: string };
   }[];
+  /** Architecture technique — affichée sur la page détail */
+  architecture?: ArchitectureItem[];
 }
+
+export interface ArchitectureItem {
+  title: { fr: string; en: string };
+  detail: { fr: string; en: string };
+}
+
+/** Projets Flutter construits avec la structure GetX */
+const GETX_ARCHITECTURE: ArchitectureItem[] = [
+  {
+    title: { fr: "Structure GetX", en: "GetX structure" },
+    detail: {
+      fr: "Le code est organisé par module : chaque écran a son controller, sa vue et son binding. On sait tout de suite où se trouve chaque chose.",
+      en: "The code is organized by module: each screen has its controller, view and binding. Everything is easy to find.",
+    },
+  },
+  {
+    title: { fr: "Gestion d'état réactive", en: "Reactive state management" },
+    detail: {
+      fr: "Les données vivent dans les controllers GetX et l'interface se met à jour toute seule, sans reconstruire tout l'écran.",
+      en: "Data lives in GetX controllers and the UI updates on its own, without rebuilding the whole screen.",
+    },
+  },
+  {
+    title: { fr: "Injection de dépendances", en: "Dependency injection" },
+    detail: {
+      fr: "Les bindings créent les controllers et les services au bon moment puis les libèrent : moins de mémoire utilisée, des écrans plus légers.",
+      en: "Bindings create controllers and services when needed, then release them: less memory used, lighter screens.",
+    },
+  },
+  {
+    title: { fr: "Navigation centralisée", en: "Centralized navigation" },
+    detail: {
+      fr: "Les routes sont déclarées au même endroit avec GetX : la navigation reste claire et l'app est simple à faire évoluer.",
+      en: "Routes are declared in one place with GetX: navigation stays clear and the app is easy to extend.",
+    },
+  },
+];
+
+const REST_API_LAYER: ArchitectureItem = {
+  title: { fr: "Couche API séparée", en: "Separate API layer" },
+  detail: {
+    fr: "Les appels à l'API REST sont isolés de l'interface : plus facile à tester, à déboguer et à faire évoluer.",
+    en: "REST API calls are kept apart from the UI: easier to test, debug and evolve.",
+  },
+};
+
+const MINIZON_SERVICES: ArchitectureItem = {
+  title: { fr: "Paiement & services", en: "Payments & services" },
+  detail: {
+    fr: "Paiement FedaPay, services Firebase et API Laravel intégrés dans l'application.",
+    en: "FedaPay payments, Firebase services and the Laravel API integrated into the app.",
+  },
+};
 
 export const projects: Project[] = [
   // ── MyMonto ─────────────────────────────────────────────────────────────
@@ -67,7 +122,8 @@ export const projects: Project[] = [
       fr: "Une application Flutter avec deux espaces (client et garage) intégrant assurance, réparations et GPS dans une interface cohérente. Développement de tous les écrans des deux espaces et intégration complète des APIs REST, en coordination avec le designer et le back-end.",
       en: "A Flutter app with two spaces (customer and garage) integrating insurance, repairs and GPS in a coherent interface. All screens of both spaces built and full REST API integration, in coordination with the designer and backend.",
     },
-    tags: ["Flutter", "Dart", "REST API"],
+    tags: ["Flutter", "GetX", "REST API", "Dart"],
+    architecture: [...GETX_ARCHITECTURE, REST_API_LAYER],
     links: [
       {
         label: { fr: "Télécharger sur Play Store", en: "Get on Play Store" },
@@ -202,7 +258,8 @@ export const projects: Project[] = [
       fr: "Une application Flutter permettant de consulter les prix agricoles en temps réel, marché par marché et secteur par secteur. Co-développement des écrans en binôme et intégration des APIs REST de simagricole-harmonise.bj, avec une interface adaptée aux conditions d'usage mobile sur le terrain.",
       en: "A Flutter app for consulting agricultural prices in real time, market by market and sector by sector. Co-development of screens in pair and integration of the simagricole-harmonise.bj REST APIs, with an interface adapted to mobile field conditions.",
     },
-    tags: ["Flutter", "Dart", "REST API"],
+    tags: ["Flutter", "GetX", "REST API", "Dart"],
+    architecture: [...GETX_ARCHITECTURE, REST_API_LAYER],
     links: [
       {
         label: { fr: "Plateforme SIM AH", en: "SIM AH Platform" },
@@ -514,7 +571,8 @@ export const projects: Project[] = [
       fr: "Une application Flutter (Android & iOS) avec paiement Mobile Money via FedaPay (MTN, Moov) et entiercement automatique : les fonds sont bloqués à la réservation, puis libérés au conducteur 24 h après le trajet si aucun litige n'est ouvert. Vérification des conducteurs (permis, véhicule), messagerie intégrée, notifications push Firebase et back-office Laravel.",
       en: "A Flutter app (Android & iOS) with Mobile Money payment via FedaPay (MTN, Moov) and automatic escrow: funds are held at booking, then released to the driver 24 hours after the trip if no dispute is raised. Driver verification (licence, vehicle), in-app messaging, Firebase push notifications and a Laravel back-office.",
     },
-    tags: ["Flutter", "Laravel", "FedaPay", "Firebase", "REST API"],
+    tags: ["Flutter", "GetX", "Laravel", "FedaPay", "Firebase", "REST API"],
+    architecture: [...GETX_ARCHITECTURE, REST_API_LAYER, MINIZON_SERVICES],
     links: [
       {
         label: { fr: "Voir le design Figma", en: "View Figma design" },
@@ -720,7 +778,8 @@ export const projects: Project[] = [
       fr: "Une application Flutter e-commerce clé en main, avec catalogue produits, fiches détail, panier et paiement — livrable en quelques jours. L'architecture modulaire permet d'adapter facilement les catégories, les couleurs et les produits à n'importe quel secteur.",
       en: "A turnkey Flutter e-commerce app with product catalogue, detail pages, cart and checkout — deliverable in a few days. The modular architecture makes it easy to adapt categories, colours and products to any sector.",
     },
-    tags: ["Flutter", "Dart", "UI/UX", "Figma"],
+    tags: ["Flutter", "GetX", "UI/UX", "Figma", "Dart"],
+    architecture: GETX_ARCHITECTURE,
     links: [],
     video: "/videos/ecommerce-demo.mp4",
     videoChromeLabel: "E-commerce App · Démo Flutter",

@@ -187,12 +187,12 @@ export default function ExpertisesSection() {
               </h3>
               <p className="mt-3 flex-1 font-['Manrope'] text-[15px] leading-7 text-muted">
                 {locale === "en"
-                  ? "Flutter and React Native for native iOS and Android apps. Pixel-perfect implementation."
-                  : "Flutter et React Native pour des apps natives iOS et Android. Fidèle à la maquette au pixel près."}
+                  ? "Flutter (GetX architecture) and React Native for native iOS and Android apps. Structured, maintainable code, pixel-perfect."
+                  : "Flutter (architecture GetX) et React Native pour des apps natives iOS et Android. Code structuré, facile à maintenir, fidèle à la maquette."}
               </p>
 
               <div className="mt-5 flex flex-wrap gap-1.5 border-t border-blue-100 pt-4">
-                {["Flutter", "React Native", "iOS", "Android"].map((tag) => (
+                {["Flutter", "GetX", "React Native", "iOS", "Android"].map((tag) => (
                   <span
                     key={tag}
                     className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-['JetBrains_Mono'] text-[11px] tracking-wide text-accent"
