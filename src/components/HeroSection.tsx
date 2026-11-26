@@ -57,7 +57,7 @@ function CountUp({ to, duration = 1600, delay = 0 }: { to: number; duration?: nu
         const elapsed = timestamp - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        setCount(Math.floor(eased * to));cfd
+        setCount(Math.floor(eased * to));
         if (progress < 1) rafId = requestAnimationFrame(animate);
       };
       rafId = requestAnimationFrame(animate);
