@@ -37,22 +37,26 @@ type Service = {
   title: { fr: string; en: string };
   description: { fr: string; en: string };
   points: { fr: string[]; en: string[] };
-  priceEur: string;
-  priceXof: string;
+  priceEur?: string;
+  priceXof?: string;
   priceUsd: string;
   upwork: string;
+  comeup?: string;
   popular?: boolean;
+  badge?: { fr: string; en: string };
 };
+
+const icon = (children: ReactNode) => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    {children}
+  </svg>
+);
 
 const services: Service[] = [
   {
     id: "bugs",
-    accent: "bg-emerald-50 text-emerald-600 border-emerald-200",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M5 12.5l4.2 4.2L19 7" />
-      </svg>
-    ),
+    accent: "bg-rose-50 text-rose-600 border-rose-200",
+    icon: icon(<path d="M5 12.5l4.2 4.2L19 7" />),
     title: { fr: "Correction de bugs Flutter", en: "Flutter bug fixing" },
     description: {
       fr: "Votre application plante ou se comporte mal ? Je trouve la cause, je corrige et je teste.",
@@ -66,39 +70,87 @@ const services: Service[] = [
     priceXof: "19 700 FCFA",
     priceUsd: "$35",
     upwork: "https://www.upwork.com/services/product/2124106898655987886",
+    comeup: "https://comeup.com/fr/service/566348",
   },
   {
-    id: "push",
+    id: "audit",
     accent: "bg-amber-50 text-amber-600 border-amber-200",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z" />
-        <path d="M10 20.5a2 2 0 0 0 4 0" />
-      </svg>
+    icon: icon(
+      <>
+        <circle cx="11" cy="11" r="6.5" />
+        <path d="M20.5 20.5l-4.9-4.9" />
+        <path d="M8.5 11l1.8 1.8L13.8 9.4" />
+      </>,
     ),
-    title: { fr: "Notifications push Firebase", en: "Firebase push notifications" },
+    title: { fr: "Audit d'application Flutter", en: "Flutter app audit" },
     description: {
-      fr: "Des notifications qui arrivent au bon moment et ouvrent le bon écran, sur Android et iOS.",
-      en: "Notifications that arrive on time and open the right screen, on Android and iOS.",
+      fr: "Je passe votre code au crible et vous remets un rapport clair, avec les corrections classées par priorité.",
+      en: "I review your code and give you a clear report, with fixes ranked by priority.",
     },
     points: {
-      fr: ["Firebase Cloud Messaging", "App ouverte ou fermée", "Envoi depuis votre backend"],
-      en: ["Firebase Cloud Messaging", "Foreground, background, closed app", "Sent from your backend"],
+      fr: ["Bugs et performances", "Sécurité et architecture", "Plan d'action priorisé"],
+      en: ["Bugs and performance", "Security and architecture", "Prioritized action plan"],
     },
-    priceEur: "45 €",
-    priceXof: "29 500 FCFA",
-    priceUsd: "$45",
-    upwork: "https://www.upwork.com/services/product/2124175859342838889",
+    priceEur: "15 €",
+    priceXof: "9 800 FCFA",
+    priceUsd: "$20",
+    upwork: "https://www.upwork.com/services/product/2125948598984352051",
+    comeup: "https://comeup.com/fr/service/566373",
+    badge: { fr: "Petit budget", en: "Best to start" },
+  },
+  {
+    id: "figma",
+    accent: "bg-violet-50 text-violet-600 border-violet-200",
+    icon: icon(
+      <>
+        <rect x="3" y="4" width="10" height="13" rx="2" />
+        <rect x="14" y="7" width="7" height="13" rx="2" />
+        <path d="M6 8h4M6 11h4" />
+      </>,
+    ),
+    title: { fr: "Maquette Figma → Flutter", en: "Figma to Flutter" },
+    description: {
+      fr: "Votre maquette Figma devient un vrai écran Flutter, fidèle au pixel près. Pas de maquette ? Je la dessine.",
+      en: "Your Figma design becomes a real Flutter screen, pixel-perfect. No design yet? I can draw it.",
+    },
+    points: {
+      fr: ["Fidèle au design", "Téléphone et tablette", "Code propre et réutilisable"],
+      en: ["Pixel-perfect", "Phone and tablet", "Clean, reusable code"],
+    },
+    priceEur: "25 €",
+    priceXof: "16 400 FCFA",
+    priceUsd: "$30",
+    upwork: "https://www.upwork.com/services/product/2125949840489338063",
+    comeup: "https://comeup.com/fr/service/567738",
+  },
+  {
+    id: "play",
+    accent: "bg-emerald-50 text-emerald-600 border-emerald-200",
+    icon: icon(<path d="M6 3.5v17l14-8.5z" />),
+    title: { fr: "Publication sur Google Play", en: "Google Play publishing" },
+    description: {
+      fr: "Votre application Flutter ou React Native publiée sur le Play Store et suivie jusqu'à la validation.",
+      en: "Your Flutter or React Native app published on the Play Store and followed until approval.",
+    },
+    points: {
+      fr: ["Release signée (AAB)", "Fiche Store complète", "Suivi jusqu'à l'acceptation"],
+      en: ["Signed release (AAB)", "Complete store listing", "Followed until approval"],
+    },
+    priceEur: "20 €",
+    priceXof: "13 100 FCFA",
+    priceUsd: "$25",
+    upwork: "https://www.upwork.com/services/product/2125950775530332467",
+    comeup: "https://comeup.com/fr/service/567742",
   },
   {
     id: "api",
-    accent: "bg-violet-50 text-violet-600 border-violet-200",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    accent: "bg-orange-50 text-orange-600 border-orange-200",
+    icon: icon(
+      <>
         <ellipse cx="12" cy="5" rx="9" ry="3" />
         <path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
         <path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6" />
-      </svg>
+      </>,
     ),
     title: { fr: "API REST Laravel", en: "Laravel REST API" },
     description: {
@@ -113,15 +165,16 @@ const services: Service[] = [
     priceXof: "62 300 FCFA",
     priceUsd: "$90",
     upwork: "https://www.upwork.com/services/product/2124187073628277865",
+    comeup: "https://comeup.com/fr/service/566387",
   },
   {
     id: "app",
     accent: "bg-blue-50 text-blue-600 border-blue-200",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    icon: icon(
+      <>
         <rect x="6" y="1.5" width="12" height="21" rx="3" />
         <path d="M11 18.5h2" />
-      </svg>
+      </>,
     ),
     title: { fr: "Application mobile complète", en: "Complete mobile app" },
     description: {
@@ -136,7 +189,29 @@ const services: Service[] = [
     priceXof: "65 600 FCFA",
     priceUsd: "$500",
     upwork: "https://www.upwork.com/services/product/2124195442479888103",
+    comeup: "https://comeup.com/fr/service/566396",
     popular: true,
+  },
+  {
+    id: "push",
+    accent: "bg-cyan-50 text-cyan-600 border-cyan-200",
+    icon: icon(
+      <>
+        <path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z" />
+        <path d="M10 20.5a2 2 0 0 0 4 0" />
+      </>,
+    ),
+    title: { fr: "Notifications push Firebase", en: "Firebase push notifications" },
+    description: {
+      fr: "Des notifications qui arrivent au bon moment et ouvrent le bon écran, sur Android et iOS.",
+      en: "Notifications that arrive on time and open the right screen, on Android and iOS.",
+    },
+    points: {
+      fr: ["Firebase Cloud Messaging", "App ouverte ou fermée", "Envoi depuis votre backend"],
+      en: ["Firebase Cloud Messaging", "Foreground, background, closed app", "Sent from your backend"],
+    },
+    priceUsd: "$45",
+    upwork: "https://www.upwork.com/services/product/2124175859342838889",
   },
 ];
 
@@ -173,7 +248,7 @@ export default function ServicesSection() {
           </div>
         </FadeInView>
 
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {services.map((service, index) => (
             <FadeInView key={service.id} delay={0.08 * index} className="h-full">
               <motion.article
@@ -184,6 +259,11 @@ export default function ServicesSection() {
                 {service.popular && (
                   <span className="absolute right-5 top-5 rounded-full bg-blue-600 px-3 py-1 font-['JetBrains_Mono'] text-[10px] font-semibold uppercase tracking-widest text-white">
                     {isEnglish ? "Popular" : "Populaire"}
+                  </span>
+                )}
+                {!service.popular && service.badge && (
+                  <span className="absolute right-5 top-5 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 font-['JetBrains_Mono'] text-[10px] font-semibold uppercase tracking-widest text-amber-700">
+                    {service.badge[locale]}
                   </span>
                 )}
                 <div className={`flex h-11 w-11 items-center justify-center rounded-2xl border ${service.accent}`}>
@@ -208,28 +288,49 @@ export default function ServicesSection() {
                 <p className="mt-6 font-['Manrope'] text-xs text-gray-500">
                   {isEnglish ? "Starting at" : "À partir de"}{" "}
                   <span className="font-['Sora'] text-lg font-bold text-gray-950">
-                    {isEnglish ? service.priceUsd : service.priceXof}
+                    {isEnglish || !service.priceXof ? service.priceUsd : service.priceXof}
                   </span>
-                  {!isEnglish && <span className="ml-1.5 text-gray-400">· {service.priceEur}</span>}
+                  {!isEnglish && service.priceEur && <span className="ml-1.5 text-gray-400">· {service.priceEur}</span>}
                 </p>
                 <div className="mt-4 flex flex-col gap-2">
-                  <a
-                    href={isEnglish ? service.upwork : COMEUP_PROFILE}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-blue-600 px-5 font-['Sora'] text-sm font-semibold text-white transition-colors hover:bg-blue-500"
-                  >
-                    {isEnglish ? "Order on Upwork" : "Commander sur ComeUp"}
-                    <ArrowIcon />
-                  </a>
-                  <a
-                    href={isEnglish ? COMEUP_PROFILE : service.upwork}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex min-h-[40px] items-center justify-center rounded-full border border-gray-200 px-5 font-['Sora'] text-xs font-semibold text-gray-600 transition-colors hover:border-gray-400 hover:text-gray-950"
-                  >
-                    {isEnglish ? "Also on ComeUp (EUR)" : "Aussi sur Upwork (USD)"}
-                  </a>
+                  {(() => {
+                    const comeupFirst = !isEnglish && Boolean(service.comeup);
+                    const primary = comeupFirst
+                      ? { href: service.comeup as string, label: "Commander sur ComeUp" }
+                      : { href: service.upwork, label: isEnglish ? "Order on Upwork" : "Commander sur Upwork" };
+                    const secondary = comeupFirst
+                      ? { href: service.upwork, label: "Aussi sur Upwork (USD)" }
+                      : service.comeup
+                        ? { href: service.comeup, label: isEnglish ? "Also on ComeUp (EUR)" : "Aussi sur ComeUp (EUR)" }
+                        : null;
+                    return (
+                      <>
+                        <a
+                          href={primary.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-blue-600 px-5 font-['Sora'] text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+                        >
+                          {primary.label}
+                          <ArrowIcon />
+                        </a>
+                        {secondary ? (
+                          <a
+                            href={secondary.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex min-h-[40px] items-center justify-center rounded-full border border-gray-200 px-5 font-['Sora'] text-xs font-semibold text-gray-600 transition-colors hover:border-gray-400 hover:text-gray-950"
+                          >
+                            {secondary.label}
+                          </a>
+                        ) : (
+                          <p className="flex min-h-[40px] items-center justify-center font-['Manrope'] text-xs text-gray-400">
+                            {isEnglish ? "Available on Upwork only" : "Disponible uniquement sur Upwork"}
+                          </p>
+                        )}
+                      </>
+                    );
+                  })()}
                 </div>
               </motion.article>
             </FadeInView>

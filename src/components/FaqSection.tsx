@@ -22,8 +22,8 @@ const faqs: { q: { fr: string; en: string }; a: { fr: string; en: string } }[] =
       en: "How long does it take?",
     },
     a: {
-      fr: "Cela dépend du travail : quelques jours pour une correction de bug ou des notifications push, quelques semaines pour une application complète. Le délai exact est indiqué dans chaque offre, et je vous préviens tout de suite si un point risque de le modifier.",
-      en: "It depends on the work: a few days for a bug fix or push notifications, a few weeks for a complete app. The exact delivery time is shown in each offer, and I tell you right away if anything may change it.",
+      fr: "Cela dépend du travail : 2 à 3 jours pour un audit, une maquette Figma intégrée ou une publication sur Google Play, quelques jours pour une correction de bug, quelques semaines pour une application complète. Le délai exact est indiqué dans chaque offre, et je vous préviens tout de suite si un point risque de le modifier.",
+      en: "It depends on the work: 2 to 3 days for an audit, a Figma screen or a Google Play release, a few days for a bug fix, a few weeks for a complete app. The exact delivery time is shown in each offer, and I tell you right away if anything may change it.",
     },
   },
   {

@@ -39,9 +39,25 @@ const slideVariants = {
   exit: (dir: number) => ({ x: dir > 0 ? "-6%" : "6%", opacity: 0 }),
 };
 
+// Normalise casing typed by visitors: "kOUSSEY larissa" -> "Koussey Larissa"
+function formatName(value: string) {
+  return value
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLocaleLowerCase("fr")
+    .replace(/(^|[\s'’-])(\p{L})/gu, (_, sep: string, ch: string) => sep + ch.toLocaleUpperCase("fr"));
+}
+
+function formatRole(value: string) {
+  const role = value.trim();
+  return role ? role.charAt(0).toLocaleUpperCase("fr") + role.slice(1) : role;
+}
+
 function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
-  const gradient = getAvatarGradient(testimonial.name);
-  const initials = testimonial.name
+  const name = formatName(testimonial.name);
+  const role = testimonial.role ? formatRole(testimonial.role) : "";
+  const gradient = getAvatarGradient(name);
+  const initials = name
     .split(" ")
     .map((w) => w[0])
     .slice(0, 2)
@@ -50,7 +66,15 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
 
   return (
     <article className="flex h-full flex-col gap-5 rounded-2xl border border-gray-800 bg-gray-900 p-6 transition-colors hover:border-gray-700 sm:p-7">
-      <blockquote className="font-['Manrope'] text-sm leading-7 text-gray-300">
+      <svg
+        className="h-7 w-7 text-blue-500/40"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M9.5 6C6.5 6 4 8.6 4 11.8V18h6v-6H7c0-1.9 1.1-3.3 2.5-3.6V6Zm10 0C16.5 6 14 8.6 14 11.8V18h6v-6h-3c0-1.9 1.1-3.3 2.5-3.6V6Z" />
+      </svg>
+      <blockquote className="-mt-2 font-['Manrope'] text-[15px] leading-7 text-gray-300">
         &ldquo;{testimonial.message}&rdquo;
       </blockquote>
       <div className="mt-auto flex items-center gap-3 border-t border-gray-800 pt-5">
@@ -61,19 +85,12 @@ function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
           {initials}
         </div>
         <div>
-          <div className="flex items-center gap-1.5">
-            <p className="font-['Sora'] text-sm font-semibold text-slate-100">
-              {testimonial.name}
-            </p>
-            {testimonial.lang && (
-              <span title={testimonial.lang === "fr" ? "Écrit en français" : "Written in English"} aria-label={testimonial.lang === "fr" ? "Écrit en français" : "Written in English"}>
-                {testimonial.lang === "fr" ? "🇫🇷" : "🇬🇧"}
-              </span>
-            )}
-          </div>
-          {testimonial.role && (
-            <p className="mt-0.5 font-['JetBrains_Mono'] text-[11px] text-blue-400">
-              {testimonial.role}
+          <p className="font-['Sora'] text-sm font-semibold text-slate-100">
+            {name}
+          </p>
+          {role && (
+            <p className="mt-0.5 font-['Manrope'] text-xs text-blue-300/90">
+              {role}
             </p>
           )}
         </div>
@@ -294,12 +311,12 @@ export default function TestimonialsSection() {
           </p>
           <div className="mt-5 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <h2 className="max-w-2xl font-['Sora'] text-3xl font-bold leading-tight tracking-tight text-slate-100 sm:text-4xl lg:text-5xl">
-              {isEnglish ? "What my clients say." : "Ce que disent mes clients."}
+              {isEnglish ? "People I've worked with." : "Ils ont travaillé avec moi."}
             </h2>
             <p className="max-w-sm font-['Manrope'] text-sm leading-6 text-gray-400 sm:text-base">
               {isEnglish
-                ? "Honest feedback from people I've shipped products with."
-                : "Des retours honnêtes de collaborateurs à qui j'ai livré un produit."}
+                ? "Genuine feedback from clients and colleagues, published as written."
+                : "Des retours authentiques de clients et de collègues, publiés tels quels."}
             </p>
           </div>
         </motion.div>

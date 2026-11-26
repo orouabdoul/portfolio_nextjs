@@ -60,7 +60,7 @@ const socialLinks = [
   { icon: <GitHubIcon />,   label: "GitHub",   href: "https://github.com/orouabdoul"                       },
   { icon: <WhatsAppIcon />, label: "WhatsApp", href: "https://wa.me/2290159000892"                            },
   { icon: <StoreIcon />,    label: "ComeUp",   href: "https://comeup.com/fr/@abdoulayeissiaka"             },
-  { icon: <StoreIcon />,    label: "Upwork",   href: "https://www.upwork.com/services/product/2124195442479888103" },
+  { icon: <StoreIcon />,    label: "Upwork",   href: "https://www.upwork.com/freelancers/~012fdf5c91d7edfdc1" },
 ];
 
 export default function FooterSection() {
